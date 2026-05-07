@@ -11,16 +11,51 @@ function Register() {
     phone:"",
   }
   const [data, setData] = useState(passData);
+const [file, setFile] = useState(null);
 
   const handling_Data = (e) => {
     e.preventDefault();
     setData({ ...data, [e.target.name]: e.target.value });
   };
 
+ const uploadImage = async () => {
+
+    const formData = new FormData();
+
+    formData.append("file", file);
+
+    formData.append(
+      "upload_preset",
+      "brandax_upload"
+    );
+
+    try {
+
+      const res = await axios.post(
+        "https://api.cloudinary.com/v1_1/YOUR_CLOUD_NAME/image/upload",
+        formData
+      );
+
+      return res.data.secure_url;
+
+    } catch (error) {
+
+      console.log(error);
+
+    }
+  };
+
+
   const Submit_Data = async (e) => {
   e.preventDefault();
+  
   try {
-    const response = await axios.post(`${import.meta.env.VITE_API_URL}/api/v1/user/register`, data);
+    const imageUrl = await uploadImage();
+         const finalData = {
+        ...data,
+        image: imageUrl,
+      };
+    const response = await axios.post(`${import.meta.env.VITE_API_URL}/api/v1/user/register`, finalData);
     alert(response.data.message);
      setData(passData);
   } catch (error) {
@@ -92,7 +127,7 @@ console.log(data);
            flex items-center justify-center cursor-pointer bg-green-50 hover:bg-gray-100 transition 
            relative overflow-hidden"
           >
-            <input type="file" id="fileUpload" className="hidden" />
+            <input type="file" id="fileUpload" className="hidden"   onChange={(e) => setFile(e.target.files[0])}/>
 
             <label
               htmlFor="fileUpload"

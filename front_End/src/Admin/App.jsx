@@ -4,7 +4,7 @@ import Nav from './Home/Navication/Nav'
 
 function App() {
   return (
-    <div className='flex bg-black text-white font-Nunito w-full'>
+    <div className='sm:flex bg-black text-white font-Nunito w-full hidden'>
         <Nav/>
         <Hero/>
     </div>
