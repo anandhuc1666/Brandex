@@ -3,6 +3,7 @@ import { DotLottieReact } from "@lottiefiles/dotlottie-react";
 import axios from "axios";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+
 function Login() {
 const [data,setData] = useState([])
 const navigate = useNavigate();
@@ -15,7 +16,7 @@ const Submit_Data = async(e)=>{
   e.preventDefault();
   const token = localStorage.getItem("token");
   try {
-    const response = await axios.post(`http://localhost:5000/api/v1/user/login`,data,{
+    const response = await axios.post(`${import.meta.env.VITE_API_URL}/api/v1/user/login`,data,{
       headers:{
           Authorization: `Bearer ${token}`
       }

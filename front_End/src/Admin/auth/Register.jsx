@@ -20,7 +20,7 @@ function Register() {
   const Submit_Data = async (e) => {
   e.preventDefault();
   try {
-    const response = await axios.post(`http://localhost:5000/api/v1/user/register`, data);
+    const response = await axios.post(`${import.meta.env.VITE_API_URL}/api/v1/user/register`, data);
     alert(response.data.message);
      setData(passData);
   } catch (error) {
