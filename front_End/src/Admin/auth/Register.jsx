@@ -4,6 +4,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 function Register() {
+  const [loading, setLoading] = useState(false);
   const passData = {
     name: "",
     lastename: "",
@@ -46,7 +47,7 @@ function Register() {
 
   const Submit_Data = async (e) => {
     e.preventDefault();
-
+setLoading(true);
     try {
       const imageUrl = await uploadImage();
       const finalData = {
@@ -63,7 +64,11 @@ function Register() {
     } catch (error) {
       console.log(error);
       alert(error.response.data.message);
-    }
+    }finally {
+
+    setLoading(false);
+
+  }
   };
   console.log(data);
 
@@ -122,7 +127,9 @@ function Register() {
               onClick={Submit_Data}
               className="w-75 h-10 text-[15px] bg-[#397ABF] hover:bg-[#5f9fe3] text-white rounded-2xl transform-fill transition-all cursor-pointer"
             >
-              Register
+                {
+    loading ? "Registering..." : "Register"
+  }
             </button>
           </div>
           <div
