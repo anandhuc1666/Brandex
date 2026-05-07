@@ -1,70 +1,71 @@
 import React from "react";
 import axios from "axios";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 function Register() {
   const passData = {
-    name:"",
-    lastename:"",
-    email:"",
-    password:"",
-    phone:"",
-    image:""
-  }
+    name: "",
+    lastename: "",
+    email: "",
+    password: "",
+    phone: "",
+    image: "",
+  };
+  const navigate = useNavigate();
   const [data, setData] = useState(passData);
-const [file, setFile] = useState(null);
+  const [file, setFile] = useState(null);
 
   const handling_Data = (e) => {
     e.preventDefault();
     setData({ ...data, [e.target.name]: e.target.value });
   };
 
-const uploadImage = async () => {
+  const uploadImage = async () => {
+    if (!file) {
+      alert("Please select an image");
+      return;
+    }
 
-  if (!file) {
-    alert("Please select an image");
-    return;
-  }
+    const formData = new FormData();
 
-  const formData = new FormData();
+    formData.append("file", file);
+    formData.append("upload_preset", "ml_default");
 
-  formData.append("file", file);
-  formData.append("upload_preset", "ml_default");
+    try {
+      const res = await axios.post(
+        "https://api.cloudinary.com/v1_1/dkxluyjyz/image/upload",
+        formData,
+      );
 
-  try {
-
-    const res = await axios.post(
-      "https://api.cloudinary.com/v1_1/dkxluyjyz/image/upload",
-      formData
-    );
-
-    return res.data.secure_url;
-
-  } catch (error) {
-
-    console.log(error.response?.data || error);
-
-  }
-};
+      return res.data.secure_url;
+    } catch (error) {
+      console.log(error.response?.data || error);
+    }
+  };
 
   const Submit_Data = async (e) => {
-  e.preventDefault();
-  
-  try {
-    const imageUrl = await uploadImage();
-         const finalData = {
+    e.preventDefault();
+
+    try {
+      const imageUrl = await uploadImage();
+      const finalData = {
         ...data,
-        image:imageUrl,
+        image: imageUrl,
       };
-    const response = await axios.post(`${import.meta.env.VITE_API_URL}/api/v1/user/register`, finalData);
-    alert(response.data.message);
-     setData(passData);
-  } catch (error) {
-    console.log(error);
-    alert(error.response.data.message)
-  }
-  }
-console.log(data);
+      const response = await axios.post(
+        `${import.meta.env.VITE_API_URL}/api/v1/user/register`,
+        finalData,
+      );
+      alert(response.data.message);
+      setData(passData);
+      navigate("/");
+    } catch (error) {
+      console.log(error);
+      alert(error.response.data.message);
+    }
+  };
+  console.log(data);
 
   return (
     <div className="w-full sm:h-screen h-auto bg-[#eeee] flex items-center flex-col p-5  box-border justify-center font-Nunito">
@@ -83,14 +84,6 @@ console.log(data);
               placeholder="name"
               className="w-full h-10 border rounded-2xl text-[15px] px-1"
             />
-                     <input
-              type="text"
-              name="phone"
-              value={data.phone}
-              onChange={handling_Data}
-              placeholder="phone"
-              className="w-full h-10 border rounded-2xl text-[15px] px-1"
-            />
             <input
               type="text"
               name="lastename"
@@ -99,6 +92,15 @@ console.log(data);
               placeholder="last name"
               className="w-full h-10 border rounded-2xl text-[15px] px-1"
             />
+            <input
+              type="text"
+              name="phone"
+              value={data.phone}
+              onChange={handling_Data}
+              placeholder="phone"
+              className="w-full h-10 border rounded-2xl text-[15px] px-1"
+            />
+
             <input
               type="text"
               name="email"
@@ -123,39 +125,35 @@ console.log(data);
               Register
             </button>
           </div>
-<div
-  className="sm:w-52 w-25 sm:h-52 h-25 border-2 border-dashed border-green-400 rounded-2xl
+          <div
+            className="sm:w-52 w-25 sm:h-52 h-25 border-2 border-dashed border-green-400 rounded-2xl
  flex items-center justify-center cursor-pointer bg-green-50 hover:bg-gray-100 transition 
  relative overflow-hidden"
->
-  
-  <input
-    type="file"
-    id="fileUpload"
-    className="hidden"
-    onChange={(e) => setFile(e.target.files[0])}
-  />
+          >
+            <input
+              type="file"
+              id="fileUpload"
+              className="hidden"
+              onChange={(e) => setFile(e.target.files[0])}
+            />
 
-  {/* Image Preview */}
-  {
-    file && (
-      <img
-        src={URL.createObjectURL(file)}
-        alt=""
-        className="w-full h-full object-cover absolute"
-      />
-    )
-  }
+            {/* Image Preview */}
+            {file && (
+              <img
+                src={URL.createObjectURL(file)}
+                alt=""
+                className="w-full h-full object-cover absolute"
+              />
+            )}
 
-  <label
-    htmlFor="fileUpload"
-    className="flex flex-col items-center justify-center cursor-pointer z-10"
-  >
-    <span className="text-4xl">+</span>
-    <p className="text-sm text-gray-500">Upload Profile</p>
-  </label>
-
-</div>
+            <label
+              htmlFor="fileUpload"
+              className="flex flex-col items-center justify-center cursor-pointer z-10"
+            >
+              <span className="text-4xl">+</span>
+              <p className="text-sm text-gray-500">Upload Profile</p>
+            </label>
+          </div>
         </div>
 
         <div
