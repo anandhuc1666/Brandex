@@ -29,6 +29,10 @@ const project = new Schema({
    },
    sticky:{
     type: String,
+   },
+   position:{
+     type:String,
+     default: "pending"
    }
 })
 
