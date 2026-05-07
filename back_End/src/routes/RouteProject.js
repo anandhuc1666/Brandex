@@ -1,5 +1,6 @@
 import { Router } from "express";
 import {
+    activity_update,
   createProject,
   deleteProject,
   getAllProjects,
@@ -16,6 +17,7 @@ router.get("/v1/project/getallprojects", getAllProjects);
 router.get("/v1/project/getbyid/:id", getProjectById);
 router.put("/v1/project/update/:id", verifyUser, updateProject);
 router.delete("/v1/project/delete/:id", verifyUser, deleteProject);
+router.patch("/v1/project/updateposition/:id", verifyUser, activity_update);
 
 export default router;
 
