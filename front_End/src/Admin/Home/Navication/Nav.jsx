@@ -1,9 +1,10 @@
 import React, { useState } from "react";
 import logo from "../../../../public/Brandax Logo.png";
 import { IoMdSettings } from "react-icons/io";
+import { useLocation } from "react-router-dom";
 
 function Nav() {
-  const [activeItem, setActiveItem] = useState(false);
+  const [activeItem, setActiveItem] = useState(true);
   const [activeBooking, setActiveBooking] = useState(false);
   const [activePayment, setActivePayment] = useState(false);
   const [activeCustomers, setActiveCustomers] = useState(false);
@@ -44,6 +45,16 @@ function Nav() {
     setActivePayment(false);
     setActiveCustomers(false);
   };
+
+  const location = useLocation();
+  const user = location.state;
+
+  const [active, setActive] = useState(false);
+
+  const handlepass = () => {
+    setActive(!active);
+  };
+
   return (
     <div className="w-65 h-screen bg-[#202020] text-white flex flex-col  gap-10 justify-between font-Nunito fixed">
       <div className="w-full h-auto flex flex-col py-3">
@@ -93,9 +104,24 @@ function Nav() {
           </ul>
         </div>
       </div>
-      <div className="w-full h-75 flex flex-col items-start px-5 justify-end gap-10 py-5">
-        <div className="w-15 h-15 bg-white rounded-full"></div>
-        <IoMdSettings className="text-3xl ml-3"/>
+      <div className="w-full h-75 flex flex-col items-start px-5 justify-end gap-10 py-5 relative">
+        <div className="w-15 h-15 border border-white rounded-full">
+          {" "}
+          <img
+            src={user?.image}
+            alt={user?.name}
+            className="w-15 rounded-full"
+          />
+        </div>
+        <IoMdSettings
+          className="text-3xl ml-3  hover-slow-rotate cursor-pointer"
+          onClick={handlepass}
+        />
+        {active && (
+          <div className="w-30 h-10 bg-black border absolute  right-19 bottom-10 rounded-2xl flex items-center justify-center text-[12px] font-semibold cursor-pointer hover:bg-[#333] transition-all">
+            <button>logout</button>
+          </div>
+        )}
       </div>
     </div>
   );

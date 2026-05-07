@@ -12,23 +12,35 @@ const handling_Data = (e) => {
   setData({ ...data, [e.target.name]: e.target.value });
 }
 
-const Submit_Data = async(e)=>{
+const Submit_Data = async (e) => {
+
   e.preventDefault();
-  const token = localStorage.getItem("token");
+
   try {
-    const response = await axios.post(`${import.meta.env.VITE_API_URL}/api/v1/user/login`,data,{
-      headers:{
-          Authorization: `Bearer ${token}`
-      }
-    })
-    console.log(response)
-    alert(response.data.message)
-    navigate("/dashboard");
+
+    const response = await axios.post(
+      `${import.meta.env.VITE_API_URL}/api/v1/user/login`,
+      data
+    );
+
+    // ✅ store token
+    localStorage.setItem(
+      "token",
+      response.data.token
+    );
+
+    alert(response.data.message);
+
+    navigate("/dashboard", { state: response.data.user });
+
   } catch (error) {
-    console.log(error)
-    alert(error.response.data.message)
+
+    console.log(error);
+
+    alert(error.response.data.message);
+
   }
-}
+};
 
   return (
     <div className="w-full sm:h-screen h-auto flex items-center justify-center bg-[#eeee] font-Nunito py-10">

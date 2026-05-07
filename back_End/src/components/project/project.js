@@ -96,20 +96,3 @@ try {
 }
 
 }
-
-
-export const activity_update = async(res,req)=>{
-    const { id } = req.params;
-    const {position}= req.body;
-    try {
-        const product = await Project.findByIdAndUpdate(id)
-        if (!product) {
-            return res.status(404).json({ message: "Project not found" });
-        }
-    const update_data = product.position = position;
-    await product.save();
-    return res.status(200).json({ message: "Activity updated successfully", product });
-    } catch (error) {
-        res.status(500).json({ message: "Error updating activity", error: error.message });
-    }
-}
