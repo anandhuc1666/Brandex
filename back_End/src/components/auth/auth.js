@@ -5,9 +5,9 @@ import generateToken from "../../token/jwt.js";
 // .............................................. user register ..............................................
 
 export const register = async (req, res) => {
-  const { name, lastename, email, password, phone } = req.body;
+  const { name, lastename, email, password, phone,image } = req.body;
   try {
-    if (!name || !lastename || !email || !password || !phone) {
+    if (!name || !lastename || !email || !password || !phone || !image) {
       return res.status(400).json({ message: "user register not complete" });
     }
     const existingUser = await User.findOne({ email });
@@ -24,6 +24,7 @@ export const register = async (req, res) => {
       password: passwordhase,
       phone,
       role: "user",
+      image,
     });
     res
       .status(201)
