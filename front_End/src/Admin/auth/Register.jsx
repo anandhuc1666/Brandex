@@ -70,10 +70,9 @@ setLoading(true);
 
   }
   };
-  console.log(data);
 
   return (
-    <div className="w-full sm:h-screen h-auto bg-[#eeee] flex items-center flex-col p-5  box-border justify-center font-Nunito">
+    <div className="w-full sm:h-screen h-auto bg-[#eeee] flex items-center flex-col p-5  box-border justify-center font-Nunito text-black">
       <div className="sm:w-200 w-full sm:h-120 h-auto bg-white rounded-2xl shadow-sm text-center p-3 box-border flex flex-col sm:gap-2 items-center">
         <p className="text-3xl">Register</p>
         <p className="sm:text-[15px] text-[12px]">

@@ -5,7 +5,7 @@ import generateToken from "../../token/jwt.js";
 // .............................................. user register ..............................................
 
 export const register = async (req, res) => {
-  const { name, lastename, email, password, phone,image } = req.body;
+  const { name, lastename, email, password, phone, image } = req.body;
   try {
     if (!name || !lastename || !email || !password || !phone || !image) {
       return res.status(400).json({ message: "user register not complete" });
@@ -26,7 +26,7 @@ export const register = async (req, res) => {
       role: "user",
       image,
     });
-    
+
     res
       .status(201)
       .json({ message: "User registered successfully", user: user_create });
@@ -82,14 +82,33 @@ export const getUser = async (req, res) => {
     const filter_user = user_profile.filter(
       (user) => user._id.toString() !== userId,
     );
-    res
-      .status(200)
-      .json({
-        message: "User profile retrieved successfully",
-        users: filter_user,
-      });
+    res.status(200).json({
+      message: "User profile retrieved successfully",
+      users: filter_user,
+    });
   } catch (error) {
     res.status(500).json({ message: "userId not found", error: error.message });
   }
 };
 
+export const getUserById = async (req, res) => {
+  const userId = req.user.id;
+  try {
+    if (!userId) {
+      return res.status(400).json({ message: "userId is required" });
+    }
+    const user_profile = await User.findById(userId);
+
+    if (!user_profile) {
+      return res.status(404).json({ message: "user not found" });
+    }
+    res
+      .status(200)
+      .json({
+        message: "User profile retrieved successfully",
+        user: user_profile,
+      });
+  } catch (error) {
+    res.status(500).json({ message: "user not found" });
+  }
+};

@@ -6,6 +6,7 @@ import { useNavigate } from "react-router-dom";
 
 function Login() {
 const [data,setData] = useState([])
+const [loading, setLoading] = useState(false);
 const navigate = useNavigate();
 const handling_Data = (e) => {
   e.preventDefault();
@@ -17,7 +18,7 @@ const Submit_Data = async (e) => {
   e.preventDefault();
 
   try {
-
+    setLoading(true);
     const response = await axios.post(
       `${import.meta.env.VITE_API_URL}/api/v1/user/login`,
       data
@@ -29,7 +30,6 @@ const Submit_Data = async (e) => {
       response.data.token
     );
 
-    alert(response.data.message);
 
     navigate("/dashboard", { state: response.data.user });
 
@@ -39,11 +39,13 @@ const Submit_Data = async (e) => {
 
     alert(error.response.data.message);
 
+  }finally{
+    setLoading(false);
   }
 };
 
   return (
-    <div className="w-full sm:h-screen h-auto flex items-center justify-center bg-[#eeee] font-Nunito py-10">
+    <div className="w-full sm:h-screen h-auto flex items-center justify-center bg-[#eeee] font-Nunito py-10 text-black">
       <div className="sm:w-200 w-80 h-auto bg-white rounded-2xl shadow-sm flex items-center relative sm:p-0 box-border py-3">
         <div className="w-100 h-auto items-center flex-col flex sm:py-5 sm:gap-5 sm:px-3 box-border gap-3">
           <p className="font-Nunito text-3xl font-light">Login</p>
@@ -73,8 +75,10 @@ const Submit_Data = async (e) => {
               placeholder="user*****$***"
               className="border-b sm:w-80 w-70 sm:h-12 h-10 px-1.5 rounded-2xl focus:ring-1 focus:ring-blue-400 outline-none transition-all"
             />
-            <button type="submit" onClick={Submit_Data} className="bg-blue-500 text-white py-2 px-4 rounded-2xl hover:bg-[#397ABF] transition-all mt-3 cursor-pointer">
-              Login
+            <button type="submit" onClick={Submit_Data} className={`${loading ? "bg-[#397ABF]" : "bg-blue-500"} text-white py-2 px-4 rounded-2xl hover:bg-[#397ABF] transition-all mt-3 cursor-pointer`}>
+              {
+                loading === true ? "Loading..." : "Login"
+              }
             </button>
           </div>
           <div className="w-full flex items-center gap-2">

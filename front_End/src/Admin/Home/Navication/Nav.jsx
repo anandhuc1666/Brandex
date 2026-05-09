@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import logo from "../../../../public/Brandax Logo.png";
 import { IoMdSettings } from "react-icons/io";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 
 function Nav() {
   const [activeItem, setActiveItem] = useState(true);
@@ -16,6 +16,7 @@ function Nav() {
     setActivePayment(false);
     setActiveCustomers(false);
     setActiveReviews(false);
+    navigate("/dashboard");
   };
   const handlechange_booking = () => {
     setActiveBooking(!activeBooking);
@@ -23,6 +24,7 @@ function Nav() {
     setActivePayment(false);
     setActiveCustomers(false);
     setActiveReviews(false);
+    navigate("/book");
   };
   const handlechange_payment = () => {
     setActivePayment(!activePayment);
@@ -30,6 +32,7 @@ function Nav() {
     setActiveBooking(false);
     setActiveCustomers(false);
     setActiveReviews(false);
+    navigate("/payment");
   };
   const handlechange_customers = () => {
     setActiveCustomers(!activeCustomers);
@@ -37,6 +40,7 @@ function Nav() {
     setActiveBooking(false);
     setActivePayment(false);
     setActiveReviews(false);
+    navigate("/customer");
   };
   const handlechange_reviews = () => {
     setActiveReviews(!activeReviews);
@@ -44,6 +48,7 @@ function Nav() {
     setActiveBooking(false);
     setActivePayment(false);
     setActiveCustomers(false);
+    navigate("/reviews");
   };
 
   const location = useLocation();
@@ -54,6 +59,13 @@ function Nav() {
   const handlepass = () => {
     setActive(!active);
   };
+
+  const navigate = useNavigate();
+const handleLogout = () => {
+
+  localStorage.removeItem("token");
+navigate("/");
+}
 
   return (
     <div className="w-65 h-screen bg-[#202020] text-white flex flex-col  gap-10 justify-between font-Nunito fixed">
@@ -119,7 +131,7 @@ function Nav() {
         />
         {active && (
           <div className="w-30 h-10 bg-black border absolute  right-19 bottom-10 rounded-2xl flex items-center justify-center text-[12px] font-semibold cursor-pointer hover:bg-[#333] transition-all">
-            <button>logout</button>
+            <button onClick={handleLogout}>logout</button>
           </div>
         )}
       </div>
