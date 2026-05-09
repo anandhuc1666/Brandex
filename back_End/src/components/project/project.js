@@ -63,12 +63,12 @@ try {
 
 export const updateProject = async (req, res) => {
 const { id } = req.params;
-const { customer_name, user_name, customer_phone, product, customer_place, day, price, sticky } = req.body;
+const { customer_name, user_name, customer_phone, product, position, customer_place, day, price, sticky } = req.body;
 
 try {
     const project = await Project.findOneAndUpdate(
         { _id: id },
-        { customer_name, user_name, customer_phone, product, customer_place, day, price, sticky },
+        { customer_name, user_name, customer_phone, product, position, customer_place, day, price, sticky },
         { new: true }
     );
 
