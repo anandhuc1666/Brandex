@@ -8,23 +8,51 @@ function Book() {
   const [dataPass, setDataPass] = useState();
   const [data, setData] = useState([]);
   const [active, setActive] = useState(false);
+  const [user, setUser] = useState([]);
 
   useEffect(() => {
-    axios
-      .get(`${import.meta.env.VITE_API_URL}/api/v1/project/getallprojects`)
-      .then((response) => {
-        setData(response.data.projects);
-      })
-      .catch((error) => {
+    const fetchData = async () => {
+      try {
+        const token = localStorage.getItem("token");
+
+        // USER
+        const userResponse = await axios.get(
+          `${import.meta.env.VITE_API_URL}/api/v1/user/login`,
+          {
+            headers: {
+              Authorization: `Bearer ${token}`,
+            },
+          },
+        );
+
+        const currentUser = userResponse.data.user;
+
+        setUser(currentUser);
+
+        // PROJECTS
+        const projectResponse = await axios.get(
+          `${import.meta.env.VITE_API_URL}/api/v1/project/getallprojects`,
+        );
+
+        const value = projectResponse.data.projects;
+
+        const filteredProjects = value.filter(
+          (item) => item.userID === currentUser._id,
+        );
+
+        setData(filteredProjects);
+      } catch (error) {
         console.log(error);
-      });
-  }, []);
+      }
+    };
+
+    fetchData();
+  }, [user]);
 
   const PassToUpdate = (data) => {
     setDataPass(data);
     setActive(!active);
   };
-  console.log(data);
   return (
     <div className="w-full bg-black h-screen flex items-center justify-end">
       <div className="w-[83%] h-screen p-3 box-border flex flex-col gap-3">
@@ -66,49 +94,81 @@ function Book() {
         <div className="flex flex-col gap-3 relative">
           <div className="w-full h-120 bg-[#202020] rounded-2xl overflow-y-auto scrollbar-hide transform-fill ">
             <div className="w-full h-auto flex flex-col gap-2 p-3">
-              {Array.isArray(data) &&
-                data?.map((item, index) => (
-                  <div
-                    key={index}
-                    className="w-full h-30 bg-[#4F4F4F] border-b flex items-center px-3 gap-3 rounded-2xl"
-                  >
-                    <ul className="flex w-full flex-col gap-3">
-                      <li className="text-2xl font-bold">Booking 1</li>
-                      <li>Customer: {item?.customer_name}</li>
-                    </ul>
-                    <ul className="flex w-full flex-col gap-3">
-                      <li className="text-2xl font-bold">Number</li>
-                      <li>{item?.ncustomer_phone}</li>
-                    </ul>
-                    <ul className="flex w-full flex-col gap-3">
-                      <li className="text-2xl font-bold">Product</li>
-                      <li>{item?.product}</li>
-                    </ul>
-                    <ul className="flex w-full flex-col gap-3">
-                      <li className="text-2xl font-bold">Status</li>
-                      <li
-                        className={`${item?.position === "pending" ? "text-[#F11B1B]" : item?.position === "progress" ? "text-[#F2BA20]" : item?.position === "complete" ? "text-[#3CF220]" : ""}`}
-                      >
-                        {item?.position}
-                      </li>
-                    </ul>
-                    <ul className="flex w-full flex-col gap-3">
-                      <li className="text-2xl font-bold">Product Price</li>
-                      <li>${item?.price}</li>
-                    </ul>
-                    <ul className="flex w-full flex-col gap-3">
-                      <li className="text-2xl font-bold">Owner</li>
-                      <li>{item?.user_name}</li>
-                    </ul>
-                    <div className=" flex items-center gap-3 flex-col">
-                      <MdEditSquare
-                        className="text-3xl hover:text-blue-400 cursor-pointer"
-                        onClick={() => PassToUpdate(item)}
-                      />
-                      <MdDeleteForever className="text-3xl hover:text-red-400 cursor-pointer" />
-                    </div>
-                  </div>
-                ))}
+           {
+  Array.isArray(data) && data.length > 0 ? (
+
+    data.map((item, index) => (
+
+      <div
+        key={index}
+        className="w-full h-30 bg-[#4F4F4F] border-b flex items-center px-3 gap-3 rounded-2xl"
+      >
+
+        <ul className="flex w-full flex-col gap-3">
+          <li className="text-2xl font-bold">Booking 1</li>
+          <li>Customer: {item?.customer_name}</li>
+        </ul>
+
+        <ul className="flex w-full flex-col gap-3">
+          <li className="text-2xl font-bold">Number</li>
+          <li>{item?.customer_phone}</li>
+        </ul>
+
+        <ul className="flex w-full flex-col gap-3">
+          <li className="text-2xl font-bold">Product</li>
+          <li>{item?.product}</li>
+        </ul>
+
+        <ul className="flex w-full flex-col gap-3">
+          <li className="text-2xl font-bold">Status</li>
+
+          <li
+            className={`${
+              item?.position === "pending"
+                ? "text-[#F11B1B]"
+                : item?.position === "progress"
+                ? "text-[#F2BA20]"
+                : item?.position === "complete"
+                ? "text-[#3CF220]"
+                : ""
+            }`}
+          >
+            {item?.position}
+          </li>
+        </ul>
+
+        <ul className="flex w-full flex-col gap-3">
+          <li className="text-2xl font-bold">Product Price</li>
+          <li>${item?.price}</li>
+        </ul>
+
+        <ul className="flex w-full flex-col gap-3">
+          <li className="text-2xl font-bold">Owner</li>
+          <li>{item?.user_name}</li>
+        </ul>
+
+        <div className="flex items-center gap-3 flex-col">
+          <MdEditSquare
+            className="text-3xl hover:text-blue-400 cursor-pointer"
+            onClick={() => PassToUpdate(item)}
+          />
+
+          <MdDeleteForever className="text-3xl hover:text-red-400 cursor-pointer" />
+        </div>
+
+      </div>
+
+    ))
+
+  ) : (
+
+    <div className="w-full h-30 flex items-center justify-center text-gray-400 text-xl">
+      No Data Available
+    </div>
+
+  )
+}
+                
             </div>
           </div>
           <div className="w-full h-10 flex items-center justify-center  gap-3">

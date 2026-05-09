@@ -30,7 +30,8 @@ export const createProject = async (req, res) => {
       price,
       sticky,
     });
-    res.status(201).json({ message: "Project created successfully", project });
+    const user = await User.findById(userId)
+    res.status(201).json({ message: "Project created successfully", project, user });
   } catch (error) {
     res
       .status(500)

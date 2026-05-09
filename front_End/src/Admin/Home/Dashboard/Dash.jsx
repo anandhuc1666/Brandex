@@ -123,11 +123,11 @@ function Dash() {
       </div>
       <div className="w-[83%] h-100 bg-[#202020] rounded-2xl p-4 flex flex-col gap-4">
         {/* HEADER */}
-        <div className="grid grid-cols-[60px_200px_1fr_150px_120px_150px] items-center px-4 text-[15px]">
+        <div className="grid grid-cols-[60px_200px_1fr_150px_120px_150px] items-center pr-6 text-[15px] gap-6 ">
           <div></div>
 
           <p className="bg-white text-black px-4 py-1 rounded-full text-center">
-            Owner
+            Owner ship
           </p>
 
           <p className="bg-white text-black px-4 py-1 rounded-full text-center">
@@ -135,7 +135,7 @@ function Dash() {
           </p>
 
           <p className="bg-white text-black px-4 py-1 rounded-full text-center">
-            Ownership
+            Owner
           </p>
 
           <p className="bg-white text-black px-4 py-1 rounded-full text-center">
@@ -171,7 +171,7 @@ function Dash() {
 
           {/* Name */}
           <p className="truncate text-white">
-            {project?.customer_name}
+            {project?.user_name}
           </p>
 
           {/* Product */}
@@ -181,7 +181,7 @@ function Dash() {
 
           {/* Ownership */}
           <span className="bg-white text-black px-1 py-1 rounded-full text-center">
-            {project?.user_name}
+            {project?.customer_name}
           </span>
 
           {/* Bill */}
