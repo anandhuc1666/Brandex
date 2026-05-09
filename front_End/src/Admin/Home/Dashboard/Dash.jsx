@@ -1,13 +1,11 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import { useLocation } from "react-router-dom";
 
 function Dash() {
   const token = localStorage.getItem("token");
-  const location = useLocation();
-  const user = location.state;
 
   const [projects, setProject] = useState([]);
+  const [profile, setProfile] = useState([]);
   const [loading, setLoading] = useState(false);
 
   const AddProjectServer = {
@@ -51,6 +49,19 @@ function Dash() {
     }
   };
 
+  const server_Profile = async () => {
+     try {
+      const response = await axios.get(`${import.meta.env.VITE_API_URL}/api/v1/user/login`, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
+      setProfile(response.data.user);
+     } catch (error) {
+      console.error(error);
+     }
+  }
+
   const server_Project = async () => {
     const produce = await axios.get(
       `${import.meta.env.VITE_API_URL}/api/v1/project/getallprojects`,
@@ -60,9 +71,11 @@ function Dash() {
 
   useEffect(() => {
     server_Project();
-  }, [project]);
-  console.log(token);
-  console.log(user);
+    server_Profile();
+  }, []);
+
+ 
+
   return (
     <div className="w-full h-auto items-end flex flex-col gap-3 p-5 ">
       <div className="w-[83%] h-75 box-border flex gap-3">
@@ -76,9 +89,9 @@ function Dash() {
               <p className="text-[12px]">No need to reset this user data</p>
             </div>
             <div
-              className={`w-30 h-10 rounded-full flex items-center justify-center ${user?.status === true ? "bg-green-500 text-[#3CF220]" : "bg-red-500 text-[#841c1c]"}`}
+              className={`w-30 h-10 rounded-full flex items-center justify-center ${profile?.status === true ? "bg-green-700 text-[#3CF220]" : "bg-red-700 text-[#841c1c]"}`}
             >
-              {user?.status === true ? "Active" : "Inactive"}
+              {profile?.status === true ? "Active" : "Inactive"}
             </div>
           </div>
           <div className="w-85 h-35 bg-[#202020] rounded-2xl p-3 flex flex-col gap-2">
@@ -86,23 +99,23 @@ function Dash() {
               <div className="w-15 h-15 border border-white rounded-full">
                 {" "}
                 <img
-                  src={user?.image}
-                  alt={user?.name}
+                  src={profile?.image}
+                  alt={profile?.name}
                   className="w-15 rounded-full"
                 />
               </div>
               <ul className="text-[12px]">
                 <li>
                   <b>
-                    {user?.name} {user?.lastename}
+                    {profile?.name} {profile?.lastename}
                   </b>{" "}
                 </li>
-                <li>{user?.email}</li>
-                <li>{user?.phone}</li>
+                <li>{profile?.email}</li>
+                <li>{profile?.phone}</li>
               </ul>
             </div>
             <div className="w-60 h-10 bg-[#4F4F4F] text-[20px] font-semibold flex items-center justify-center rounded-full">
-              {user?.role}
+              {profile?.role}
             </div>
           </div>
         </div>
