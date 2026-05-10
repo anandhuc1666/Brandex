@@ -66,7 +66,7 @@ function Dash() {
     const produce = await axios.get(
       `${import.meta.env.VITE_API_URL}/api/v1/project/getallprojects`,
     );
-    setProject(produce.data.projects);
+    setProject(produce.data.allProjects);
   };
 
   const server_users = async ()=>{
@@ -86,6 +86,8 @@ function Dash() {
      server_users();
   
   }, []);
+
+  console.log(projects)
 
   return (
     <div className="w-full h-auto items-end flex flex-col gap-3 p-5 ">
@@ -178,7 +180,7 @@ function Dash() {
         >
 
           {/* Avatar */}
-          <div className="w-12 h-12 bg-amber-100 rounded-full"><img src={users.image} alt="" className="w-12 h-12 rounded-full"/></div>
+          <div className="w-12 h-12 bg-amber-100 rounded-full"><img src={project?.image} alt="" className="w-12 h-12 rounded-full"/></div>
 
           {/* Name */}
           <p className="truncate text-white">

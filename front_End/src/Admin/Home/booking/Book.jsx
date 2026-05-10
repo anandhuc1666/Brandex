@@ -34,7 +34,7 @@ function Book() {
           `${import.meta.env.VITE_API_URL}/api/v1/project/getallprojects`,
         );
 
-        const value = projectResponse.data.projects;
+        const value = projectResponse.data.allProjects;
 
         const filteredProjects = value.filter(
           (item) => item.userID === currentUser._id,

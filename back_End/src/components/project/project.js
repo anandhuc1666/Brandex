@@ -50,22 +50,18 @@ export const getAllProjects = async (req, res) => {
     const allProjects = projects.map((project) => ({
       
       _id: project._id,
-
+       user_id: project.userID,
       customer_name: project.customer_name,
-
       user_name: project.user_name,
-
       customer_phone: project.customer_phone,
-
       product: project.product,
-
       customer_place: project.customer_place,
-
       price: project.price,
-
       position: project.position,
-
       image: project.userID?.image,
+      day:project.day,
+      sticky:project.sticky,
+      date:project.updatedAt,
 
     }));
 
