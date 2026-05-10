@@ -53,7 +53,7 @@ export const getAllProjects = async (req, res) => {
       product:projects.product,
       customer_place:projects.customer_place,
       price:projects.price,
-      image:projects.user.image
+      image:user.image
     }
     res
       .status(200)
