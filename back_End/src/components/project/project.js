@@ -43,10 +43,21 @@ export const createProject = async (req, res) => {
 
 export const getAllProjects = async (req, res) => {
   try {
+    const user = await User.find()
     const projects = await Project.find();
+    const allProjects = {
+       userID:projects._id,
+      customer_name:projects.customer_name,
+      user_name:projects.user_name,
+      customer_phone:projects.customer_phone,
+      product:projects.product,
+      customer_place:projects.customer_place,
+      price:projects.price,
+      image:projects.user.image
+    }
     res
       .status(200)
-      .json({ message: "Projects fetched successfully", projects });
+      .json({ message: "Projects fetched successfully", allProjects});
     console.log(projects);
   } catch (error) {
     res

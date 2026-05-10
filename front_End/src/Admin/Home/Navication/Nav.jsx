@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import logo from "../../../../public/Brandax Logo.png";
 import { IoMdSettings } from "react-icons/io";
-import { useLocation, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 
 function Nav() {
   const [activeItem, setActiveItem] = useState(true);
@@ -16,7 +16,6 @@ function Nav() {
     setActivePayment(false);
     setActiveCustomers(false);
     setActiveReviews(false);
-    navigate("/dashboard");
   };
   const handlechange_booking = () => {
     setActiveBooking(!activeBooking);
@@ -24,7 +23,6 @@ function Nav() {
     setActivePayment(false);
     setActiveCustomers(false);
     setActiveReviews(false);
-    navigate("/book");
   };
   const handlechange_payment = () => {
     setActivePayment(!activePayment);
@@ -76,20 +74,23 @@ navigate("/");
         </div>
         <div className="flex flex-col gap-5 mt-10 text-[18px] font-semibold">
           <ul className="flex  flex-col gap-2">
-            <div
+            <Link to={"/dashboard"}>
+              <div
               className={`${activeItem === true ? "border border-[#397ABF] bg-[#123458]" : `bg-[#4F4F4F]`} w-50 h-15  flex items-center justify-center rounded-tr-[10px] rounded-br-[10px]`}
               onClick={handlechange_dashboard}
             >
               <li>Dashboard</li>
             </div>
+            </Link>
 
-            <div
+            <Link to={"/book"}>
+              <div
               className={`${activeBooking === true ? "border border-[#397ABF] bg-[#123458]" : `bg-[#4F4F4F]`} w-50 h-15  flex items-center justify-center rounded-tr-[10px] rounded-br-[10px]`}
               onClick={handlechange_booking}
             >
-              {" "}
               <li>Booking</li>
             </div>
+            </Link>
 
             <div
               className={`${activePayment === true ? "border border-[#397ABF] bg-[#123458]" : `bg-[#4F4F4F]`} w-50 h-15  flex items-center justify-center rounded-tr-[10px] rounded-br-[10px]`}

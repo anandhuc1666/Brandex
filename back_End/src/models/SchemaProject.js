@@ -30,6 +30,9 @@ const project = new Schema({
    sticky:{
     type: String,
    },
+   image:{
+     type: String,
+   },
    position:{
      type:String,
      default: "pending"

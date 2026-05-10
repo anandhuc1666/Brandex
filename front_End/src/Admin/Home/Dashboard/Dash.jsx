@@ -7,7 +7,7 @@ function Dash() {
   const [projects, setProject] = useState([]);
   const [profile, setProfile] = useState([]);
   const [loading, setLoading] = useState(false);
-
+  const [users, setUsers]= useState([])
   const AddProjectServer = {
     customer_name: "",
     user_name: "",
@@ -66,15 +66,26 @@ function Dash() {
     const produce = await axios.get(
       `${import.meta.env.VITE_API_URL}/api/v1/project/getallprojects`,
     );
-    setProject(produce.data);
+    setProject(produce.data.projects);
   };
+
+  const server_users = async ()=>{
+    const passing = await axios.get(`${import.meta.env.VITE_API_URL}/api/v1/user/getUser`,{
+      headers:{
+        Authorization:`Bearer ${token}`
+      }
+    })
+    setUsers(passing.data.users)
+    
+  }
+
 
   useEffect(() => {
     server_Project();
     server_Profile();
+     server_users();
+  
   }, []);
-
- 
 
   return (
     <div className="w-full h-auto items-end flex flex-col gap-3 p-5 ">
@@ -159,7 +170,7 @@ function Dash() {
  
     ) : (
 
-      projects?.projects?.map((project, index) => (
+     projects?.map((project, index) => (
 
         <div
           key={index}
@@ -167,7 +178,7 @@ function Dash() {
         >
 
           {/* Avatar */}
-          <div className="w-12 h-12 bg-amber-100 rounded-full"></div>
+          <div className="w-12 h-12 bg-amber-100 rounded-full"><img src={users.image} alt="" className="w-12 h-12 rounded-full"/></div>
 
           {/* Name */}
           <p className="truncate text-white">
