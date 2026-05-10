@@ -47,7 +47,24 @@ function Book() {
 
     fetchData();
   }, [user]);
-
+      //Delete data
+      const passToDelete = async (item)=>{
+        const token = localStorage.getItem("token");
+           try {
+            const process =  await axios.delete(`${import.meta.env.VITE_API_URL}/api/v1/project/delete/${item._id}`,{
+              headers:{
+                Authorization :`Bearer ${token}`,
+              }
+             
+            })
+            alert(process.data.message)
+   
+           } catch (error) {
+            console.log(error)
+            alert(  error?.response?.data?.message || "Delete failed")
+           }
+      }
+       
   const PassToUpdate = (data) => {
     setDataPass(data);
     setActive(!active);
@@ -153,7 +170,7 @@ function Book() {
             onClick={() => PassToUpdate(item)}
           />
 
-          <MdDeleteForever className="text-3xl hover:text-red-400 cursor-pointer" />
+          <MdDeleteForever className="text-3xl hover:text-red-400 cursor-pointer" onClick={()=>passToDelete(item)}/>
         </div>
 
       </div>

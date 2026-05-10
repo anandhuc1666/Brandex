@@ -42,6 +42,8 @@ function Dash() {
         },
       );
       alert(response.data.message);
+      server_Project()
+      setProjectData(AddProjectServer)
     } catch (error) {
       alert(error.response.data.message);
     } finally {
