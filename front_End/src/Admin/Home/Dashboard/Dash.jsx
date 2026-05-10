@@ -87,7 +87,7 @@ function Dash() {
   
   }, []);
 
-  console.log(projects)
+  console.log("users: ",users)
 
   return (
     <div className="w-full h-auto items-end flex flex-col gap-3 p-5 ">

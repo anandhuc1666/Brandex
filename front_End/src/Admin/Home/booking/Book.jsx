@@ -26,7 +26,7 @@ function Book() {
         );
 
         const currentUser = userResponse.data.user;
-
+        
         setUser(currentUser);
 
         // PROJECTS
@@ -35,9 +35,8 @@ function Book() {
         );
 
         const value = projectResponse.data.allProjects;
-
         const filteredProjects = value.filter(
-          (item) => item.userID === currentUser._id,
+          (item) => item.user_id?._id === currentUser._id,
         );
 
         setData(filteredProjects);
@@ -53,6 +52,7 @@ function Book() {
     setDataPass(data);
     setActive(!active);
   };
+  
   return (
     <div className="w-full bg-black h-screen flex items-center justify-end">
       <div className="w-[83%] h-screen p-3 box-border flex flex-col gap-3">
