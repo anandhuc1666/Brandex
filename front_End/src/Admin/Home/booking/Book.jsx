@@ -3,12 +3,15 @@ import { MdEditSquare } from "react-icons/md";
 import { MdDeleteForever } from "react-icons/md";
 import Update from "../Update/Update";
 import axios from "axios";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 function Book() {
   const [dataPass, setDataPass] = useState();
   const [data, setData] = useState([]);
   const [active, setActive] = useState(false);
   const [user, setUser] = useState([]);
+  const [countAdd, setCountAdd]=useState(4)
 
   useEffect(() => {
     const fetchData = async () => {
@@ -26,7 +29,7 @@ function Book() {
         );
 
         const currentUser = userResponse.data.user;
-        
+
         setUser(currentUser);
 
         // PROJECTS
@@ -47,29 +50,40 @@ function Book() {
 
     fetchData();
   }, [user]);
-      //Delete data
-      const passToDelete = async (item)=>{
-        const token = localStorage.getItem("token");
-           try {
-            const process =  await axios.delete(`${import.meta.env.VITE_API_URL}/api/v1/project/delete/${item._id}`,{
-              headers:{
-                Authorization :`Bearer ${token}`,
-              }
-             
-            })
-            alert(process.data.message)
-   
-           } catch (error) {
-            console.log(error)
-            alert(  error?.response?.data?.message || "Delete failed")
-           }
-      }
-       
+  //Delete data
+  const passToDelete = async (item) => {
+    const token = localStorage.getItem("token");
+    try {
+      const process = await axios.delete(
+        `${import.meta.env.VITE_API_URL}/api/v1/project/delete/${item._id}`,
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        },
+      );
+      toast.error(process.data.message||"project deleted")
+    } catch (error) {
+      console.log(error);
+      toast.error(error?.response?.data?.message || "Delete failed")
+    }
+  };
+
   const PassToUpdate = (data) => {
     setDataPass(data);
     setActive(!active);
   };
-  
+
+const handleAdd = () => {
+  setCountAdd(prev => prev + 4);
+};
+
+const handleSub = () =>{
+  setCountAdd(prev => prev - 4);
+}
+let num = countAdd==0? 4 : countAdd
+
+let dataValue = data.slice(0, num)
   return (
     <div className="w-full bg-black h-screen flex items-center justify-end">
       <div className="w-[83%] h-screen p-3 box-border flex flex-col gap-3">
@@ -111,89 +125,82 @@ function Book() {
         <div className="flex flex-col gap-3 relative">
           <div className="w-full h-120 bg-[#202020] rounded-2xl overflow-y-auto scrollbar-hide transform-fill ">
             <div className="w-full h-auto flex flex-col gap-2 p-3">
-           {
-  Array.isArray(data) && data.length > 0 ? (
+              {Array.isArray(data) && data.length > 0 ? (
 
-    data.map((item, index) => (
+                dataValue.map((item, index) => (
+                  <div
+                    key={index}
+                    className="w-full h-30 bg-[#4F4F4F] border-b flex items-center px-3 gap-3 rounded-2xl"
+                  >
+                    <ul className="flex w-full flex-col gap-3">
+                      <li className="text-2xl font-bold">Booking 1</li>
+                      <li>Customer: {item?.customer_name}</li>
+                    </ul>
 
-      <div
-        key={index}
-        className="w-full h-30 bg-[#4F4F4F] border-b flex items-center px-3 gap-3 rounded-2xl"
-      >
+                    <ul className="flex w-full flex-col gap-3">
+                      <li className="text-2xl font-bold">Number</li>
+                      <li>{item?.customer_phone}</li>
+                    </ul>
 
-        <ul className="flex w-full flex-col gap-3">
-          <li className="text-2xl font-bold">Booking 1</li>
-          <li>Customer: {item?.customer_name}</li>
-        </ul>
+                    <ul className="flex w-full flex-col gap-3">
+                      <li className="text-2xl font-bold">Product</li>
+                      <li>{item?.product}</li>
+                    </ul>
 
-        <ul className="flex w-full flex-col gap-3">
-          <li className="text-2xl font-bold">Number</li>
-          <li>{item?.customer_phone}</li>
-        </ul>
+                    <ul className="flex w-full flex-col gap-3">
+                      <li className="text-2xl font-bold">Status</li>
 
-        <ul className="flex w-full flex-col gap-3">
-          <li className="text-2xl font-bold">Product</li>
-          <li>{item?.product}</li>
-        </ul>
+                      <li
+                        className={`${
+                          item?.position === "pending"
+                            ? "text-[#F11B1B]"
+                            : item?.position === "progress"
+                              ? "text-[#F2BA20]"
+                              : item?.position === "complete"
+                                ? "text-[#3CF220]"
+                                : ""
+                        }`}
+                      >
+                        {item?.position}
+                      </li>
+                    </ul>
 
-        <ul className="flex w-full flex-col gap-3">
-          <li className="text-2xl font-bold">Status</li>
+                    <ul className="flex w-full flex-col gap-3">
+                      <li className="text-2xl font-bold">Product Price</li>
+                      <li>${item?.price}</li>
+                    </ul>
 
-          <li
-            className={`${
-              item?.position === "pending"
-                ? "text-[#F11B1B]"
-                : item?.position === "progress"
-                ? "text-[#F2BA20]"
-                : item?.position === "complete"
-                ? "text-[#3CF220]"
-                : ""
-            }`}
-          >
-            {item?.position}
-          </li>
-        </ul>
+                    <ul className="flex w-full flex-col gap-3">
+                      <li className="text-2xl font-bold">Owner</li>
+                      <li>{item?.user_name}</li>
+                    </ul>
 
-        <ul className="flex w-full flex-col gap-3">
-          <li className="text-2xl font-bold">Product Price</li>
-          <li>${item?.price}</li>
-        </ul>
+                    <div className="flex items-center gap-3 flex-col">
+                      <MdEditSquare
+                        className="text-3xl hover:text-blue-400 cursor-pointer"
+                        onClick={() => PassToUpdate(item)}
+                      />
 
-        <ul className="flex w-full flex-col gap-3">
-          <li className="text-2xl font-bold">Owner</li>
-          <li>{item?.user_name}</li>
-        </ul>
-
-        <div className="flex items-center gap-3 flex-col">
-          <MdEditSquare
-            className="text-3xl hover:text-blue-400 cursor-pointer"
-            onClick={() => PassToUpdate(item)}
-          />
-
-          <MdDeleteForever className="text-3xl hover:text-red-400 cursor-pointer" onClick={()=>passToDelete(item)}/>
-        </div>
-
-      </div>
-
-    ))
-
-  ) : (
-
-    <div className="w-full h-30 flex items-center justify-center text-gray-400 text-xl">
-      No Data Available
-    </div>
-
-  )
-}
-                
+                      <MdDeleteForever
+                        className="text-3xl hover:text-red-400 cursor-pointer"
+                        onClick={() => passToDelete(item)}
+                      />
+                    </div>
+                  </div>
+                ))
+              ) : (
+                <div className="w-full h-30 flex items-center justify-center text-gray-400 text-xl">
+                  No Data Available
+                </div>
+              )}
             </div>
           </div>
           <div className="w-full h-10 flex items-center justify-center  gap-3">
-            <button className="px-5 py-1 rounded-2xl text-white bg-[#4F4F4F]">
+            <button className="px-5 py-1 rounded-2xl text-white bg-[#4F4F4F]" onClick={handleSub}>
               -
             </button>
-            <p className="p-1 rounded-2xl border">1</p>
-            <button className="px-5 py-1 rounded-2xl text-white bg-[#4F4F4F]">
+            <p className="p-1 rounded-2xl border">{countAdd}</p>
+            <button className="px-5 py-1 rounded-2xl text-white bg-[#4F4F4F]" onClick={handleAdd}>
               +
             </button>
           </div>
@@ -202,6 +209,10 @@ function Book() {
           )}
         </div>
       </div>
+        <ToastContainer
+        position="top-right"
+        autoClose={2000}
+      />
     </div>
   );
 }

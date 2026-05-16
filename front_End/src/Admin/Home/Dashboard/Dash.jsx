@@ -1,5 +1,6 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
+import { ToastContainer, toast } from "react-toastify"; import "react-toastify/dist/ReactToastify.css";
 
 function Dash() {
   const token = localStorage.getItem("token");
@@ -41,11 +42,11 @@ function Dash() {
           },
         },
       );
-      alert(response.data.message);
+     toast.success(`${response.data.message}`||"new project..✅");
       server_Project()
       setProjectData(AddProjectServer)
     } catch (error) {
-      alert(error.response.data.message);
+      toast.error(error,"updated..✅")
     } finally {
       setLoading(false);
     }
@@ -322,6 +323,10 @@ function Dash() {
           </div>
         </div>
       </div>
+      <ToastContainer
+        position="top-right"
+        autoClose={2000}
+      />
     </div>
   );
 }

@@ -6,7 +6,6 @@ import {
   Routes,
   useLocation,
 } from "react-router-dom";
-
 import Dash from "./Home/Dashboard/Dash";
 import Login from "../Admin/auth/Login";
 import Register from "../Admin/auth/Register";
@@ -52,6 +51,7 @@ function App() {
     <div className="sm:flex bg-black text-white font-Nunito w-full hidden flex-col">
       <BrowserRouter>
         <Layout />
+
       </BrowserRouter>
     </div>
   );

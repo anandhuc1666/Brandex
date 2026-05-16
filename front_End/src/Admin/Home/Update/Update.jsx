@@ -1,8 +1,10 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { MdCancel } from "react-icons/md";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
-function Update({ status, active, setActive }) {
+function Update({ status, setActive }) {
   const [formData, setFormData] = useState({
     customer_name: "",
     user_name: "",
@@ -49,15 +51,20 @@ const handleUpdate = async () => {
       }
     );
 
-    alert(response.data.message);
+   
+  toast.success(response.data.message || "Updated Successfully ✅");
 
-    setActive(false);
+setTimeout(() => {
+  setActive(false);
+}, 1500);
 
   } catch (error) {
 
     console.log(error);
 
-    alert(error.response?.data?.message || "Update failed");
+    toast.error(
+        error.response?.data?.message || "Login failed"
+      );
 
   } finally {
 
@@ -167,6 +174,16 @@ console.log(formData)
       >
         {loading===true ? "Updating..." : "Update"}
       </button>
+  <ToastContainer
+  position="top-right"
+  autoClose={2000}
+  hideProgressBar={false}
+  newestOnTop={true}
+  closeOnClick
+  pauseOnHover
+  draggable
+  theme="colored"
+/>
     </div>
   );
 }

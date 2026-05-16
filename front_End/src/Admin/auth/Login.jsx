@@ -3,6 +3,9 @@ import { DotLottieReact } from "@lottiefiles/dotlottie-react";
 import axios from "axios";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
 
 function Login() {
 const [data,setData] = useState([])
@@ -12,7 +15,6 @@ const handling_Data = (e) => {
   e.preventDefault();
   setData({ ...data, [e.target.name]: e.target.value });
 }
-
 const Submit_Data = async (e) => {
 
   e.preventDefault();
@@ -24,7 +26,7 @@ const Submit_Data = async (e) => {
       data
     );
 
-    // ✅ store token
+  toast.success("Login successful!");
     localStorage.setItem(
       "token",
       response.data.token
@@ -35,9 +37,10 @@ const Submit_Data = async (e) => {
 
   } catch (error) {
 
-    console.log(error);
 
-    alert(error.response.data.message);
+   toast.error(
+        error.response?.data?.message || "Login failed"
+      );
 
   }finally{
     setLoading(false);
@@ -106,6 +109,10 @@ const Submit_Data = async (e) => {
           className="sm:w-150  sm:h-100 w-70 h-40  absolute sm:-right-20 -bottom-40 sm:bottom-0 drop-shadow-lg shadow-[#eeee]"
         />
       </div>
+             <ToastContainer
+        position="top-right"
+        autoClose={2000}
+      />
     </div>
   );
 }
