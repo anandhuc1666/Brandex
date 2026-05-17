@@ -123,7 +123,7 @@ navigate("/");
           <img
             src={user?.image}
             alt={user?.name}
-            className="w-15 rounded-full"
+            className=" rounded-full w-15 h-15"
           />
         </div>
         <IoMdSettings

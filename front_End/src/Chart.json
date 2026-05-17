@@ -1,0 +1,32 @@
+[
+    {
+        "_id":"69fc34681e59c9d967245cc0",
+        "name":"anandhu",
+        "product":"web site",
+        "price":2000
+    },
+       {
+        "_id":"69fc34681e59c9d967245cc0",
+        "name":"anandhu",
+        "product":"poster",
+        "price":350
+    },
+       {
+        "_id": "69fc33bd1e59c9d967245cbf",
+        "name":"arun",
+        "product":"web site",
+        "price":5000
+    },   
+     {
+        "_id": "69fc33bd1e59c9d967245cbb",
+        "name":"kiran",
+        "product":"ads",
+        "price":1000
+    }, 
+      {
+        "_id": "69fc33bd1e59c9d967245cbb",
+        "name":"kiran",
+        "product":"poster",
+        "price":500
+    }
+]

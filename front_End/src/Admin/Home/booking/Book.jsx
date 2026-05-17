@@ -134,7 +134,7 @@ let dataValue = data.slice(0, num)
                   >
                     <ul className="flex w-full flex-col gap-3">
                       <li className="text-2xl font-bold">Booking 1</li>
-                      <li>Customer: {item?.customer_name}</li>
+                      <li>Customer: <b className="text-[#397ABF] font-Nunito text-[20px]">{item?.customer_name}</b></li>
                     </ul>
 
                     <ul className="flex w-full flex-col gap-3">

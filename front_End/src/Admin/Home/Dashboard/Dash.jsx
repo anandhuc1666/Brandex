@@ -1,10 +1,30 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { ToastContainer, toast } from "react-toastify"; import "react-toastify/dist/ReactToastify.css";
+import {Bar, Doughnut} from "react-chartjs-2"
+import Chart from "../../../Chart.json"
+import {
+  Chart as ChartJS,
+  CategoryScale,
+  LinearScale,
+  BarElement,
+  ArcElement,
+  Title,
+  Tooltip,
+  Legend,
+} from "chart.js";
 
 function Dash() {
+ChartJS.register(
+  CategoryScale,
+  LinearScale,
+  BarElement,
+  ArcElement,
+  Title,
+  Tooltip,
+  Legend
+);
   const token = localStorage.getItem("token");
-
   const [projects, setProject] = useState([]);
   const [profile, setProfile] = useState([]);
   const [loading, setLoading] = useState(false);
@@ -19,6 +39,7 @@ function Dash() {
     price: "",
     sticky: "",
   };
+  const [userOne, setUserOne] = useState([])
   const [project, setProjectData] = useState(AddProjectServer);
 
   const datapassingproject = (e) => {
@@ -81,16 +102,64 @@ function Dash() {
     setUsers(passing.data.users)
     
   }
+  //graph data faching from server : "name", "product", "price"
+const groupedData = projects.reduce((acc, item) => {
 
+  const userName = item.user_name?.trim();
+
+  const price = Number(item.price) || 0;
+
+  const existingUser = acc.find(
+    (user) => user.name === userName
+  );
+
+  if (existingUser) {
+
+    existingUser.total += price;
+
+  } else {
+
+    acc.push({
+      name: userName,
+      total: price,
+    });
+
+  }
+
+  return acc;
+
+}, []).filter((item) => item.total > 0);
+
+//.....................................
+useEffect(()=>{
+  if(profile?._id){
+      const user = projects.filter(
+      (item) => item?.user_id?._id === profile._id
+    );
+const totalPrice = user.reduce(
+  (acc, item) => acc + Number(item.price),
+  0
+);
+    setUserOne({
+  _id: profile._id,
+  name: user[0]?.user_name || "",
+  product: user.map((item) => item.product),
+  price: totalPrice,
+    });
+
+  }
+}, [profile])
+const currentUserProducts = projects.filter(
+  (item) => item?.user_id?._id === userOne._id
+);
+console.log(projects)
 
   useEffect(() => {
     server_Project();
     server_Profile();
-     server_users();
-  
+    server_users();
   }, []);
 
-  console.log("users: ",users)
 
   return (
     <div className="w-full h-auto items-end flex flex-col gap-3 p-5 ">
@@ -117,7 +186,7 @@ function Dash() {
                 <img
                   src={profile?.image}
                   alt={profile?.name}
-                  className="w-15 rounded-full"
+                  className="w-15 rounded-full h-15"
                 />
               </div>
               <ul className="text-[12px]">
@@ -135,7 +204,93 @@ function Dash() {
             </div>
           </div>
         </div>
-        <div className="w-full h-73 bg-[#4F4F4F] rounded-2xl"></div>
+        {/* //graph styling total admin + total price */}
+        <div className="w-full h-73 bg-[#202020] rounded-2xl flex items-center p-3 justify-between text-white">
+<Bar
+  data={{
+    labels: groupedData.map((item) => item.name),
+
+    datasets: [
+      {
+        label: "Total Amount",
+
+        data: groupedData.map((item) => item.total),
+
+        backgroundColor: [
+          "#397ABF",
+          "#4F4F4F",
+          "#3CF220",
+          "#FF6384",
+        ],
+
+        borderRadius: 10,
+      },
+    ],
+  }}
+
+  options={{
+    responsive: true,
+
+    plugins: {
+      legend: {
+        labels: {
+          color: "white",
+        },
+      },
+    },
+
+    scales: {
+      x: {
+        ticks: {
+          color: "white",
+        },
+      },
+
+      y: {
+        ticks: {
+          color: "white",
+        },
+      },
+    },
+  }}
+/>
+<div className="w-70 h-full bg-black rounded-2xl p-3">
+<Doughnut
+  data={{
+    labels: currentUserProducts.map((item) => item.product),
+
+    datasets: [
+      {
+        data: currentUserProducts.map((item) =>
+          Number(item.price)
+        ),
+
+        backgroundColor: [
+          "#397ABF",
+          "#F2BA20",
+          "#3CF220",
+          "#F11B1B",
+        ],
+
+        borderWidth: 2,
+      },
+    ],
+  }}
+
+  options={{
+    plugins: {
+      legend: {
+        labels: {
+          color: "white",
+        },
+      },
+    },
+
+    cutout: "60%",
+  }}
+/>
+</div>
+        </div>
       </div>
       <div className="w-[83%] h-100 bg-[#202020] rounded-2xl p-4 flex flex-col gap-4">
         {/* HEADER */}
