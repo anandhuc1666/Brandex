@@ -2,7 +2,7 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { ToastContainer, toast } from "react-toastify"; import "react-toastify/dist/ReactToastify.css";
 import {Bar, Doughnut} from "react-chartjs-2"
-import Chart from "../../../Chart.json"
+
 import {
   Chart as ChartJS,
   CategoryScale,
@@ -41,7 +41,7 @@ ChartJS.register(
   };
   const [userOne, setUserOne] = useState([])
   const [project, setProjectData] = useState(AddProjectServer);
-
+console.log(users)
   const datapassingproject = (e) => {
     e.preventDefault();
     setProjectData({

@@ -89,7 +89,7 @@ const Submit_Data = async (e) => {
             <p>OR</p>
             <div className="sm:w-50 w-full h-[1px] bg-[#0d0d0d]"></div>
           </div>
-          <p className="sm:text-[15px] text-[12px]">Don't have an account? <a href="/signup" className="text-blue-500 hover:underline">Sign up</a></p>
+          {/* <p className="sm:text-[15px] text-[12px]">Don't have an account? <a href="/signup" className="text-blue-500 hover:underline">Sign up</a></p> */}
           <div className="flex flex-col items-center gap-2">
             <p className="sm:text-[15px] text-[12px] font-light">sign up with google</p>
             <button className="sm:w-80 w-70 h-10 justify-center shadow-2xl bg-[#eeee] border-white border hover:bg-[#e6e4e4ee] rounded-full items-center flex gap-5 cursor-pointer transition-all">
