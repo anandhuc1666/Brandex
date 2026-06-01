@@ -85,3 +85,64 @@
 .hover-slow-rotate:hover {
   animation: slowRotate 6s linear infinite;
 }
+
+
+@keyframes spinSlow {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes spinReverse {
+  from {
+    transform: rotate(360deg);
+  }
+  to {
+    transform: rotate(0deg);
+  }
+}
+
+@keyframes iconPulse {
+  0% {
+    transform: scale(0.8);
+  }
+
+  50% {
+    transform: scale(1.15);
+  }
+
+  100% {
+    transform: scale(0.8);
+  }
+}
+
+.animate-spinSlow {
+  animation: spinSlow 18s linear infinite;
+}
+
+.animate-spinReverse {
+  animation: spinReverse 14s linear infinite;
+}
+
+.animate-iconPulse {
+  animation: iconPulse 2.5s ease-in-out infinite;
+}
+
+
+@keyframes scrollLoop {
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-scroll {
+  width: max-content;
+  animation: scrollLoop 15s linear infinite;
+}

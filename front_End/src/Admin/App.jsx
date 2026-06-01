@@ -26,6 +26,7 @@ import Google from "../Brandax/Components/GoogleAds/Google";
 import Influencer from "../Brandax/Components/InfluencerMarketing/Influencer";
 import OnlineReputation from "../Brandax/Components/OnlineReputation/OnlineReputation";
 import VideoMarketing from "../Brandax/Components/VideoMarketing/VideoMarketing";
+import Schedule from "../Brandax/Components/Appoiment/Schedule";
 
 
 function Layout() {
@@ -73,7 +74,7 @@ const token = localStorage.getItem("token");
 
 function App() {
   return (
-    <div className="sm:flex bg-black text-white font-Nunito w-full hidden flex-col">
+    <div className="sm:flex bg-black text-white font-Nunito w-full flex-col">
       <BrowserRouter>
         <Layout />
       </BrowserRouter>

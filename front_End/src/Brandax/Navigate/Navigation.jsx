@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-import Company_Logo_Brandax from "../Photo/Brandax_Logo.png";
+// import Company_Logo_Brandax from "../Photo/Brandax_Logo.png";
+import  company_logo from "../Photo/sample_logo.png"
 import { useNavigate } from "react-router-dom";
 
 function Navigation() {
@@ -139,8 +140,8 @@ function Navigation() {
   };
 
   return (
-    <div className="w-full mx-auto flex bg-[#397ABF]/70 backdrop-blur-sm items-center justify-between px-5 fixed z-10">
-     <a href="/"><img src={Company_Logo_Brandax} alt="Brandax" className="h-20" id="#"/></a> 
+    <div className="w-full mx-auto flex bg-[#397ABF]/70 backdrop-blur-sm items-center justify-between px-5 h-20 fixed z-40">
+     <a href="/"><img src={company_logo} alt="Brandax" className="h-10 w-40" id="#" /></a> 
       <ul className="flex gap-15 font-Nunito mr-30 text-[18px]">
         <div className="relative m-auto flex items-start justify-center">
           <li
