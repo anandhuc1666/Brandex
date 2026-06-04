@@ -11,7 +11,7 @@ import pic1 from "../../clients/Png (2).png";
 import pic2 from "../../clients/Png (3).png";
 import pic3 from "../../clients/Png (4).png";
 import pic4 from "../../clients/Png (5).png";
-import anandhu from "../../clients/anandhu.png";
+// import anandhu from "../../clients/anandhu.png";
 import { TiStarFullOutline } from "react-icons/ti";
 import Schedule from "../Appoiment/Schedule";
 import Footer from "../../Footers/Footer";
@@ -20,7 +20,7 @@ import Footer from "../../Footers/Footer";
 function Home() {
   const teamMembers = [
   {
-    image: anandhu,
+    image: "https://i.pinimg.com/1200x/0e/db/f3/0edbf38c0d27da9b9dd4cf8a95c850b7.jpg",
     role: "Software Developer",
     description:
       "Building modern, scalable and user-friendly software solutions with custom development.",
@@ -28,7 +28,7 @@ function Home() {
     linkedin: "https://www.linkedin.com/in/anandhu-chulliveetill/",
   },
   {
-    image: "",
+    image: "https://i.pinimg.com/736x/8c/5e/9d/8c5e9dd58ecd175df019b09f6bac72b6.jpg",
     role: "Digital Marketing Specialist",
     description:
       "Managing SEO, social media marketing, and advertising campaigns.",
@@ -36,15 +36,16 @@ function Home() {
     linkedin: "#",
   },
   {
-    image: "",
+    image: "https://i.pinimg.com/736x/0d/a5/e7/0da5e7b3a24ea9ef05db4eaa253e9cf3.jpg",
     role: "UI/UX Designer",
     description:
       "Creating beautiful and user-friendly interfaces for digital products.",
     instagram: "#",
     linkedin: "#",
   },
+  
   {
-    image: "",
+    image: "https://i.pinimg.com/1200x/2c/e3/98/2ce398b6e5a2999258f2327bbbb72a73.jpg",
     role: "Video Editor",
     description:
       "Producing engaging videos and motion graphics for brands.",
@@ -53,7 +54,7 @@ function Home() {
   },
 ];
   return (
-    <div className="w-auto  bg-[#EFEFF1] text-black flex flex-col p-3">
+    <div className="w-auto  bg-[#EFEFF1] text-black flex flex-col">
       <div className="flex sm:flex-row sm:gap-0 flex-col gap-10">
         <div className="sm:w-200 w-full sm:h-screen h-auto flex flex-col items-start justify-end sm:pl-25 sm:py-10 p-6 gap-10">
           <h1 className="sm:text-6xl text-4xl font-normal">
@@ -344,7 +345,7 @@ function Home() {
 </div>
       {/* ...............................................................final team section.......................... */}
 
-     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 h-auto py-20">
+     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 h-auto py-20 px-5">
   {teamMembers.map((member, index) => (
     <div
       key={index}
