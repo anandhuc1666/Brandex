@@ -32,6 +32,7 @@ import OnlineReputation from "../Brandax/Components/OnlineReputation/OnlineReput
 import VideoMarketing from "../Brandax/Components/VideoMarketing/VideoMarketing";
 
 import ProtectedRoute from "./ProtectedRoute";
+import PageNoteFind from "../Brandax/error/PageNoteFind";
 
 function Layout() {
   const location = useLocation();
@@ -128,9 +129,7 @@ function Layout() {
         <Route
           path="*"
           element={
-            <div className="flex justify-center items-center h-screen">
-              <h1 className="text-4xl font-bold">404 - Page Not Found</h1>
-            </div>
+           <PageNoteFind/>
           }
         />
       </Routes>
