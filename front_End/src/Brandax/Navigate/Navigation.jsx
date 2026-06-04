@@ -97,7 +97,7 @@ function Navigation() {
   }, []);
   return (
     <nav
-      className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
+      className={`fixed top-0 left-0 w-full z-50 transition-all duration-300  ${
         showNav ? "translate-y-0" : "-translate-y-full"
       }`}
     >
@@ -113,7 +113,7 @@ function Navigation() {
       </div>
 
       <div
-        className={`fixed top-0 left-0 w-75 h-screen bg-white z-50
+        className={`fixed top-0 left-0 w-75 shadow-lg h-screen bg-white z-50
   transition-all duration-300 ease-in-out
   ${
     isMobileMenuOpen
@@ -136,7 +136,7 @@ function Navigation() {
                   className="cursor-pointer"
                   onClick={() => menu.path && navigate(menu.path)}
                 >
-                  {menu.title}
+                  <li onClick={() => handleMobileMenu(index)}>{menu.title}</li>
                 </span>
                 {menu.items && (
                   <IoIosArrowBack
@@ -153,7 +153,8 @@ function Navigation() {
                   {menu.items.map((item, i) => (
                     <li
                       key={i}
-                      className="px-8 py-3 text-sm font-normal cursor-pointer transition-all duration-500 hover:bg-[#397ABF] hover:text-white"
+                      className="px-8 py-3 text-sm font-normal cursor-pointer transition-all 
+                      duration-500 hover:bg-[#397ABF] hover:text-white"
                       onClick={() => {
                         navigate(item.path);
                         setIsMobileMenuOpen(false);
