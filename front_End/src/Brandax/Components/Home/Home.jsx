@@ -11,7 +11,6 @@ import pic1 from "../../clients/Png (2).png";
 import pic2 from "../../clients/Png (3).png";
 import pic3 from "../../clients/Png (4).png";
 import pic4 from "../../clients/Png (5).png";
-// import anandhu from "../../clients/anandhu.png";
 import { TiStarFullOutline } from "react-icons/ti";
 import Schedule from "../Appoiment/Schedule";
 import Footer from "../../Footers/Footer";
@@ -54,10 +53,10 @@ function Home() {
   },
 ];
   return (
-    <div className="w-auto  bg-[#EFEFF1] text-black flex flex-col">
+    <div className="w-auto sm:mt-0 mt-15 bg-[#EFEFF1] text-black flex flex-col">
       <div className="flex sm:flex-row sm:gap-0 flex-col gap-10">
         <div className="sm:w-200 w-full sm:h-screen h-auto flex flex-col items-start justify-end sm:pl-25 sm:py-10 p-6 gap-10">
-          <h1 className="sm:text-6xl text-4xl font-normal">
+          <h1 className="sm:text-6xl text-4xl sm:leading-20 font-normal">
             Your Brand Deserves Better{" "}
             <span className="font-bold text-[#397ABF]">Marketing</span>
           </h1>
@@ -71,7 +70,7 @@ function Home() {
           <div className="flex sm:gap-10 gap-5 sm:text-4xl text-2xl">
            <a href="https://www.instagram.com/brandax_studio/"><FaInstagram /></a>     
             <RiWhatsappLine />
-            <TbBrandLinkedin />
+           <a href="https://www.linkedin.com/company/brandax-branding-studio/"><TbBrandLinkedin /></a> 
           </div>
           <div className="flex sm:gap-10 gap-5 items-center">
             <div className="sm:w-30 w-20 sm:h-10 h-6  border rounded-full flex justify-between items-center p-1">
@@ -178,14 +177,14 @@ function Home() {
           {/* ......................................................first image set.................................................. */}
           <div className="sm:w-130 sm:h-120 flex justify-end sm:flex-col flex-col-reverse items-center gap-5 relative py-3">
             <p className="bg-white px-5 py-2 rounded-full shadow">Planning</p>
-            <div className="bg-white rounded-2xl sm:w-70 w-70 sm:h-80 h-70 shadow z-10 p-1 overflow-hidden transition-all
+            <div className="bg-white rounded-2xl sm:w-70 w-70 sm:h-80 h-67 shadow z-10 p-1 overflow-hidden transition-all
              duration-500 hover:scale-105 hover:shadow-2xl cursor-pointer">
               <img
                 src="https://media.istockphoto.com/id/694600920/video/caucasian-woman-discussing-a-financial-graph-on-the-screen-in-meeting-room-with-her-african.jpg?s=640x640&k=20&c=mnphfALaNjEfgAxeNHAfKhJhDnklheRSrcfUkinxy6k="
                 alt=""
                 className="sm:w-70 w-70 rounded-2xl"
               />
-              <div className="p-3 text-justify sm:text-[15px] text-[11px] font-bold">
+              <div className="p-2 text-justify sm:text-[15px] text-[12px] font-bold">
                 <p>
                   A businesswoman is presenting data on a large digital screen,
                   pointing at a rising graph during a meeting. Another colleague
@@ -201,14 +200,14 @@ function Home() {
             />
           </div>
           <div className="sm:w-70 h-90 w-70 flex items-center justify-center flex-col gap-5 relative">
-            <div className="bg-white sm:h-60 h-70 rounded-[10px] p-1 z-10 shadow overflow-hidden transition-all
+            <div className="bg-white sm:h-60 h-65 rounded-[10px] p-1 z-10 shadow overflow-hidden transition-all
              duration-500 hover:scale-105 hover:shadow-2xl cursor-pointer">
               <img
                 src="https://media.istockphoto.com/id/1200289077/video/confident-indian-businesswoman-coach-speaking-during-corporate-team-meeting.jpg?s=640x640&k=20&c=cJ-QlicyMw4IoXkYFjOaRw8QHw9OsfR0LR8_2rVRl_g="
                 alt=""
                 className="w-70 rounded-[10px]"
               />
-              <div className="p-2  text-justify sm:text-[12px] text-[11px]  font-bold">
+              <div className="p-2  text-justify sm:text-[12px] text-[12px]  font-bold">
                 A confident team member from our side is presenting ideas during
                 a professional meeting discussion. The team is actively
                 listening and collaborating in a modern office environment.
@@ -229,7 +228,7 @@ function Home() {
                 alt=""
                 className="sm:w-100 w-70 rounded-2xl"
               />
-              <div className="sm:p-4 p-1 sm:text-[18px] text-[11px]  font-bold text-justify">
+              <div className="sm:p-4 p-2 sm:text-[18px] text-[12px]  font-bold text-justify">
                 Create and design innovative business strategies with smart
                 digital solutions and data-driven insights.Our team focuses on
                 creativity, planning, and modern technology to deliver
@@ -266,7 +265,7 @@ function Home() {
       </div>
       {/* ............................................................next phone template............................ */}
 
-      <div className="w-full h-auto  bg-amber-50 p-5 sm:flex items-center justify-evenly">
+      <div className="w-full h-auto p-5 sm:flex items-center justify-evenly">
         <div className="sm:w-150 flex flex-col gap-10 text-center sm:text-left">
           <li className="list-none font-bold sm:text-4xl text-2xl">
             Our Value Proposition
