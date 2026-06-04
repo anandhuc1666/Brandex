@@ -1,22 +1,26 @@
 import React from "react";
 import {
   BrowserRouter,
-  Navigate,
-  Route,
   Routes,
+  Route,
+  Navigate,
   useLocation,
 } from "react-router-dom";
+
+// Admin
 import Dash from "./Home/Dashboard/Dash";
 import Login from "../Admin/auth/Login";
-// import Register from "../Admin/auth/Register";
 import Book from "./Home/booking/Book";
-import Nav from "./Home/Navication/Nav";
 import Payment from "./Home/Payment/Payment";
 import Customer from "./Home/Customer/Customer";
 import Order from "./Home/Orders/Order";
 import Review from "./Home/Review/Review";
 
+// Navigation
+import Nav from "./Home/Navication/Nav";
 import Navigation from "../Brandax/Navigate/Navigation";
+
+// Website Pages
 import Hero from "../Brandax/Hero/Hero";
 import SocialMedia from "../Brandax/Components/Socialmedia/SocialMedia";
 import ContentMarketing from "../Brandax/Components/ContentMarketing/ContentMarketing";
@@ -26,47 +30,109 @@ import Google from "../Brandax/Components/GoogleAds/Google";
 import Influencer from "../Brandax/Components/InfluencerMarketing/Influencer";
 import OnlineReputation from "../Brandax/Components/OnlineReputation/OnlineReputation";
 import VideoMarketing from "../Brandax/Components/VideoMarketing/VideoMarketing";
-import Schedule from "../Brandax/Components/Appoiment/Schedule";
 
+import ProtectedRoute from "./ProtectedRoute";
 
 function Layout() {
   const location = useLocation();
 
-  const showNav =
-    location.pathname === "/dashboard" ||
-    location.pathname === "/book" ||
-    location.pathname === "/payment" ||
-    location.pathname === "/customer" ||
-    location.pathname === "/order" ||
-    location.pathname === "/reviews";
-  
-    
-const token = localStorage.getItem("token");
+  const adminRoutes = [
+    "/dashboard",
+    "/book",
+    "/payment",
+    "/customer",
+    "/order",
+    "/reviews",
+  ];
+
+  const hideNavbarRoutes = ["/login"];
+
+  const isAdminRoute = adminRoutes.includes(location.pathname);
+  const hideNavbar = hideNavbarRoutes.includes(location.pathname);
 
   return (
     <>
-      {showNav===true? <Nav /> : <Navigation/>}
+      {!hideNavbar && (isAdminRoute ? <Nav /> : <Navigation />)}
 
       <Routes>
-        <Route path="/dashboard" element={token ? <Dash /> : <Navigate to="/Login" />} />
-        <Route path="/Login" element={<Login />} />
-        {/* <Route path="/signup" element={<Register />} /> */}
-        <Route path="/book" element={token ? <Book /> : <Navigate to="/" />} />
-        <Route path="/payment" element={token ? <Payment /> : <Navigate to="/" />} />
-        <Route path="/customer" element={token ? <Customer /> : <Navigate to="/" />} />
-        <Route path="/order" element={token ? <Order /> : <Navigate to="/" />} />
-        <Route path="/reviews" element={token ? <Review /> : <Navigate to="/" />} />
-        <Route path="*" element={<h1 className="text-center mt-20 text-3xl">404 Not Found</h1>} />
-        {/* ............................................................Under section for user page................................... */}
-        <Route path="/" element={<Hero/>}/>
-        <Route path="/Socialmedia" element={<SocialMedia/>}/>
-        <Route path="/ContentMarketing" element={<ContentMarketing/>}/>
-        <Route path="/EmailMarketing" element={<EmailMarketing/>}/>
-        <Route path="/OnlineAdvertising" element={<Online/>}/>
-        <Route path="/GoogleAds" element={<Google/>}/>
-        <Route path="/InfluencerMarketing" element={<Influencer/>}/>
-        <Route path="/OnlineReputation" element={<OnlineReputation/>}/>
-        <Route path="/VideoMarketing" element={<VideoMarketing/>}/>
+        {/* Website Routes */}
+        <Route path="/" element={<Hero />} />
+        <Route path="/social-media" element={<SocialMedia />} />
+        <Route path="/content-marketing" element={<ContentMarketing />} />
+        <Route path="/email-marketing" element={<EmailMarketing />} />
+        <Route path="/online-advertising" element={<Online />} />
+        <Route path="/google-ads" element={<Google />} />
+        <Route path="/influencer-marketing" element={<Influencer />} />
+        <Route path="/online-reputation" element={<OnlineReputation />} />
+        <Route path="/video-marketing" element={<VideoMarketing />} />
+
+        {/* Login */}
+        <Route path="/login" element={<Login />} />
+
+        {/* Protected Admin Routes */}
+        <Route
+          path="/dashboard"
+          element={
+            <ProtectedRoute>
+              <Dash />
+            </ProtectedRoute>
+          }
+        />
+
+        <Route
+          path="/book"
+          element={
+            <ProtectedRoute>
+              <Book />
+            </ProtectedRoute>
+          }
+        />
+
+        <Route
+          path="/payment"
+          element={
+            <ProtectedRoute>
+              <Payment />
+            </ProtectedRoute>
+          }
+        />
+
+        <Route
+          path="/customer"
+          element={
+            <ProtectedRoute>
+              <Customer />
+            </ProtectedRoute>
+          }
+        />
+
+        <Route
+          path="/order"
+          element={
+            <ProtectedRoute>
+              <Order />
+            </ProtectedRoute>
+          }
+        />
+
+        <Route
+          path="/reviews"
+          element={
+            <ProtectedRoute>
+              <Review />
+            </ProtectedRoute>
+          }
+        />
+
+        {/* 404 Page */}
+        <Route
+          path="*"
+          element={
+            <div className="flex justify-center items-center h-screen">
+              <h1 className="text-4xl font-bold">404 - Page Not Found</h1>
+            </div>
+          }
+        />
       </Routes>
     </>
   );
@@ -74,11 +140,11 @@ const token = localStorage.getItem("token");
 
 function App() {
   return (
-    <div className="sm:flex bg-black text-white font-Nunito w-full flex-col">
-      <BrowserRouter>
+    <BrowserRouter>
+      <div className="font-Nunito min-h-screen">
         <Layout />
-      </BrowserRouter>
-    </div>
+      </div>
+    </BrowserRouter>
   );
 }
 

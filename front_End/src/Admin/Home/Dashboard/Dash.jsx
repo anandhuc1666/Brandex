@@ -162,7 +162,7 @@ console.log(projects)
 
 
   return (
-    <div className="w-full h-auto items-end flex flex-col gap-3 p-5 ">
+    <div className="w-full h-auto items-end text-white flex flex-col gap-3 p-5 ">
       <div className="w-[83%] h-75 box-border flex gap-3">
         <div className="flex flex-col gap-2.5">
           <div className="w-85 h-35 bg-[#202020] rounded-2xl p-3 flex flex-col gap-5">

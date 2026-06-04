@@ -1,9 +1,11 @@
 @import url("https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Arimo:ital,wght@0,400..700;1,400..700&display=swap');
 
 @import "tailwindcss";
 
 @theme {
   --font-Nunito: "Nunito", sans-serif;
+  --font-Arimo: "Arimo", sans-serif;
 }
 @keyframes float {
   0% {
@@ -145,4 +147,36 @@
 .animate-scroll {
   width: max-content;
   animation: scrollLoop 15s linear infinite;
+}
+
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fadeIn {
+  animation: fadeIn 0.25s ease;
+}
+
+@keyframes scroll {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-scroll {
+  animation: scroll 20s linear infinite;
+  width: max-content;
 }
