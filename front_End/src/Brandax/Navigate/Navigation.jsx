@@ -86,7 +86,7 @@ const handleLeave = () => {
               </button>
 
               {menu.items && activeMenu === index && (
-                <div className="absolute top-10 left-0 w-64 bg-white rounded-xl shadow-lg overflow-hidden">
+                <div className="absolute top-10 left-0 w-64 bg-white/90 rounded-xl shadow-lg overflow-hidden">
                   {menu.items.map((item, i) => (
                     <div
                       key={i}

@@ -69,7 +69,7 @@ function Home() {
             your business with the right audience and drive real results.
           </h6>
           <div className="flex sm:gap-10 gap-5 sm:text-4xl text-2xl">
-            <FaInstagram />
+           <a href="https://www.instagram.com/brandax_studio/"><FaInstagram /></a>     
             <RiWhatsappLine />
             <TbBrandLinkedin />
           </div>
@@ -174,16 +174,16 @@ function Home() {
       {/* ........................................................next list..........................................*/}
 
       <div className="w-full h-auto bg-gradient-to-b from-[#397ABF]/60 via-[#A6A6A6]/40 to-[#F0F0F3] relative z-10">
-        <div className="w-full h-auto flex sm:flex-row flex-col items-center sm:items-start">
+        <div className="w-full h-auto flex sm:flex-row flex-col justify-evenly items-center sm:items-start">
           {/* ......................................................first image set.................................................. */}
-          <div className="sm:w-130 sm:h-120 flex justify-end sm:flex-col flex-col-reverse items-center gap-5 relative">
+          <div className="sm:w-130 sm:h-120 flex justify-end sm:flex-col flex-col-reverse items-center gap-5 relative py-3">
             <p className="bg-white px-5 py-2 rounded-full shadow">Planning</p>
-            <div className="bg-white rounded-2xl sm:w-70 w-55 sm:h-80 h-60 shadow z-10 p-1 overflow-hidden transition-all
+            <div className="bg-white rounded-2xl sm:w-70 w-70 sm:h-80 h-70 shadow z-10 p-1 overflow-hidden transition-all
              duration-500 hover:scale-105 hover:shadow-2xl cursor-pointer">
               <img
                 src="https://media.istockphoto.com/id/694600920/video/caucasian-woman-discussing-a-financial-graph-on-the-screen-in-meeting-room-with-her-african.jpg?s=640x640&k=20&c=mnphfALaNjEfgAxeNHAfKhJhDnklheRSrcfUkinxy6k="
                 alt=""
-                className="sm:w-70 w-55 rounded-2xl"
+                className="sm:w-70 w-70 rounded-2xl"
               />
               <div className="p-3 text-justify sm:text-[15px] text-[11px] font-bold">
                 <p>
@@ -197,18 +197,18 @@ function Home() {
             <img
               src={arrow_mark}
               alt=""
-              className="absolute sm:h-50 -right-55 bottom-12 opacity-60 sm:flex hidden"
+              className="absolute sm:h-45 -right-40 bottom-15 opacity-60 sm:flex hidden"
             />
           </div>
-          <div className="sm:w-130 h-90 flex items-center justify-center flex-col gap-5 relative">
-            <div className="bg-white h-60 rounded-[10px] p-1 z-10 shadow overflow-hidden transition-all
+          <div className="sm:w-70 h-90 w-70 flex items-center justify-center flex-col gap-5 relative">
+            <div className="bg-white sm:h-60 h-70 rounded-[10px] p-1 z-10 shadow overflow-hidden transition-all
              duration-500 hover:scale-105 hover:shadow-2xl cursor-pointer">
               <img
                 src="https://media.istockphoto.com/id/1200289077/video/confident-indian-businesswoman-coach-speaking-during-corporate-team-meeting.jpg?s=640x640&k=20&c=cJ-QlicyMw4IoXkYFjOaRw8QHw9OsfR0LR8_2rVRl_g="
                 alt=""
-                className="h-30 rounded-[10px]"
+                className="w-70 rounded-[10px]"
               />
-              <div className="p-2 max-w-52 text-justify sm:text-[12px] text-[11px]  font-bold">
+              <div className="p-2  text-justify sm:text-[12px] text-[11px]  font-bold">
                 A confident team member from our side is presenting ideas during
                 a professional meeting discussion. The team is actively
                 listening and collaborating in a modern office environment.
@@ -218,16 +218,16 @@ function Home() {
             <img
               src={arrow_mark}
               alt=""
-              className="absolute h-50 -right-32 bottom-0 rotate-70 opacity-60 sm:flex hidden"
+              className="absolute h-30 -right-38 bottom-0 rotate-70 opacity-60 sm:flex hidden"
             />
           </div>
-          <div className="sm:w-130  sm:h-150  flex sm:flex-col flex-col-reverse items-center sm:justify-end justify-center gap-5">
+          <div className="sm:w-130 sm:h-150 w-70 h-90 flex sm:flex-col flex-col-reverse items-center sm:justify-end justify-center gap-5">
             <p className="bg-white px-5 py-2 rounded-full shadow">Creating</p>
-            <div className="bg-white sm:w-100 w-55 p-1 box-border h-auto rounded-2xl shadow overflow-hidden transition-all duration-500 hover:scale-105 hover:shadow-2xl cursor-pointer">
+            <div className="bg-white sm:w-100 w-70 p-1 box-border h-auto rounded-2xl shadow overflow-hidden transition-all duration-500 hover:scale-105 hover:shadow-2xl cursor-pointer">
               <img
                 src="https://media.istockphoto.com/id/1210948126/photo/woman-working-as-business-development-showing-talking-about-information-graphs-in-computer.jpg?s=612x612&w=0&k=20&c=XZeZzlqNHoom90AhOzutvcc3IjPwqA5rmu5Ro_yl-lY="
                 alt=""
-                className="sm:w-100 w-55 rounded-2xl"
+                className="sm:w-100 w-70 rounded-2xl"
               />
               <div className="sm:p-4 p-1 sm:text-[18px] text-[11px]  font-bold text-justify">
                 Create and design innovative business strategies with smart
@@ -248,13 +248,13 @@ function Home() {
           success for every project.
         </h6>
         <ul className="flex sm:gap-10 gap-5">
-          <li className="bg-white sm:px-10 px-3 flex items-center justify-center sm:py-3 py-2 text-2xl text-[13px] rounded-full border font-bold shadow-blue-500  shadow-sm">
+          <li className="bg-white sm:px-10 px-3 flex items-center justify-center sm:py-3 py-2 text-2xl text-[13px] rounded-full border font-bold shadow-[#397ABF]  shadow-sm">
             Contact
           </li>
-          <li className="bg-white sm:px-10 px-3 flex items-center justify-center sm:py-3 py-2 text-2xl text-[13px] rounded-full border font-bold shadow-green-500 shadow-sm">
+          <li className="bg-white sm:px-10 px-3 flex items-center justify-center sm:py-3 py-2 text-2xl text-[13px] rounded-full border font-bold shadow-[#397ABF] shadow-sm">
             Email
           </li>
-          <li className="bg-white sm:px-10 px-3 flex items-center justify-center sm:py-3 py-2 text-2xl text-[13px] rounded-full border font-bold shadow-pink-500 shadow-sm">
+          <li className="bg-white sm:px-10 px-3 flex items-center justify-center sm:py-3 py-2 text-2xl text-[13px] rounded-full border font-bold shadow-[#397ABF] shadow-sm">
             Explore
           </li>
         </ul>
@@ -266,12 +266,12 @@ function Home() {
       </div>
       {/* ............................................................next phone template............................ */}
 
-      <div className="w-full hidden h-screen sm:flex items-center justify-evenly">
-        <div className="w-150 flex flex-col gap-10">
-          <li className="list-none font-bold text-4xl">
+      <div className="w-full h-auto  bg-amber-50 p-5 sm:flex items-center justify-evenly">
+        <div className="sm:w-150 flex flex-col gap-10 text-center sm:text-left">
+          <li className="list-none font-bold sm:text-4xl text-2xl">
             Our Value Proposition
           </li>
-          <li className="list-none text-[15px]">
+          <li className="list-none text-[15px] text-justify">
             We are committed to delivering the highest quality service, built on
             trust, dedication, and results. When you choose to work with us, you
             gain a team that stands by your business every day focused on
@@ -282,7 +282,7 @@ function Home() {
             professionalism and quality delivery exceeded our expectations”
           </li>
         </div>
-        <img src={phone_web_page} alt="" className="w-80 h-150" />
+        <img src={phone_web_page} alt="" className="w-80 sm:flex hidden h-150" />
       </div>
       {/* ...............................................................final client section........................ */}
 
@@ -301,16 +301,16 @@ function Home() {
   <div className="w-full max-w-6xl bg-white shadow-lg rounded-full overflow-hidden py-4 sm:py-6">
     <div className="flex items-center gap-8 sm:gap-12 md:gap-20 animate-scroll whitespace-nowrap">
       {/* First Set */}
-      <img src={pic1} alt="" className="h-10 sm:h-14 md:h-18" />
-      <img src={pic2} alt="" className="h-10 sm:h-14 md:h-18" />
-      <img src={pic3} alt="" className="h-10 sm:h-14 md:h-18" />
-      <img src={pic4} alt="" className="h-10 sm:h-14 md:h-18" />
+      <img src={pic1} alt="" className="h-13 sm:h-14 md:h-18" />
+      <img src={pic2} alt="" className="h-13 sm:h-14 md:h-18" />
+      <img src={pic3} alt="" className="h-13 sm:h-14 md:h-18 bg-black" />
+      <img src={pic4} alt="" className="h-13 sm:h-14 md:h-18" />
 
       {/* Duplicate Set */}
-      <img src={pic1} alt="" className="h-10 sm:h-14 md:h-18" />
-      <img src={pic2} alt="" className="h-10 sm:h-14 md:h-18" />
-      <img src={pic3} alt="" className="h-10 sm:h-14 md:h-18" />
-      <img src={pic4} alt="" className="h-10 sm:h-14 md:h-18" />
+      <img src={pic1} alt="" className="h-13 sm:h-14 md:h-18" />
+      <img src={pic2} alt="" className="h-13 sm:h-14 md:h-18" />
+      <img src={pic3} alt="" className="h-13 sm:h-14 md:h-18 bg-black" />
+      <img src={pic4} alt="" className="h-13 sm:h-14 md:h-18" />
     </div>
   </div>
 
@@ -320,12 +320,12 @@ function Home() {
       Our Team
     </h5>
 
-    <div className="space-y-5 text-gray-700 leading-8 text-base sm:text-lg">
+    <div className="space-y-5 text-gray-700 leading-8 text-base text-justify sm:text-lg">
       <p>
         Teamwork and hard work are the foundation of success in digital
         marketing. In a fast-changing digital world, no single person can
         handle all aspects of marketing effectively. It requires a team of
-        skilled individuals such as content creators, SEO specialists,
+        skilled individuals such as content creators, <span className="font-bold underline text-[#397ABF]">SEO</span> specialists,
         designers, developers, and analysts working together toward a
         common goal.
       </p>
