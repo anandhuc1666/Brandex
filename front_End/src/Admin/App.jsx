@@ -58,7 +58,7 @@ function Layout() {
       <Routes>
         {/* Website Routes */}
         <Route path="/" element={<Hero />} />
-        <Route path="/social-media" element={<SocialMedia />} />
+        <Route path="/socialmedia" element={<SocialMedia />} />
         <Route path="/content-marketing" element={<ContentMarketing />} />
         <Route path="/email-marketing" element={<EmailMarketing />} />
         <Route path="/online-advertising" element={<Online />} />
