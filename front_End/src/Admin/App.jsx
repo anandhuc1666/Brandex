@@ -30,9 +30,10 @@ import Google from "../Brandax/Components/GoogleAds/Google";
 import Influencer from "../Brandax/Components/InfluencerMarketing/Influencer";
 import OnlineReputation from "../Brandax/Components/OnlineReputation/OnlineReputation";
 import VideoMarketing from "../Brandax/Components/VideoMarketing/VideoMarketing";
-
 import ProtectedRoute from "./ProtectedRoute";
 import PageNoteFind from "../Brandax/error/PageNoteFind";
+import Loader from "../Brandax/Loading/Loader";
+import { useEffect, useState } from "react";
 
 function Layout() {
   const location = useLocation();
@@ -50,7 +51,18 @@ function Layout() {
 
   const isAdminRoute = adminRoutes.includes(location.pathname);
   const hideNavbar = hideNavbarRoutes.includes(location.pathname);
+const [loading, setLoading] = useState(true);
 
+  useEffect(() => {
+  const timer = setTimeout(() => {
+    setLoading(false);
+  }, 2000); // 2 seconds
+
+  return () => clearTimeout(timer);
+}, []);
+  if (loading) {
+    return <Loader />;
+  }
   return (
     <>
       {!hideNavbar && (isAdminRoute ? <Nav /> : <Navigation />)}
@@ -124,6 +136,7 @@ function Layout() {
             </ProtectedRoute>
           }
         />
+        <Route path="/loader" element={<Loader />} />
 
         {/* 404 Page */}
         <Route
