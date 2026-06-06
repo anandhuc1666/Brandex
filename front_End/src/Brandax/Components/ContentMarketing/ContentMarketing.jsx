@@ -111,7 +111,7 @@ function ContentMarketing() {
           e reach and engagement.
         </p>
         <div className="grid sm:grid-cols-2 gap-5 items-center justify-center mt-10 font-Arimo text-[12px]">
-          <div className="sm:w-120 w-90 h-30 bg-white px-3 flex items-center gap-5">
+          <div className="sm:w-120 w-90 h-35 sm:text-start text-justify border-white bg-white rounded-[5px] shadow px-3 flex items-center gap-5">
             <div className="w-20 h-20 bg-[#397ABF] text-white font-bold text-4xl flex items-center justify-center font-Nunito">
               <p>1</p>
             </div>
@@ -125,7 +125,7 @@ function ContentMarketing() {
               </li>
             </ul>
           </div>
-          <div className="sm:w-120 w-90 h-30 bg-white px-3 flex items-center gap-5">
+          <div className="sm:w-120 w-90 h-35 sm:text-start text-justify border-white bg-white rounded-[5px] shadow px-3 flex items-center gap-5">
             <div className="w-20 h-20 bg-[#F0F0F3] text-[#397ABF] font-bold text-4xl flex items-center justify-center font-Nunito">
               <p>2</p>
             </div>
@@ -138,7 +138,7 @@ function ContentMarketing() {
               </li>
             </ul>
           </div>
-          <div className="sm:w-120 w-90 h-30 bg-white px-3 flex items-center gap-5">
+          <div className="sm:w-120 w-90 h-35 sm:text-start text-justify border-white bg-white rounded-[5px] shadow px-3 flex items-center gap-5">
             <div className="w-20 h-20 bg-[#F0F0F3] text-[#397ABF] font-bold text-4xl flex items-center justify-center font-Nunito">
               <p>3</p>
             </div>
@@ -146,13 +146,12 @@ function ContentMarketing() {
               <li className="font-bold text-[15px]">Scheduled Posting</li>
               <li className="max-w-[340px] ">
                 Every piece of content will be optimized with trending and
-                relevant hashtags to maximize reach and connect with potential
-                clients effectively. We ensure every possible strategy is used
+                relevant hashtags to maximize reach and connect. We ensure every possible strategy is used
                 to strengthen your brand visibility and boost publicity.
               </li>
             </ul>
           </div>
-          <div className="sm:w-120 w-90 h-30 bg-white px-3 flex items-center gap-5">
+          <div className="sm:w-120 w-90 h-35 sm:text-start text-justify border border-white bg-white rounded-[5px] shadow px-3 flex items-center gap-5">
             <div className="w-20 h-20 bg-[#397ABF] text-white font-bold text-4xl flex items-center justify-center font-Nunito">
               <p>4</p>
             </div>
