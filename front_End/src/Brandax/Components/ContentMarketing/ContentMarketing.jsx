@@ -104,7 +104,7 @@ function ContentMarketing() {
           PROCESS<span className="text-[#397ABF] font-extrabold">BEHIND</span>
         </h1>
         <p className="sm:max-w-[730px] max-w-[350px] sm:text-[16px] text-justify text-[14px] text-center font-Arimo">
-          Our content marketing strategy follows a well-structured process
+          Our content marketing strategy follows a well structured process
           designed to deliver the best results through impactful visual and
           written content. This includes careful topic selection, strategic
           keywordplacement, and effective search engine optimization to maximiz

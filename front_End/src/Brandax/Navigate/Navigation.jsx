@@ -182,7 +182,7 @@ function Navigation() {
         <img
           src={CompanyLogo}
           alt="Brandax"
-          className="h-20 cursor-pointer"
+          className="h-30 cursor-pointer"
           onClick={() => navigate("/")}
         />
 
