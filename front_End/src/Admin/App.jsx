@@ -73,7 +73,7 @@ const [loading, setLoading] = useState(true);
         <Route path="/socialmedia" element={<SocialMedia />} />
         <Route path="/contentmarketing" element={<ContentMarketing />} />
         <Route path="/emailmarketing" element={<EmailMarketing />} />
-        <Route path="/online-advertising" element={<Online />} />
+        <Route path="/onlineadvertising" element={<Online />} />
         <Route path="/google-ads" element={<Google />} />
         <Route path="/influencer-marketing" element={<Influencer />} />
         <Route path="/online-reputation" element={<OnlineReputation />} />

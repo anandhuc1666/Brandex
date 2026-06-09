@@ -1,37 +1,8 @@
 import React from "react";
 import { IoIosArrowForward } from "react-icons/io";
-import { FaBlog } from "react-icons/fa";
-import { TiVideo } from "react-icons/ti";
-import { SiFirefoxbrowser } from "react-icons/si";
-import { FaMicrophoneLines } from "react-icons/fa6";
 import Schedule from "../Appoiment/Schedule";
 import Footer from "../../Footers/Footer";
 function EmailMarketing() {
-  const Marketing_data = [
-    {
-      title: "Framing Emails",
-      description:
-        "Our talented team of creators crafts professional and engaging emails that perfectly reflect your brand identity, helping you achieve better customer engagement and improved results.",
-    },
-    {
-      title: "Expert Team",
-      description:
-        "Our creative team of concept developers and video creators produces engaging videos. we create videos that resonate with your audience and effectively promote your brand.",
-      image: <TiVideo />,
-    },
-    {
-      title: "Social Media Content",
-      description:
-        "Our digital marketers and content creators work together to craft engaging, high quality content that resonates with your audience and encourages sharing across social media platforms.",
-      image: <SiFirefoxbrowser />,
-    },
-    {
-      title: "Podcasts",
-      description:
-        "Engaging podcasts can leave a lasting impression of your brand in the minds of listeners. Promote your brand and connect with your audience.",
-      image: <FaMicrophoneLines />,
-    },
-  ];
   return (
     <div className="w-full h-auto bg-[#F0F0F3] text-black font-Nunito sm:pt-30 pt-10 flex flex-col justify-center gap-5">
       <div className="w-full h-auto flex sm:flex-row flex-col items-center justify-evenly sm:gap-0 gap-10 p-6">
