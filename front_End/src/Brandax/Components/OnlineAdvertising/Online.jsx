@@ -1,9 +1,11 @@
-import React from "react";
+
 import { IoIosArrowForward } from "react-icons/io";
 import Schedule from "../Appoiment/Schedule";
 import Footer from "../../Footers/Footer";
 import { motion } from "framer-motion";
+import FAQ from "../FAQ/FAQ";
 function Online() {
+
   return (
     <div className="w-full h-auto bg-[#F0F0F3] text-black font-Nunito sm:pt-30 pt-10 flex flex-col justify-center gap-5">
       <div className="w-full h-auto flex sm:flex-row flex-col items-center justify-evenly sm:gap-0 gap-10 p-6">
@@ -83,19 +85,18 @@ function Online() {
       </motion.div>
       {/* ......................................................next page........................................................ */}
 
-      <div
-        className="w-full h-auto p-5 flex items-center justify-center"
-      >
+      <div className="w-full h-auto p-5 flex items-center justify-center">
         <div className="grid grid-cols-2 gap-10">
           <motion.div
-               initial={{ opacity: 0, y: 120 }}
+            initial={{ opacity: 0, y: 120 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{
               duration: 2.5,
               ease: "easeOut",
             }}
             viewport={{ amount: 0.3 }}
-          className="max-w-145 flex flex-col gap-3 h-auto p-3">
+            className="max-w-145 flex flex-col gap-3 h-auto p-3"
+          >
             <h1 className="text-2xl font-bold text-[#397ABF]">Identity</h1>
             <p className="text-justify sm:text-start border-l p-1 sm:border-none sm:pl-0">
               We strengthen your brand identity in the digital space through
@@ -104,14 +105,15 @@ function Online() {
             </p>
           </motion.div>
           <motion.div
-               initial={{ opacity: 0, y: 120 }}
+            initial={{ opacity: 0, y: 120 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{
               duration: 2.5,
               ease: "easeOut",
             }}
             viewport={{ amount: 0.3 }}
-          className="max-w-145 flex flex-col gap-3 h-auto p-3">
+            className="max-w-145 flex flex-col gap-3 h-auto p-3"
+          >
             <h1 className="text-2xl font-bold text-black">Reliability</h1>
             <p className="text-justify sm:text-start border-l p-1 sm:border-none sm:pl-0">
               Assured reliability is one of the defining qualities of Brandax.
@@ -120,14 +122,15 @@ function Online() {
             </p>
           </motion.div>
           <motion.div
-               initial={{ opacity: 0, y: 120 }}
+            initial={{ opacity: 0, y: 120 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{
               duration: 2,
               ease: "easeOut",
             }}
             viewport={{ amount: 0.3 }}
-          className="max-w-145 flex flex-col gap-3 h-auto p-3 ">
+            className="max-w-145 flex flex-col gap-3 h-auto p-3 "
+          >
             <h1 className="text-2xl font-bold text-black">Support</h1>
             <p className="text-justify sm:text-start border-l p-1 sm:border-none sm:pl-0">
               Our professionals provide continuous support throughout the
@@ -135,15 +138,16 @@ function Online() {
               progress toward your business goals.
             </p>
           </motion.div>
-          <motion.div 
-               initial={{ opacity: 0, y: 120 }}
+          <motion.div
+            initial={{ opacity: 0, y: 120 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{
               duration: 2,
               ease: "easeOut",
             }}
             viewport={{ amount: 0.3 }}
-          className="max-w-145 flex flex-col gap-3 h-auto p-3">
+            className="max-w-145 flex flex-col gap-3 h-auto p-3"
+          >
             <h1 className="text-2xl font-bold text-[#397ABF]">Reach</h1>
             <p className="text-justify sm:text-start border-l p-1 sm:border-none sm:pl-0">
               By expanding your reach and increasing brand visibility, we help
@@ -151,14 +155,15 @@ function Online() {
             </p>
           </motion.div>
           <motion.div
-               initial={{ opacity: 0, y: 120 }}
+            initial={{ opacity: 0, y: 120 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{
               duration: 1.5,
               ease: "easeOut",
             }}
             viewport={{ amount: 0.3 }}
-          className="max-w-145 flex flex-col gap-3 h-auto p-3">
+            className="max-w-145 flex flex-col gap-3 h-auto p-3"
+          >
             <h1 className="text-2xl font-bold text-[#397ABF]">Growth</h1>
             <p className="text-justify sm:text-start border-l p-1 sm:border-none sm:pl-0">
               By building a strong brand identity and expanding your reach, our
@@ -186,14 +191,15 @@ function Online() {
           </p>
         </div>
         <motion.div
-             initial={{ opacity: 0, y: 120 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{
-              duration: 1.5,
-              ease: "easeOut",
-            }}
-            viewport={{ amount: 0.5 }}
-        className="w-100 h-auto text-[14px] flex flex-col gap-5 p-5">
+          initial={{ opacity: 0, y: 120 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{
+            duration: 1.5,
+            ease: "easeOut",
+          }}
+          viewport={{ amount: 0.5 }}
+          className="w-100 h-auto text-[14px] flex flex-col gap-5 p-5"
+        >
           <ul className="flex flex-col gap-2">
             <li className="text-[18px] font-Nunito font-bold">Google Ads</li>
             <li className="text-justify">
@@ -368,7 +374,7 @@ function Online() {
         </div>
       </motion.div>
       {/* ................................................................page end................................................................*/}
-
+     <FAQ/>
       <Schedule />
       <Footer />
     </div>
