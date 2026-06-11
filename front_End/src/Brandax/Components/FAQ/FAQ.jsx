@@ -39,7 +39,7 @@ function FAQ() {
           {/* FAQ 2 */}
           <div
             className={`overflow-hidden border-b text-start p-3 flex flex-col gap-3 transition-all duration-300 ${
-              active === 2 ? "sm:max-h-40 h-60" : "max-h-10"
+              active === 2 ? "sm:max-h-40 h-auto" : "max-h-10"
             }`}
           >
             <p
