@@ -39,7 +39,7 @@ function FAQ() {
           {/* FAQ 2 */}
           <div
             className={`overflow-hidden border-b text-start p-3 flex flex-col gap-3 transition-all duration-300 ${
-              active === 2 ? "max-h-40" : "max-h-10"
+              active === 2 ? "sm:max-h-40 h-60" : "max-h-10"
             }`}
           >
             <p
@@ -59,7 +59,7 @@ function FAQ() {
           {/* FAQ 3 */}
           <div
             className={`overflow-hidden border-b text-start p-3 flex flex-col gap-3 transition-all duration-300 ${
-              active === 3 ? "max-h-32" : "max-h-10"
+              active === 3 ? "sm:max-h-32 h-40" : "max-h-10"
             }`}
           >
             <p
@@ -79,7 +79,7 @@ function FAQ() {
           {/* FAQ 4 */}
           <div
             className={`overflow-hidden border-b text-start p-3 flex flex-col gap-3 transition-all duration-300 ${
-              active === 4 ? "max-h-40" : "max-h-10"
+              active === 4 ? "sm:max-h-40 h-60" : "max-h-10"
             }`}
           >
             <p
