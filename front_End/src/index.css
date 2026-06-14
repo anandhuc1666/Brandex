@@ -180,3 +180,7 @@
   animation: scroll 20s linear infinite;
   width: max-content;
 }
+
+html {
+  scroll-behavior: smooth;
+}

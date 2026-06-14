@@ -1,11 +1,11 @@
-
 import { IoIosArrowForward } from "react-icons/io";
 import Schedule from "../Appoiment/Schedule";
 import Footer from "../../Footers/Footer";
 import { motion } from "framer-motion";
 import FAQ from "../FAQ/FAQ";
+import { Link } from "react-router-dom";
+import Book from "../../../Admin/Home/booking/Book";
 function Online() {
-
   return (
     <div className="w-full h-auto bg-[#F0F0F3] text-black font-Nunito sm:pt-30 pt-10 flex flex-col justify-center gap-5">
       <div className="w-full h-auto flex sm:flex-row flex-col items-center justify-evenly sm:gap-0 gap-10 p-6">
@@ -53,9 +53,11 @@ function Online() {
           focuses on carefully selected digital platforms to promote your brand
           effectively and deliver optimal results.
         </motion.p>
-        <li className="px-6 py-3 bg-[#397ABF] text-white rounded-full text-[15px] hover:bg-[#2a5a8c] shadow-lg cursor-pointer border">
-          Schedule Appointment Today
-        </li>
+        <Link to={"/Booking"}>
+          <button className="px-6 py-3 bg-[#397ABF] text-white rounded-full text-[15px] hover:bg-[#2a5a8c] shadow-lg cursor-pointer border">
+            Schedule Appointment Today
+          </button>
+        </Link>
       </motion.div>
       <motion.div
         initial={{ opacity: 0, y: 20 }}
@@ -374,7 +376,7 @@ function Online() {
         </div>
       </motion.div>
       {/* ................................................................page end................................................................*/}
-     <FAQ/>
+      <FAQ />
       <Schedule />
       <Footer />
     </div>

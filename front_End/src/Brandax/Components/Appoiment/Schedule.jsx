@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import call_employer from "../../Photo/busy-employer.jpg";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { Link } from "react-router-dom";
 
 function Schedule() {
   const values_data = {
@@ -14,44 +15,44 @@ function Schedule() {
   const [data, setData] = useState(values_data);
   const SheetURL =
     "https://script.google.com/macros/s/AKfycbzByb78blBRQp4UN6hr1DgpJi5bw2ZGEnggCGwxrovI2TitLpRAcTxuF1Wp5grviWtalA/exec";
- const handlechangeAPO = (e) => {
-  const { name, value } = e.target;
+  const handlechangeAPO = (e) => {
+    const { name, value } = e.target;
 
-  setData((prev) => ({
-    ...prev,
-    [name]: value,
-  }));
-};
-const HandelePass = async (e) => {
-  e.preventDefault();
+    setData((prev) => ({
+      ...prev,
+      [name]: value,
+    }));
+  };
+  const HandelePass = async (e) => {
+    e.preventDefault();
 
-  const toastId = toast.loading("Submitting appointment...");
+    const toastId = toast.loading("Submitting appointment...");
 
-  try {
-    await fetch(SheetURL, {
-      method: "POST",
-      body: JSON.stringify(data),
-    });
+    try {
+      await fetch(SheetURL, {
+        method: "POST",
+        body: JSON.stringify(data),
+      });
 
-    toast.update(toastId, {
-      render: "Appointment submitted successfully!",
-      type: "success",
-      isLoading: false,
-      autoClose: 3000,
-    });
+      toast.update(toastId, {
+        render: "Appointment submitted successfully!",
+        type: "success",
+        isLoading: false,
+        autoClose: 3000,
+      });
 
-    setData(values_data);
-  } catch (error) {
-    console.error(error);
+      setData(values_data);
+    } catch (error) {
+      console.error(error);
 
-    toast.update(toastId, {
-      render: "Submission failed!",
-      type: "error",
-      isLoading: false,
-      autoClose: 3000,
-    });
-  }
-};
+      toast.update(toastId, {
+        render: "Submission failed!",
+        type: "error",
+        isLoading: false,
+        autoClose: 3000,
+      });
+    }
+  };
   return (
     <div className="flex flex-col text-white">
       {/* Top Section */}
@@ -91,7 +92,10 @@ const HandelePass = async (e) => {
                 <span className="text-[#397ABF]">Something Great</span>
               </h1>
 
-              <form className="grid md:grid-cols-2 gap-6" onSubmit={HandelePass}>
+              <form
+                className="grid md:grid-cols-2 gap-6"
+                onSubmit={HandelePass}
+              >
                 <input
                   type="text"
                   placeholder="Name"
@@ -143,13 +147,12 @@ const HandelePass = async (e) => {
                 >
                   Submit
                 </button>
-                
               </form>
-    <ToastContainer
-      position="top-right"
-      autoClose={3000}
-      theme="colored"
-    />
+              <ToastContainer
+                position="top-right"
+                autoClose={3000}
+                theme="colored"
+              />
               <p className="text-center text-black mt-6">
                 Share your requirements and our team will contact you shortly.
               </p>
@@ -177,9 +180,11 @@ const HandelePass = async (e) => {
             delivery.
           </p>
 
-          <button className="px-8 py-4 bg-white text-[#397ABF] rounded-full shadow-lg hover:bg-[#397ABF] hover:text-white border border-white transition-all duration-300">
-            Schedule Appointment Today
-          </button>
+          <Link to={"/Booking"}>
+            <button className="px-8 py-4 bg-white text-[#397ABF] rounded-full shadow-lg hover:bg-[#397ABF] hover:text-white border border-white transition-all duration-300">
+              Schedule Appointment Today
+            </button>
+          </Link>
         </div>
       </div>
     </div>

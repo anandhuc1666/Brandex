@@ -2,6 +2,8 @@ import React from "react";
 import { IoIosArrowForward } from "react-icons/io";
 import Schedule from "../Appoiment/Schedule";
 import Footer from "../../Footers/Footer";
+import { Link } from "react-router-dom";
+import Book from "../../../Admin/Home/booking/Book";
 function EmailMarketing() {
   return (
     <div className="w-full h-auto bg-[#F0F0F3] text-black font-Nunito sm:pt-30 pt-10 flex flex-col justify-center gap-5">
@@ -38,9 +40,11 @@ function EmailMarketing() {
           approach helps elevate your business and accelerate brand success
           effectively.
         </li>
-        <li className="px-6 py-3 bg-[#397ABF] text-white rounded-full text-[15px] hover:bg-[#2a5a8c] shadow-lg cursor-pointer border">
-          Schedule Appointment Today
-        </li>
+        <Link to={"/Booking"}>
+          <button className="px-6 py-3 bg-[#397ABF] text-white rounded-full text-[15px] hover:bg-[#2a5a8c] shadow-lg cursor-pointer border">
+            Schedule Appointment Today
+          </button>
+        </Link>
       </div>
       <div className="w-full sm:h-[350px] h-auto sm:border-b  flex items-center gap-5 justify-evenly sm:flex-row flex-col p-6">
         <div className="">

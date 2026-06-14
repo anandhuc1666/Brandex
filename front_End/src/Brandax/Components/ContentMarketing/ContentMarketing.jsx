@@ -6,6 +6,9 @@ import { SiFirefoxbrowser } from "react-icons/si";
 import { FaMicrophoneLines } from "react-icons/fa6";
 import Schedule from "../Appoiment/Schedule";
 import Footer from "../../Footers/Footer";
+import { Link } from "react-router-dom";
+import Booking from "../../../Admin/Home/booking/Book";
+
 function ContentMarketing() {
   const Marketing_data = [
     {
@@ -67,9 +70,11 @@ function ContentMarketing() {
           dedicated content marketing team for every client to create engaging
           and impactful content that strengthens their brand presence.
         </li>
-        <li className="px-6 py-3 bg-[#397ABF] text-white rounded-full text-[15px] hover:bg-[#2a5a8c] shadow-lg cursor-pointer border">
-          Schedule Appointment Today
-        </li>
+        <Link to={"/Booking"}>
+          <button className="px-6 py-3 bg-[#397ABF] text-white rounded-full text-[15px] hover:bg-[#2a5a8c] shadow-lg cursor-pointer border">
+            Schedule Appointment Today
+          </button>
+        </Link>
       </div>
       {/* ......................................................next page........................................................ */}
 
@@ -133,8 +138,9 @@ function ContentMarketing() {
               <li className="font-bold text-[15px]">In house Discussion</li>
               <li className="max-w-[340px] ">
                 Content will be scheduled and published at strategically planned
-                times to reach the maximum audience effectively. Important occasions to
-                enhance your brand visibility and generate positive publicity.
+                times to reach the maximum audience effectively. Important
+                occasions to enhance your brand visibility and generate positive
+                publicity.
               </li>
             </ul>
           </div>
@@ -146,8 +152,9 @@ function ContentMarketing() {
               <li className="font-bold text-[15px]">Scheduled Posting</li>
               <li className="max-w-[340px] ">
                 Every piece of content will be optimized with trending and
-                relevant hashtags to maximize reach and connect. We ensure every possible strategy is used
-                to strengthen your brand visibility and boost publicity.
+                relevant hashtags to maximize reach and connect. We ensure every
+                possible strategy is used to strengthen your brand visibility
+                and boost publicity.
               </li>
             </ul>
           </div>

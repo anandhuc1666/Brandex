@@ -6,6 +6,8 @@ import { FiYoutube } from "react-icons/fi";
 import { CiLinkedin } from "react-icons/ci";
 import Schedule from "../Appoiment/Schedule";
 import Footer from "../../Footers/Footer";
+import Book from "../../../Admin/Home/booking/Book";
+import { Link } from "react-router-dom";
 
 function SocialMedia() {
   // bg-[#F0F0F3]
@@ -71,9 +73,11 @@ function SocialMedia() {
           and build brands for our clients. Our 18+ years of proven expertise
           can your business achieve your business goals in no time.
         </li>
-        <li className="px-6 py-3 bg-[#397ABF] text-white rounded-full text-[15px] hover:bg-[#2a5a8c] shadow-lg cursor-pointer border">
-          Schedule Appointment Today
-        </li>
+              <Link to={"/Booking"}>
+          <button className="px-6 py-3 bg-[#397ABF] text-white rounded-full text-[15px] hover:bg-[#2a5a8c] shadow-lg cursor-pointer border">
+            Schedule Appointment Today
+          </button>
+        </Link>
       </div>
       {/* ......................................................next page........................................................ */}
 
