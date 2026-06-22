@@ -33,8 +33,8 @@ function Navigation() {
       title: "Web Development",
       items: [
         {
-          name: "Custom Application Development",
-          path: "/custom-application",
+          name: "Custom Application",
+          path: "/CustomApplication",
         },
         { name: "Web Design Service", path: "/web-design" },
         { name: "Web Hosting", path: "/web-hosting" },

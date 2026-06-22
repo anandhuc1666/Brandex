@@ -35,6 +35,7 @@ import PageNoteFind from "../Brandax/error/PageNoteFind";
 import Loader from "../Brandax/Loading/Loader";
 import { useEffect, useState } from "react";
 import Booking from "../Brandax/Components/Booking/Booking";
+import CustomApplication from "../Brandax/Components/CustomeApp/CustomApplication"
 
 function Layout() {
   const location = useLocation();
@@ -80,6 +81,7 @@ const [loading, setLoading] = useState(true);
         <Route path="/online-reputation" element={<OnlineReputation />} />
         <Route path="/video-marketing" element={<VideoMarketing />} />
         <Route path="/Booking" element={<Booking/>}/>
+        <Route path="/CustomApplication" element={<CustomApplication/>}/>
 
         {/* Login */}
         <Route path="/login" element={<Login />} />
