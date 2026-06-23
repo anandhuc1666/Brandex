@@ -77,10 +77,10 @@ function CustomApplication() {
         <img
           src="https://media.istockphoto.com/id/2257726850/photo/female-programmer-developing-web-software-on-computer.jpg?s=612x612&w=0&k=20&c=DYCpHiEVUe4_U9NNWOjnXCCXU5bKmKmHGl7Yw3GCQGI="
           alt=""
-          className="sm:h-[400px] object-cover rounded-[15px] border border-white shadow"
+          className="w-full sm:w-[500px] h-[250px] sm:h-[400px] object-cover rounded-[15px] border border-white shadow"
         />
       </div>
-      <div className="w-full h-auto flex items-center sm:flex-row sm:px-30 p-6 flex-col justify-between list-none sm:gap-10 gap-5">
+      <div className="w-full h-auto flex flex-col sm:flex-row items-center justify-between list-none px-5 sm:px-30 gap-6">
         <li className="max-w-[800px] sm:text-[18px] text-[15px] text-justify">
           Social media is a genie that can be tamed for our marketing success.
           Brandax is the leading social media marketing agency in Malappuram,
@@ -94,9 +94,9 @@ function CustomApplication() {
           </button>
         </Link>
       </div>
-      <div className="w-full h-auto flex sm:flex-row flex-col items-center justify-between gap-40 sm:px-30">
-        <div className="sm:w-130 w-60 h-50  bg-[#397ABF]/60 border border-[#ffff] rounded-[10px] relative z-10 text-white">
-          <div className="sm:w-130 w-60 h-auto bg-[#397ABF] top-10 left-10 absolute border border-[#ffff] rounded-[10px] p-5 flex flex-col gap-5 shadow">
+      <div className="w-full h-auto flex flex-col lg:flex-row items-center justify-between gap-20 px-5 sm:px-30">
+        <div className="w-full sm:max-w-[520px] h-[200px] bg-[#397ABF]/60 border border-white rounded-[10px] relative z-10 text-white">
+          <div className="w-full sm:max-w-[520px] bg-[#397ABF] sm:top-10 sm:left-10 top-5 left-5 absolute border border-white rounded-[10px] p-5 flex flex-col gap-5 shadow">
             <p className="sm:text-4xl text-2xl">
               Custom Application Development
             </p>
@@ -108,14 +108,14 @@ function CustomApplication() {
             </p>
           </div>
         </div>
-        <div className="sm:w-160 sm:h-120 h-auto p-5 font-Arimo flex flex-col gap-10 overflow-y-auto scrollbar-hide">
+        <div className="w-full lg:max-w-[650px] h-auto p-5 font-Arimo flex flex-col gap-10">
           {list_array.map((item, index) => (
             <div key={index} className="flex flex-col gap-3">
               <ul className="flex gap-3 text-2xl items-center">
                 <li className="">{item.image}</li>
                 <li>{item.tittle}</li>
               </ul>
-              <p className="text-justify max-w-100">{item.discription}</p>
+              <p className="text-justify w-full">{item.discription}</p>
             </div>
           ))}
         </div>
@@ -136,7 +136,7 @@ function CustomApplication() {
             achieve their goals.
           </p>
         </div>
-        <div className="w-full grid sm:grid-cols-2 grid-cols-1 sm:gap-y-20 gap-5">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
           {list_special.map((item, index) => (
             <div key={index} className="max-w-150 text-justify">
               <div className="flex flex-col gap-3">
@@ -147,8 +147,8 @@ function CustomApplication() {
             </div>
           ))}
         </div>
-        <div className="flex items-center justify-center sm:gap-25 gap-5 text-justify sm:flex-row flex-col">
-          <img src={Browser_Bot_Image} alt="" className="sm:w-130 w-70" />
+        <div className="flex flex-col lg:flex-row items-center justify-center gap-10 lg:gap-20 text-justify">
+          <img src={Browser_Bot_Image} alt="" className="w-full max-w-[550px]" />
           <ul>
             <li className="sm:text-3xl text-2xl font-extrabold">Our Commitment</li>
             <li className="sm:text-[18px] text-[15px]">
@@ -160,7 +160,7 @@ function CustomApplication() {
         </div>
       </div>
       <div className="w-full text-justify sm:flex flex-col gap-10 sm:p-10 p-5">
-        <div className="flex items-center justify-center sm:gap-30 gap-10 flex-col sm:flex-row py-10">
+        <div className="flex flex-col lg:flex-row items-center justify-center gap-10 py-10">
           <ul className="max-w-160 flex flex-col gap-5">
             <li className="text-2xl font-extrabold sm:text-start text-center">Bug-Free Software</li>
             <li className="text-[15px]">
@@ -182,14 +182,14 @@ function CustomApplication() {
           <img
             src="https://media.istockphoto.com/id/2222587923/photo/ai-coding-assistant-for-software-development-concept-machine-learning-code-programmer-use.jpg?s=612x612&w=0&k=20&c=MIBb9OUC84UwHQIsTLdbb-40oszdFle2iQLFkoR-0mE="
             alt=""
-            className="w-120 rounded-[5px] border border-white"
+            className="w-full max-w-[500px] rounded-[5px] border border-white"
           />
         </div>
-        <div className="flex items-center justify-center sm:gap-30 gap-10 flex-col-reverse sm:flex-row">
+        <div className="flex flex-col-reverse lg:flex-row items-center justify-center gap-10">
           <img
             src="https://media.istockphoto.com/id/2210688897/photo/ux-ui-design-web-and-application-user-design-concepts-web-design-application-design-user.jpg?s=612x612&w=0&k=20&c=xGqukPJMP8lexSPr9mFW9_mZXgksPNd2p9MGBY5UjHw="
             alt=""
-            className="w-120 rounded-[5px] border border-white"
+            className="w-full max-w-[500px] rounded-[5px] border border-white"
           />
           <ul className="max-w-160 flex flex-col gap-5">
             <li className="text-2xl font-extrabold sm:text-start text-center">Lifetime Support</li>
