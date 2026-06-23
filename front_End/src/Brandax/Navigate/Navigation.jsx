@@ -124,7 +124,7 @@ function Navigation() {
         <div className="shadow rounded-full w-70 px-3 h-20 flex flex-row-reverse items-center justify-between ">
           <CgClose className="text-2xl cursor-pointer" onClick={handleActive} />
           <a href="/">
-            <img src={CompanyLogo} alt="Brandax" className="h-15 ml-2" />
+            <img src={CompanyLogo} alt="Brandax" className="h-15 ml-2 mt-3" />
           </a>
         </div>
 
@@ -134,9 +134,17 @@ function Navigation() {
               <div className="flex justify-between items-center py-4 px-4">
                 <span
                   className="cursor-pointer"
-                  onClick={() => menu.path && navigate(menu.path)}
+                  onClick={() => {
+                    if (menu.path) {
+                      navigate(menu.path);
+                      setIsMobileMenuOpen(false);
+                      setOpenMenu(null);
+                    } else {
+                      handleMobileMenu(index);
+                    }
+                  }}
                 >
-                  <li onClick={() => handleMobileMenu(index)}>{menu.title}</li>
+                  {menu.title}
                 </span>
                 {menu.items && (
                   <IoIosArrowBack

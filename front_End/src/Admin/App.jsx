@@ -37,6 +37,8 @@ import { useEffect, useState } from "react";
 import Booking from "../Brandax/Components/Booking/Booking";
 import CustomApplication from "../Brandax/Components/CustomeApp/CustomApplication"
 import Webdesign from "../Brandax/Components/WebDesign/Webdesign";
+import About from "../Brandax/About/About";
+
 
 function Layout() {
   const location = useLocation();
@@ -84,6 +86,7 @@ const [loading, setLoading] = useState(true);
         <Route path="/Booking" element={<Booking/>}/>
         <Route path="/CustomApplication" element={<CustomApplication/>}/>
         <Route path="/webdesign" element={<Webdesign/>}/>
+        <Route path="/about" element={<About/>}/>
 
         {/* Login */}
         <Route path="/login" element={<Login />} />
