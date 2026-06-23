@@ -36,7 +36,7 @@ function Navigation() {
           name: "Custom Application",
           path: "/CustomApplication",
         },
-        { name: "Web Design Service", path: "/web-design" },
+        { name: "Web Design Service", path: "/webdesign" },
         { name: "Web Hosting", path: "/web-hosting" },
         { name: "ECommerce Solutions", path: "/ecommerce" },
       ],

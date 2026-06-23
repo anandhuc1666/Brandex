@@ -77,7 +77,7 @@ function CustomApplication() {
         <img
           src="https://media.istockphoto.com/id/2257726850/photo/female-programmer-developing-web-software-on-computer.jpg?s=612x612&w=0&k=20&c=DYCpHiEVUe4_U9NNWOjnXCCXU5bKmKmHGl7Yw3GCQGI="
           alt=""
-          className="w-full sm:w-[500px] h-[250px] sm:h-[400px] object-cover rounded-[15px] border border-white shadow"
+          className="w-full sm:w-[750px] h-[250px] sm:h-[400px] object-cover rounded-[15px] border border-white shadow"
         />
       </div>
       <div className="w-full h-auto flex flex-col sm:flex-row items-center justify-between list-none px-5 sm:px-30 gap-6">
