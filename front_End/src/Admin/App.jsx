@@ -38,6 +38,8 @@ import Booking from "../Brandax/Components/Booking/Booking";
 import CustomApplication from "../Brandax/Components/CustomeApp/CustomApplication"
 import Webdesign from "../Brandax/Components/WebDesign/Webdesign";
 import About from "../Brandax/About/About";
+import Webhosting from "../Brandax/Components/webhosting/Webhosting";
+import Ecommerce from "../Brandax/Components/Ecommerce/Ecommerce";
 
 
 function Layout() {
@@ -87,6 +89,8 @@ const [loading, setLoading] = useState(true);
         <Route path="/CustomApplication" element={<CustomApplication/>}/>
         <Route path="/webdesign" element={<Webdesign/>}/>
         <Route path="/about" element={<About/>}/>
+        <Route path="/webhosting" element={<Webhosting/>}/>
+        <Route path="/ecommerce" element={<Ecommerce/>}/>
 
         {/* Login */}
         <Route path="/login" element={<Login />} />
