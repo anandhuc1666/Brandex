@@ -107,36 +107,36 @@ function Home() {
             <div className="absolute sm:w-[550px] sm:h-[550px] w-[250px] h-[250px] sm:border border-black rounded-full animate-spinSlow">
               {/* animate-spinSlow */}
               {/* META */}
-              <div className="absolute top-[-35px] left-1/2  -translate-x-1/2 animate-iconPulse sm:flex hidden">
+              <div className="absolute top-[-35px] sm:left-1/2 left-2/3 -translate-x-1/2 animate-iconPulse sm:flex">
                 <img
                   src="https://img.icons8.com/3d-fluency/1500/meta.png"
                   alt=""
-                  className="sm:w-20 w-15 rotate-45 "
+                  className="sm:w-20 w-10 rotate-45 "
                 />
               </div>
 
               {/* INSTAGRAM */}
-              <div className="absolute top-[120px] right-[-20px] animate-iconPulse sm:flex hidden">
+              <div className="absolute top-[120px] right-[-20px] animate-iconPulse sm:flex ">
                 <img
                   src="https://img.icons8.com/3d-fluency/1500/instagram-logo.png"
                   alt=""
                   className="sm:w-15 w-10 "
                 />
               </div>
-              <div className="absolute top-13 left-10 z-20 animate-iconPulse sm:flex hidden">
+              <div className="absolute top-13 left-10 z-20 animate-iconPulse sm:flex">
                 <img
                   src="https://img.icons8.com/fluency/240/youtube-play.png"
                   alt=""
-                  className="sm:w-15 w-10 rotate-10"
+                  className="sm:w-15 w-5 rotate-10"
                 />
               </div>
 
               {/* FACEBOOK */}
-              <div className="absolute bottom-[10px] right-[100px] animate-iconPulse z-20 sm:flex hidden">
+              <div className="absolute bottom-[10px] right-[100px] animate-iconPulse z-20 sm:flex">
                 <img
                   src="https://img.icons8.com/3d-fluency/1500/facebook-logo.png"
                   alt=""
-                  className="sm:w-16 w-12"
+                  className="sm:w-16 w-6"
                 />
               </div>
             </div>
@@ -144,14 +144,14 @@ function Home() {
             {/* INNER CIRCLE */}
             <div className="absolute sm:w-[480px] sm:h-[480px] w-[300px] h-[300px] sm:border border-black rounded-full animate-spinReverse">
               {/* animate-spinReverse */}
-              <div className="absolute top-[180px] -left-6 animate-iconPulse sm:flex hidden">
+              <div className="absolute top-[180px] sm:-left-6 animate-iconPulse sm:flex">
                 <img
                   src="https://img.icons8.com/3d-fluency/1500/whatsapp-logo.png"
                   alt=""
                   className="sm:w-16 w-12"
                 />
               </div>
-              <div className="absolute -bottom-6 right-50 animate-iconPulse sm:flex hidden">
+              <div className="absolute sm:-bottom-6 right-50 animate-iconPulse sm:flex hidden">
                 <img
                   src="https://img.icons8.com/fluency/240/linkedin.png"
                   alt=""
