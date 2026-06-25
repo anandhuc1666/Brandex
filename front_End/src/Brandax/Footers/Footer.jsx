@@ -1,25 +1,19 @@
 import React from "react";
 import logo from "../Photo/Brandax_Logo.png";
-import {
-  FaInstagram,
-  FaWhatsapp,
-  FaLinkedin,
-} from "react-icons/fa";
+import { FaInstagram, FaWhatsapp, FaLinkedin } from "react-icons/fa";
 
 function Footer() {
+  const phone = "917034492490";
+  const message = encodeURIComponent(
+    "Hi Brandax Studio, I'm interested in your services. Could you please provide more information?",
+  );
   return (
     <footer className="w-full bg-[#F5F5F5] py-16 px-6 md:px-12 lg:px-20">
       <div className="max-w-7xl mx-auto">
-
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
-
           {/* Company Info */}
           <div className="flex flex-col gap-6">
-            <img
-              src={logo}
-              alt="Brandax"
-              className="w-36"
-            />
+            <img src={logo} alt="Brandax" className="w-36" />
 
             <div>
               <h3 className="text-xl font-bold text-black">
@@ -27,9 +21,8 @@ function Footer() {
               </h3>
 
               <p className="text-gray-600 mt-3 text-sm leading-6">
-                We help businesses grow through design,
-                development, and digital marketing
-                solutions.
+                We help businesses grow through design, development, and digital
+                marketing solutions.
               </p>
             </div>
 
@@ -41,7 +34,7 @@ function Footer() {
               <div className="text-gray-600 text-sm space-y-2">
                 <p>Kerala, India</p>
                 <p>brandaxbrandingstudio@gmail.com</p>
-                <p>+91 XXXXX XXXXX</p>
+                <p>+91 7034492490</p>
               </div>
             </div>
           </div>
@@ -96,7 +89,7 @@ function Footer() {
 
             <div className="flex gap-8 mt-10 text-4xl text-black">
               <a
-                href="https://www.instagram.com/"
+                href="https://www.instagram.com/brandax_studio/"
                 target="_blank"
                 rel="noreferrer"
               >
@@ -104,18 +97,15 @@ function Footer() {
               </a>
 
               <a
-                href="https://wa.me/"
+                href={`https://wa.me/${phone}?text=${message}`}
                 target="_blank"
-                rel="noreferrer"
+                rel="noopener noreferrer"
+                aria-label="Chat on WhatsApp"
               >
                 <FaWhatsapp className="hover:text-[#397ABF] transition" />
               </a>
 
-              <a
-                href="https://www.linkedin.com/"
-                target="_blank"
-                rel="noreferrer"
-              >
+              <a href="https://www.linkedin.com/company/brandax-branding-studio/">
                 <FaLinkedin className="hover:text-[#397ABF] transition" />
               </a>
             </div>
@@ -128,7 +118,6 @@ function Footer() {
             © 2026 Brandax. All Rights Reserved.
           </p>
         </div>
-
       </div>
     </footer>
   );

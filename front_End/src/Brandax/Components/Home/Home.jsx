@@ -15,43 +15,49 @@ import { TiStarFullOutline } from "react-icons/ti";
 import Schedule from "../Appoiment/Schedule";
 import Footer from "../../Footers/Footer";
 
-
 function Home() {
   const teamMembers = [
-  {
-    image: "https://i.pinimg.com/1200x/0e/db/f3/0edbf38c0d27da9b9dd4cf8a95c850b7.jpg",
-    role: "Software Developer",
-    description:
-      "Building modern, scalable and user-friendly software solutions with custom development.",
-    instagram: "https://www.instagram.com/a_nandhu_c/",
-    linkedin: "https://www.linkedin.com/in/anandhu-chulliveetill/",
-  },
-  {
-    image: "https://i.pinimg.com/736x/8c/5e/9d/8c5e9dd58ecd175df019b09f6bac72b6.jpg",
-    role: "Digital Marketing Specialist",
-    description:
-      "Managing SEO, social media marketing, and advertising campaigns.",
-    instagram: "#",
-    linkedin: "#",
-  },
-  {
-    image: "https://i.pinimg.com/736x/0d/a5/e7/0da5e7b3a24ea9ef05db4eaa253e9cf3.jpg",
-    role: "UI/UX Designer",
-    description:
-      "Creating beautiful and user-friendly interfaces for digital products.",
-    instagram: "#",
-    linkedin: "#",
-  },
-  
-  {
-    image: "https://i.pinimg.com/1200x/2c/e3/98/2ce398b6e5a2999258f2327bbbb72a73.jpg",
-    role: "Video Editor",
-    description:
-      "Producing engaging videos and motion graphics for brands.",
-    instagram: "#",
-    linkedin: "#",
-  },
-];
+    {
+      image:
+        "https://i.pinimg.com/1200x/0e/db/f3/0edbf38c0d27da9b9dd4cf8a95c850b7.jpg",
+      role: "Software Developer",
+      description:
+        "Building modern, scalable and user-friendly software solutions with custom development.",
+      instagram: "https://www.instagram.com/a_nandhu_c/",
+      linkedin: "https://www.linkedin.com/in/anandhu-chulliveetill/",
+    },
+    {
+      image:
+        "https://i.pinimg.com/736x/8c/5e/9d/8c5e9dd58ecd175df019b09f6bac72b6.jpg",
+      role: "Digital Marketing Specialist",
+      description:
+        "Managing SEO, social media marketing, and advertising campaigns.",
+      instagram: "#",
+      linkedin: "#",
+    },
+    {
+      image:
+        "https://i.pinimg.com/736x/0d/a5/e7/0da5e7b3a24ea9ef05db4eaa253e9cf3.jpg",
+      role: "UI/UX Designer",
+      description:
+        "Creating beautiful and user-friendly interfaces for digital products.",
+      instagram: "#",
+      linkedin: "#",
+    },
+
+    {
+      image:
+        "https://i.pinimg.com/1200x/2c/e3/98/2ce398b6e5a2999258f2327bbbb72a73.jpg",
+      role: "Video Editor",
+      description: "Producing engaging videos and motion graphics for brands.",
+      instagram: "#",
+      linkedin: "#",
+    },
+  ];
+  const phone = "917034492490";
+  const message = encodeURIComponent(
+    "Hi Brandax Studio, I'm interested in your services. Could you please provide more information?",
+  );
   return (
     <div className="w-auto sm:mt-0 mt-15 bg-[#EFEFF1] text-black flex flex-col">
       <div className="flex sm:flex-row sm:gap-0 flex-col gap-10">
@@ -68,9 +74,20 @@ function Home() {
             your business with the right audience and drive real results.
           </h6>
           <div className="flex sm:gap-10 gap-5 sm:text-4xl text-2xl">
-           <a href="https://www.instagram.com/brandax_studio/"><FaInstagram /></a>     
-            <RiWhatsappLine />
-           <a href="https://www.linkedin.com/company/brandax-branding-studio/"><TbBrandLinkedin /></a> 
+            <a href="https://www.instagram.com/brandax_studio/">
+              <FaInstagram />
+            </a>
+            <a
+              href={`https://wa.me/${phone}?text=${message}`}
+              target="_blank"
+              rel="noopener noreferrer"
+               aria-label="Chat on WhatsApp"
+            >
+              <RiWhatsappLine />
+            </a>
+            <a href="https://www.linkedin.com/company/brandax-branding-studio/">
+              <TbBrandLinkedin />
+            </a>
           </div>
           <div className="flex sm:gap-10 gap-5 items-center">
             <div className="sm:w-30 w-20 sm:h-10 h-6  border rounded-full flex justify-between items-center p-1">
@@ -98,10 +115,14 @@ function Home() {
               />
             </div>
           </div>
-          <p className="sm:text-[15px] text-[13px]">Next-level digital innovation from the origin</p>
+          <p className="sm:text-[15px] text-[13px]">
+            Next-level digital innovation from the origin
+          </p>
         </div>
         <div className="sm:w-200 w-full p-6 sm:p-0 sm:h-screen h-auto relative sm:flex  flex-col items-center justify-end gap-10 ">
-          <p className="absolute right-30 text-[15px] font-light sm:flex hidden">Your Success Is Our Priority </p>
+          <p className="absolute right-30 text-[15px] font-light sm:flex hidden">
+            Your Success Is Our Priority{" "}
+          </p>
           <div className="relative sm:w-[700px] sm:h-[700px] flex items-start flex-col justify-center">
             {/* OUTER CIRCLE */}
             <div className="absolute sm:w-[550px] sm:h-[550px] w-[250px] h-[250px] sm:border border-black rounded-full animate-spinSlow">
@@ -177,8 +198,10 @@ function Home() {
           {/* ......................................................first image set.................................................. */}
           <div className="sm:w-130 sm:h-120 flex justify-end sm:flex-col flex-col-reverse items-center gap-5 relative py-3">
             <p className="bg-white px-5 py-2 rounded-full shadow">Planning</p>
-            <div className="bg-white rounded-2xl sm:w-70 w-70 sm:h-80 h-67 shadow z-10 p-1 overflow-hidden transition-all
-             duration-500 hover:scale-105 hover:shadow-2xl cursor-pointer">
+            <div
+              className="bg-white rounded-2xl sm:w-70 w-70 sm:h-80 h-67 shadow z-10 p-1 overflow-hidden transition-all
+             duration-500 hover:scale-105 hover:shadow-2xl cursor-pointer"
+            >
               <img
                 src="https://media.istockphoto.com/id/694600920/video/caucasian-woman-discussing-a-financial-graph-on-the-screen-in-meeting-room-with-her-african.jpg?s=640x640&k=20&c=mnphfALaNjEfgAxeNHAfKhJhDnklheRSrcfUkinxy6k="
                 alt=""
@@ -200,8 +223,10 @@ function Home() {
             />
           </div>
           <div className="sm:w-70 h-90 w-70 flex items-center justify-center flex-col gap-5 relative">
-            <div className="bg-white sm:h-60 h-65 rounded-[10px] p-1 z-10 shadow overflow-hidden transition-all
-             duration-500 hover:scale-105 hover:shadow-2xl cursor-pointer">
+            <div
+              className="bg-white sm:h-60 h-65 rounded-[10px] p-1 z-10 shadow overflow-hidden transition-all
+             duration-500 hover:scale-105 hover:shadow-2xl cursor-pointer"
+            >
               <img
                 src="https://media.istockphoto.com/id/1200289077/video/confident-indian-businesswoman-coach-speaking-during-corporate-team-meeting.jpg?s=640x640&k=20&c=cJ-QlicyMw4IoXkYFjOaRw8QHw9OsfR0LR8_2rVRl_g="
                 alt=""
@@ -242,8 +267,7 @@ function Home() {
         <h1 className="font-bold sm:text-4xl text-3xl">Choose with us</h1>
         <h6 className="sm:text-[15px] text-[11px] sm:max-w-150 text-center max-w-70">
           Innovative solutions, creative designs, and professional service you
-          can trust.
-           We are committed to delivering quality, reliability, and
+          can trust. We are committed to delivering quality, reliability, and
           success for every project.
         </h6>
         <ul className="flex sm:gap-10 gap-5">
@@ -281,122 +305,110 @@ function Home() {
             professionalism and quality delivery exceeded our expectations”
           </li>
         </div>
-        <img src={phone_web_page} alt="" className="w-80 sm:flex hidden h-150" />
+        <img
+          src={phone_web_page}
+          alt=""
+          className="w-80 sm:flex hidden h-150"
+        />
       </div>
       {/* ...............................................................final client section........................ */}
 
-     <div className="w-full min-h-auto flex  flex-col items-center justify-center gap-12 px-5 py-20">
+      <div className="w-full min-h-auto flex  flex-col items-center justify-center gap-12 px-5 py-20">
+        {/* Heading */}
+        <div className="text-center">
+          <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold leading-tight">
+            Discover the perfect solution tailored
+            <br className="hidden sm:block" />
+            to your business needs.
+          </h1>
+        </div>
 
-  {/* Heading */}
-  <div className="text-center">
-    <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold leading-tight">
-      Discover the perfect solution tailored
-      <br className="hidden sm:block" />
-      to your business needs.
-    </h1>
-  </div>
+        {/* Logo Slider */}
+        <div className="w-full max-w-6xl bg-white shadow-lg rounded-full overflow-hidden py-4 sm:py-6">
+          <div className="flex items-center gap-8 sm:gap-12 md:gap-20 animate-scroll whitespace-nowrap">
+            {/* First Set */}
+            <img src={pic1} alt="" className="h-13 sm:h-14 md:h-18" />
+            <img src={pic2} alt="" className="h-13 sm:h-14 md:h-18" />
+            <img src={pic3} alt="" className="h-13 sm:h-14 md:h-18 bg-black" />
+            <img src={pic4} alt="" className="h-13 sm:h-14 md:h-18" />
 
-  {/* Logo Slider */}
-  <div className="w-full max-w-6xl bg-white shadow-lg rounded-full overflow-hidden py-4 sm:py-6">
-    <div className="flex items-center gap-8 sm:gap-12 md:gap-20 animate-scroll whitespace-nowrap">
-      {/* First Set */}
-      <img src={pic1} alt="" className="h-13 sm:h-14 md:h-18" />
-      <img src={pic2} alt="" className="h-13 sm:h-14 md:h-18" />
-      <img src={pic3} alt="" className="h-13 sm:h-14 md:h-18 bg-black" />
-      <img src={pic4} alt="" className="h-13 sm:h-14 md:h-18" />
-
-      {/* Duplicate Set */}
-      <img src={pic1} alt="" className="h-13 sm:h-14 md:h-18" />
-      <img src={pic2} alt="" className="h-13 sm:h-14 md:h-18" />
-      <img src={pic3} alt="" className="h-13 sm:h-14 md:h-18 bg-black" />
-      <img src={pic4} alt="" className="h-13 sm:h-14 md:h-18" />
-    </div>
-  </div>
-
-  {/* Team Section */}
-  <div className="w-full max-w-5xl text-center sm:text-left">
-    <h5 className="text-2xl sm:text-3xl font-bold mb-6">
-      Our Team
-    </h5>
-
-    <div className="space-y-5 text-gray-700 leading-8 text-base text-justify sm:text-lg">
-      <p>
-        Teamwork and hard work are the foundation of success in digital
-        marketing. In a fast-changing digital world, no single person can
-        handle all aspects of marketing effectively. It requires a team of
-        skilled individuals such as content creators, <span className="font-bold underline text-[#397ABF]">SEO</span> specialists,
-        designers, developers, and analysts working together toward a
-        common goal.
-      </p>
-
-      <p>
-        Hard work is equally important in digital marketing. Success does
-        not come overnight. It takes continuous effort, testing, and
-        learning. Marketers must regularly analyze data, track
-        performance, and improve strategies. Running ads, managing social
-        media, and creating quality content require dedication and
-        consistency. Even small improvements can lead to significant
-        results over time.
-      </p>
-    </div>
-  </div>
-
-</div>
-      {/* ...............................................................final team section.......................... */}
-
-     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 h-auto py-20 px-5">
-  {teamMembers.map((member, index) => (
-    <div
-      key={index}
-      className="relative rounded-2xl overflow-hidden shadow-lg"
-    >
-      <img
-        src={member.image}
-        alt={member.role}
-        className="w-full h-[600px] object-cover"
-      />
-
-      <div className="absolute bottom-0 left-0 w-full bg-white/60 backdrop-blur-sm p-4">
-        <p className="font-semibold">{member.role}</p>
-
-        <p className="text-xs mt-2 text-justify">
-          {member.description}
-        </p>
-
-        <div className="flex justify-between items-center mt-4">
-          <div className="flex gap-1">
-            {[...Array(5)].map((_, i) => (
-              <TiStarFullOutline
-                key={i}
-                className="text-[#FDD835]"
-              />
-            ))}
+            {/* Duplicate Set */}
+            <img src={pic1} alt="" className="h-13 sm:h-14 md:h-18" />
+            <img src={pic2} alt="" className="h-13 sm:h-14 md:h-18" />
+            <img src={pic3} alt="" className="h-13 sm:h-14 md:h-18 bg-black" />
+            <img src={pic4} alt="" className="h-13 sm:h-14 md:h-18" />
           </div>
+        </div>
 
-          <div className="flex gap-3 text-xl">
-            <a
-              href={member.instagram}
-              target="_blank"
-              rel="noreferrer"
-            >
-              <FaInstagram />
-            </a>
+        {/* Team Section */}
+        <div className="w-full max-w-5xl text-center sm:text-left">
+          <h5 className="text-2xl sm:text-3xl font-bold mb-6">Our Team</h5>
 
-            <a
-              href={member.linkedin}
-              target="_blank"
-              rel="noreferrer"
-            >
-              <TbBrandLinkedin />
-            </a>
+          <div className="space-y-5 text-gray-700 leading-8 text-base text-justify sm:text-lg">
+            <p>
+              Teamwork and hard work are the foundation of success in digital
+              marketing. In a fast-changing digital world, no single person can
+              handle all aspects of marketing effectively. It requires a team of
+              skilled individuals such as content creators,{" "}
+              <span className="font-bold underline text-[#397ABF]">SEO</span>{" "}
+              specialists, designers, developers, and analysts working together
+              toward a common goal.
+            </p>
+
+            <p>
+              Hard work is equally important in digital marketing. Success does
+              not come overnight. It takes continuous effort, testing, and
+              learning. Marketers must regularly analyze data, track
+              performance, and improve strategies. Running ads, managing social
+              media, and creating quality content require dedication and
+              consistency. Even small improvements can lead to significant
+              results over time.
+            </p>
           </div>
         </div>
       </div>
-    </div>
-  ))}
-</div>
+      {/* ...............................................................final team section.......................... */}
+
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 h-auto py-20 px-5">
+        {teamMembers.map((member, index) => (
+          <div
+            key={index}
+            className="relative rounded-2xl overflow-hidden shadow-lg"
+          >
+            <img
+              src={member.image}
+              alt={member.role}
+              className="w-full h-[600px] object-cover"
+            />
+
+            <div className="absolute bottom-0 left-0 w-full bg-white/60 backdrop-blur-sm p-4">
+              <p className="font-semibold">{member.role}</p>
+
+              <p className="text-xs mt-2 text-justify">{member.description}</p>
+
+              <div className="flex justify-between items-center mt-4">
+                <div className="flex gap-1">
+                  {[...Array(5)].map((_, i) => (
+                    <TiStarFullOutline key={i} className="text-[#FDD835]" />
+                  ))}
+                </div>
+
+                <div className="flex gap-3 text-xl">
+                  <a href={member.instagram} target="_blank" rel="noreferrer">
+                    <FaInstagram />
+                  </a>
+
+                  <a href={member.linkedin} target="_blank" rel="noreferrer">
+                    <TbBrandLinkedin />
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
       <Schedule />
-      <Footer/>
+      <Footer />
     </div>
   );
 }
