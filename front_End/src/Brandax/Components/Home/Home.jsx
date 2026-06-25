@@ -151,7 +151,7 @@ function Home() {
                   className="sm:w-16 w-12"
                 />
               </div>
-              <div className="absolute sm:-bottom-6 right-50 animate-iconPulse sm:flex hidden">
+              <div className="absolute -bottom-6 right-50 animate-iconPulse sm:flex hidden">
                 <img
                   src="https://img.icons8.com/fluency/240/linkedin.png"
                   alt=""

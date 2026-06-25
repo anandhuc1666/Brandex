@@ -8,6 +8,7 @@ import Schedule from "../Appoiment/Schedule";
 import Footer from "../../Footers/Footer";
 import Book from "../../../Admin/Home/booking/Book";
 import { Link } from "react-router-dom";
+import { motion } from "framer-motion";
 
 function SocialMedia() {
   // bg-[#F0F0F3]
@@ -37,9 +38,40 @@ function SocialMedia() {
       image: <CiLinkedin />,
     },
   ];
+
+  const fadeUp = {
+    hidden: { opacity: 0, y: 80 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.8,
+        ease: "easeOut",
+      },
+    },
+  };
+
+  const fadeRight = {
+    hidden: { opacity: 0, x: 80 },
+    visible: {
+      opacity: 1,
+      x: 0,
+      transition: {
+        duration: 0.8,
+        ease: "easeOut",
+      },
+    },
+  };
+
   return (
     <div className="w-full h-auto bg-[#F0F0F3] text-black font-Nunito sm:pt-30 pt-10 flex flex-col justify-center gap-5">
-      <div className="w-full h-auto flex sm:flex-row flex-col items-center justify-evenly sm:gap-0 gap-10 p-6">
+      <motion.div
+        variants={fadeUp}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true }}
+        className="w-full h-auto flex sm:flex-row flex-col items-center justify-evenly sm:gap-0 gap-10 p-6"
+      >
         <ul className="flex flex-col gap-3">
           <li className="sm:text-5xl text-3xl  sm:leading-15 font-medium">
             Social Media <br /> Marketing{" "}
@@ -59,12 +91,16 @@ function SocialMedia() {
             </a>
           </li>
         </ul>
-        <img
+        <motion.img
+          variants={fadeRight}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
           src="https://media.istockphoto.com/id/1254063741/photo/serious-indian-mentor-worker-talk-to-female-colleague-teach-intern.jpg?s=612x612&w=0&k=20&c=PHurXy4vwLoHwuBTm50dAxm4T2yzL55mriSncmYKEj0="
           alt=""
           className="sm:h-[400px] object-cover rounded-[15px] border border-white shadow"
         />
-      </div>
+      </motion.div>
       <div className="w-full h-auto flex items-center sm:flex-row sm:p-0 p-6 flex-col justify-evenly list-none gap-6">
         <li className="max-w-[800px] sm:text-[18px] text-[15px]">
           Social media is a genie that can be tamed for our marketing success.
@@ -73,7 +109,7 @@ function SocialMedia() {
           and build brands for our clients. Our 18+ years of proven expertise
           can your business achieve your business goals in no time.
         </li>
-              <Link to={"/Booking"}>
+        <Link to={"/Booking"}>
           <button className="px-6 py-3 bg-[#397ABF] text-white rounded-full text-[15px] hover:bg-[#2a5a8c] shadow-lg cursor-pointer border">
             Schedule Appointment Today
           </button>
@@ -81,7 +117,13 @@ function SocialMedia() {
       </div>
       {/* ......................................................next page........................................................ */}
 
-      <div className="w-full h-auto flex flex-col items-center py-10 gap-10 sm:mt-20 ">
+      <motion.div
+        variants={fadeUp}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true }}
+        className="w-full h-auto flex flex-col items-center py-10 gap-10 sm:mt-20"
+      >
         <h1 className="text-3xl font-bold">Social Media Marketing</h1>
         <p className="sm:max-w-[500px] max-w-[300px] sm:text-[18px] text-[15px] text-center">
           Entice the world with share worthy social media creative and visual
@@ -89,7 +131,19 @@ function SocialMedia() {
         </p>
         <div className="grid sm:grid-cols-3 gap-12 items-center justify-center mt-10 sm:p-0 p-6">
           {Marketing_data.map((item, index) => (
-            <div
+            <motion.div
+              key={index}
+              initial={{ opacity: 0, y: 80 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{
+                duration: 0.7,
+                delay: index * 0.2,
+              }}
+              whileHover={{
+                y: -12,
+                scale: 1.04,
+              }}
               key={index}
               className="sm:w-50 w-full h-65  bg-white rounded-[10px] border border-white shadow p-4 flex flex-col gap-2 text-justify"
             >
@@ -101,10 +155,10 @@ function SocialMedia() {
               <button className="px-4 py-2 bg-[#397ABF] text-white rounded-full hover:bg-[#2a5a8c] shadow-lg cursor-pointer border">
                 Enquire
               </button>
-            </div>
+            </motion.div>
           ))}
         </div>
-      </div>
+      </motion.div>
       {/* ........................................................next page........................................................ */}
 
       <div className="w-full h-auto flex flex-col items-center font-serif py-10 gap-10 sm:px-0 px-5 text-center sm:text-start">
@@ -120,8 +174,24 @@ function SocialMedia() {
           and know how to take advantage of all social media opportunities
           through effective and creative social media strategies.
         </p>
-        <div className="grid sm:grid-cols-2 gap-5 items-center justify-center mt-10 font-Arimo text-[12px]">
-          <div className="sm:w-110 w-90 h-30 bg-white px-3 flex items-center gap-5">
+        <motion.div
+          variants={fadeUp}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          className="grid sm:grid-cols-2 gap-5 items-center justify-center mt-10 font-Arimo text-[12px]"
+        >
+          <motion.div
+            whileHover={{
+              scale: 1.03,
+              y: -8,
+            }}
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="sm:w-110 w-90 h-30 bg-white px-3 flex items-center gap-5 rounded-lg shadow"
+          >
             <div className="w-20 h-20 bg-[#397ABF] text-white font-bold text-4xl flex items-center justify-center font-Nunito">
               <p>1</p>
             </div>
@@ -133,8 +203,18 @@ function SocialMedia() {
                 clients.
               </li>
             </ul>
-          </div>
-          <div className="sm:w-110 w-90 h-30 bg-white px-3 flex items-center gap-5">
+          </motion.div>
+          <motion.div
+            whileHover={{
+              scale: 1.03,
+              y: -8,
+            }}
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="sm:w-110 w-90 h-30 bg-white px-3 flex items-center gap-5 rounded-lg shadow"
+          >
             <div className="w-20 h-20 bg-[#F0F0F3] text-[#397ABF] font-bold text-4xl flex items-center justify-center font-Nunito">
               <p>2</p>
             </div>
@@ -146,8 +226,18 @@ function SocialMedia() {
                 concepts and ideas.
               </li>
             </ul>
-          </div>
-          <div className="sm:w-110 w-90 h-30 bg-white px-3 flex items-center gap-5">
+          </motion.div>
+          <motion.div
+            whileHover={{
+              scale: 1.03,
+              y: -8,
+            }}
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="sm:w-110 w-90 h-30 bg-white px-3 flex items-center gap-5 rounded-lg shadow"
+          >
             <div className="w-20 h-20 bg-[#F0F0F3] text-[#397ABF] font-bold text-4xl flex items-center justify-center font-Nunito">
               <p>3</p>
             </div>
@@ -159,8 +249,18 @@ function SocialMedia() {
                 effective social media marketing in Kerala.
               </li>
             </ul>
-          </div>
-          <div className="sm:w-110 w-90 h-30 bg-white px-3 flex items-center gap-5">
+          </motion.div>
+          <motion.div
+            whileHover={{
+              scale: 1.03,
+              y: -8,
+            }}
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="sm:w-110 w-90 h-30 bg-white px-3 flex items-center gap-5 rounded-lg shadow"
+          >
             <div className="w-20 h-20 bg-[#397ABF] text-white font-bold text-4xl flex items-center justify-center font-Nunito">
               <p>4</p>
             </div>
@@ -172,14 +272,13 @@ function SocialMedia() {
                 Kerala.
               </li>
             </ul>
-          </div>
-        </div>
-        
+          </motion.div>
+        </motion.div>
       </div>
       {/* ................................................................page end................................................................*/}
 
-     <Schedule />
-      <Footer/>
+      <Schedule />
+      <Footer />
     </div>
   );
 }

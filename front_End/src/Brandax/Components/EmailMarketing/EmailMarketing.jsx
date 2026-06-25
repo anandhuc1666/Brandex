@@ -4,10 +4,29 @@ import Schedule from "../Appoiment/Schedule";
 import Footer from "../../Footers/Footer";
 import { Link } from "react-router-dom";
 import Book from "../../../Admin/Home/booking/Book";
+import { motion } from "framer-motion";
 function EmailMarketing() {
+    const fadeUp = {
+    hidden: {
+      opacity: 0,
+      y: 80,
+    },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.8,
+        ease: "easeOut",
+      },
+    },
+  };
   return (
     <div className="w-full h-auto bg-[#F0F0F3] text-black font-Nunito sm:pt-30 pt-10 flex flex-col justify-center gap-5">
-      <div className="w-full h-auto flex sm:flex-row flex-col items-center justify-evenly sm:gap-0 gap-10 p-6">
+           <motion.div
+             variants={fadeUp}
+             initial="hidden"
+             whileInView="visible"
+             viewport={{ once: true }} className="w-full h-auto flex sm:flex-row flex-col items-center justify-evenly sm:gap-0 gap-10 p-6">
         <ul className="flex flex-col gap-3">
           <li className="sm:text-5xl text-3xl  sm:leading-15 font-medium">
             Email Marketing <br />
@@ -32,18 +51,30 @@ function EmailMarketing() {
           alt=""
           className="sm:h-[400px] object-cover rounded-[15px] border border-white shadow"
         />
-      </div>
+      </motion.div>
       <div className="w-full h-auto flex items-center sm:flex-row sm:p-0 p-6 flex-col justify-evenly list-none gap-6">
-        <li className="max-w-[700px] sm:text-[18px] text-[15px]">
+         <motion.li
+                variants={fadeUp}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true }} className="max-w-[700px] sm:text-[18px] text-[15px]">
           Strategic email marketing campaigns designed to promote your products,
           expand your reach, and drive maximum sales growth. Our targeted
           approach helps elevate your business and accelerate brand success
           effectively.
-        </li>
+        </motion.li>
         <Link to={"/Booking"}>
-          <button className="px-6 py-3 bg-[#397ABF] text-white rounded-full text-[15px] hover:bg-[#2a5a8c] shadow-lg cursor-pointer border">
+          <motion.button
+            whileHover={{
+              scale: 1.05,
+            }}
+            whileTap={{
+              scale: 0.95,
+            }}
+            className="px-6 py-3 bg-[#397ABF] text-white rounded-full"
+          >
             Schedule Appointment Today
-          </button>
+          </motion.button>
         </Link>
       </div>
       <div className="w-full sm:h-[350px] h-auto sm:border-b  flex items-center gap-5 justify-evenly sm:flex-row flex-col p-6">
@@ -71,7 +102,19 @@ function EmailMarketing() {
 
       <div className="w-full h-auto p-10 flex items-center justify-center">
         <div className="grid grid-cols-2 gap-10">
-          <div className="max-w-145 flex flex-col gap-3 h-auto p-3">
+          <motion.div
+            initial={{ opacity: 0, y: 60 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{
+              duration: 0.6,
+            }}
+            whileHover={{
+              y: -10,
+              scale: 1.03,
+            }}
+            className="max-w-145 flex flex-col gap-3 h-auto p-3"
+          >
             <h1 className="text-2xl font-bold text-[#397ABF]">
               Framing Emails
             </h1>
@@ -80,24 +123,60 @@ function EmailMarketing() {
               emails that perfectly reflect your brand identity, helping you
               achieve better customer engagement and improved results.
             </p>
-          </div>
-          <div className="max-w-145 flex flex-col gap-3 h-auto p-3">
+          </motion.div>
+          <motion.div
+            initial={{ opacity: 0, y: 60 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{
+              duration: 0.6,
+            }}
+            whileHover={{
+              y: -10,
+              scale: 1.03,
+            }}
+            className="max-w-145 flex flex-col gap-3 h-auto p-3"
+          >
             <h1 className="text-2xl font-bold text-black">Expert Team</h1>
             <p className="text-justify sm:text-start border-l p-1 sm:border-none sm:pl-0">
               Brandax has a team of experienced professionals dedicated to
               providing exceptional support and delivering high quality
               solutions tailored to your business needs.
             </p>
-          </div>
-          <div className="max-w-145 flex flex-col gap-3 h-auto p-3 ">
+          </motion.div>
+          <motion.div
+            initial={{ opacity: 0, y: 60 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{
+              duration: 0.6,
+            }}
+            whileHover={{
+              y: -10,
+              scale: 1.03,
+            }}
+            className="max-w-145 flex flex-col gap-3 h-auto p-3 "
+          >
             <h1 className="text-2xl font-bold text-black">Integrating Media</h1>
             <p className="text-justify sm:text-start border-l p-1 sm:border-none sm:pl-0">
               We integrate social media platforms with email marketing
               strategies to improve productivity, strengthen audience
               engagement, and expand your brand reach effectively.
             </p>
-          </div>
-          <div className="max-w-145 flex flex-col gap-3 h-auto p-3">
+          </motion.div>
+          <motion.div
+            initial={{ opacity: 0, y: 60 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{
+              duration: 0.6,
+            }}
+            whileHover={{
+              y: -10,
+              scale: 1.03,
+            }}
+            className="max-w-145 flex flex-col gap-3 h-auto p-3"
+          >
             <h1 className="text-2xl font-bold text-[#397ABF]">
               Credible Services
             </h1>
@@ -107,7 +186,7 @@ function EmailMarketing() {
               grown into one of the leading digital marketing agencies in
               Kerala.
             </p>
-          </div>
+          </motion.div>
         </div>
       </div>
       {/* ........................................................next page........................................................ */}
@@ -122,7 +201,11 @@ function EmailMarketing() {
           </p>
         </div>
         <div className="w-100 h-auto text-[14px] flex flex-col gap-5 p-5">
-          <ul className="flex flex-col gap-2">
+          <motion.ul
+                 variants={fadeUp}
+                 initial="hidden"
+                 whileInView="visible"
+                 viewport={{ once: true }} className="flex flex-col gap-2">
             <li className="text-[18px] font-Nunito font-bold">
               Personalized Emails
             </li>
@@ -132,8 +215,13 @@ function EmailMarketing() {
               delivering engaging messages that clearly highlight the benefits
               and value your brand offers.
             </li>
-          </ul>
-          <ul className="flex flex-col gap-2">
+          </motion.ul>
+             <motion.ul
+                 variants={fadeUp}
+                 initial="hidden"
+                 whileInView="visible"
+                 delay="1"
+                 viewport={{ once: true }}className="flex flex-col gap-2">
             <li className="text-[18px] font-Nunito font-bold">Email Ads</li>
             <li className="text-justify">
               Promote your brand and highlight its unique offerings through
@@ -141,8 +229,13 @@ function EmailMarketing() {
               optimized emails designed to avoid spam filters, capture user
               attention, and encourage customers to explore your brand.
             </li>
-          </ul>
-          <ul className="flex flex-col gap-2">
+          </motion.ul>
+             <motion.ul
+                 variants={fadeUp}
+                 initial="hidden"
+                 whileInView="visible"
+                 delay="0.5"
+                 viewport={{ once: true }}className="flex flex-col gap-2">
             <li className="text-[18px] font-Nunito font-bold">
               Design & Develop Email Newsletters
             </li>
@@ -153,7 +246,7 @@ function EmailMarketing() {
               build stronger customer relationships while enhancing your brand
               visibility and credibility.
             </li>
-          </ul>
+          </motion.ul>
         </div>
       </div>
 
@@ -170,7 +263,15 @@ function EmailMarketing() {
           instantly compelling without appearing spammy.
         </p>
         <div className="grid sm:grid-cols-2 gap-5 items-center justify-center mt-10 font-Arimo text-[12px]">
-          <div className="sm:w-120 w-90 h-35 sm:text-start text-justify border-white bg-white rounded-[5px] shadow px-3 flex items-center gap-5">
+           <motion.div
+                      whileHover={{
+                        scale: 1.03,
+                        y: -8,
+                      }}
+                      initial={{ opacity: 0, y: 50 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ duration: 0.6 }}className="sm:w-120 w-90 h-35 sm:text-start text-justify border-white bg-white rounded-[5px] shadow px-3 flex items-center gap-5">
             <div className="w-20 h-20 bg-[#397ABF] text-white font-bold text-4xl flex items-center justify-center font-Nunito">
               <p>1</p>
             </div>
@@ -183,8 +284,16 @@ function EmailMarketing() {
                 customized email campaigns.
               </li>
             </ul>
-          </div>
-          <div className="sm:w-120 w-90 h-35 sm:text-start text-justify border-white bg-white rounded-[5px] shadow px-3 flex items-center gap-5">
+          </motion.div>
+          <motion.div
+                     whileHover={{
+                       scale: 1.03,
+                       y: -8,
+                     }}
+                     initial={{ opacity: 0, y: 50 }}
+                     whileInView={{ opacity: 1, y: 0 }}
+                     viewport={{ once: true }}
+                     transition={{ duration: 1 }} className="sm:w-120 w-90 h-35 sm:text-start text-justify border-white bg-white rounded-[5px] shadow px-3 flex items-center gap-5">
             <div className="w-20 h-20 bg-[#F0F0F3] text-[#397ABF] font-bold text-4xl flex items-center justify-center font-Nunito">
               <p>2</p>
             </div>
@@ -196,8 +305,16 @@ function EmailMarketing() {
                 and content preparation process.
               </li>
             </ul>
-          </div>
-          <div className="sm:w-120 w-90 h-35 sm:text-start text-justify border-white bg-white rounded-[5px] shadow px-3 flex items-center gap-5">
+          </motion.div>
+           <motion.div
+                      whileHover={{
+                        scale: 1.03,
+                        y: -8,
+                      }}
+                      initial={{ opacity: 0, y: 50 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ duration: 1.5 }} className="sm:w-120 w-90 h-35 sm:text-start text-justify border-white bg-white rounded-[5px] shadow px-3 flex items-center gap-5">
             <div className="w-20 h-20 bg-[#F0F0F3] text-[#397ABF] font-bold text-4xl flex items-center justify-center font-Nunito">
               <p>3</p>
             </div>
@@ -209,8 +326,16 @@ function EmailMarketing() {
                 attract customers and encourage them to connect with your brand.
               </li>
             </ul>
-          </div>
-          <div className="sm:w-120 w-90 h-35 sm:text-start text-justify border border-white bg-white rounded-[5px] shadow px-3 flex items-center gap-5">
+          </motion.div>
+           <motion.div
+                      whileHover={{
+                        scale: 1.03,
+                        y: -8,
+                      }}
+                      initial={{ opacity: 0, y: 50 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ duration: 2 }} className="sm:w-120 w-90 h-35 sm:text-start text-justify border border-white bg-white rounded-[5px] shadow px-3 flex items-center gap-5">
             <div className="w-20 h-20 bg-[#397ABF] text-white font-bold text-4xl flex items-center justify-center font-Nunito">
               <p>4</p>
             </div>
@@ -222,7 +347,7 @@ function EmailMarketing() {
                 engagement and achieve the desired marketing results.
               </li>
             </ul>
-          </div>
+          </motion.div>
         </div>
       </div>
       {/* ................................................................page end................................................................*/}
