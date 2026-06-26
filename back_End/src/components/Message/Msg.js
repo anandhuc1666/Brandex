@@ -184,21 +184,22 @@ Thank you for trusting Brandax ❤️
 `,
 };
 
- try {
-    console.log("Before sendMail");
+try {
+  console.log("📨 sendMessage() called");
+  console.log("Recipient:", email);
 
-    const info = await transporter.sendMail(mailOptions);
+  const info = await transporter.sendMail(mailOptions);
 
-    console.log("✅ Email sent");
-    console.log(info);
-    console.log(info.response);
+  console.log("✅ Email sent");
+  console.log("Message ID:", info.messageId);
+  console.log("Response:", info.response);
 
-    return info;
-  } catch (err) {
-    console.error("❌ sendMail failed");
-    console.error(err);
-    throw err;
-  }
+  return info;
+} catch (err) {
+  console.error("❌ Mail Error");
+  console.error(err);
+  throw err;
+}
 };
 export const createMSG = async (req, res) => {
   try {
