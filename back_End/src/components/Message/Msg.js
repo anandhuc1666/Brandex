@@ -14,8 +14,6 @@ const transporter = nodemailer.createTransport({
   },
   
 });
-console.log("EMAIL:", process.env.BREVO_EMAIL);
-console.log("KEY EXISTS:", !!process.env.BREVO_SMTP_KEY);
 transporter.verify((error, success) => {
   if (error) {
     console.error("SMTP Error:", error);
