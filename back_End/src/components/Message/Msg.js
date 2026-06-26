@@ -1,29 +1,11 @@
 import MSG from "../../models/ShemaEmail.js";
-import nodemailer from "nodemailer";
+import { Resend } from "resend";
 import dotenv from "dotenv";
 
 dotenv.config();
 
-const transporter = nodemailer.createTransport({
-  host: "smtp.gmail.com",
-  port: 587,
-  secure: false,
-  auth: {
-    user: process.env.EMAIL_USER,
-    pass: process.env.EMAIL_PASSWORD,
-  },
-  connectionTimeout: 10000,
-  greetingTimeout: 10000,
-  socketTimeout: 10000,
-});
-
-transporter.verify((error, success) => {
-  if (error) {
-    console.error("SMTP Error:", error);
-  } else {
-    console.log("SMTP Server is ready");
-  }
-});
+// Initialize Resend with your API key from the .env file
+const resend = new Resend(process.env.RESEND_API_KEY);
 
 const sendMessage = async (
   name,
@@ -33,17 +15,21 @@ const sendMessage = async (
   message,
   location,
   date,
-  time,
+  time
 ) => {
   console.log("📨 sendMessage() called");
   console.log("Recipient:", email);
 
-  const mailOptions = {
-    from: `"Brandax" <${process.env.EMAIL_USER}>`,
-    to: email,
-    subject: "Appointment Request Received - Brandax",
+  // IMPORTANT: Replace this with your verified custom domain once set up in Resend
+  // e.g., "Brandax <hello@brandax.com>"
+  const fromEmail = "Brandax <onboarding@resend.dev>";
 
-    html: `
+  try {
+    const { data, error } = await resend.emails.send({
+      from: fromEmail,
+      to: email, // Sending to the client's email
+      subject: "Appointment Request Received - Brandax",
+      html: `
 <!DOCTYPE html>
 <html>
 <head>
@@ -59,7 +45,6 @@ const sendMessage = async (
 
 <table width="650" cellpadding="0" cellspacing="0" style="background:#ffffff;border-radius:12px;overflow:hidden;">
 
-<!-- Banner -->
 <tr>
 <td>
 <img
@@ -70,7 +55,6 @@ alt="Brandax Banner">
 </td>
 </tr>
 
-<!-- Logo -->
 <tr>
 <td align="center" style="padding:30px 20px 10px;">
 <img
@@ -80,7 +64,6 @@ alt="Brandax Logo">
 </td>
 </tr>
 
-<!-- Heading -->
 <tr>
 <td align="center">
 <h2 style="color:#1565C0;margin:10px 0;">
@@ -99,7 +82,6 @@ Our team will review your details and contact you shortly.
 </td>
 </tr>
 
-<!-- Details -->
 <tr>
 <td style="padding:30px;">
 
@@ -155,7 +137,6 @@ Our team will review your details and contact you shortly.
 </td>
 </tr>
 
-<!-- Footer -->
 <tr>
 <td align="center"
 style="background:#0D47A1;color:white;padding:30px;">
@@ -188,25 +169,25 @@ Thank you for trusting Brandax ❤️
 </body>
 </html>
 `,
-  };
+    });
 
-  try {
-    console.log("📨 sendMessage() called");
-    console.log("Recipient:", email);
+    // Resend returns an error object inside the response if it fails
+    if (error) {
+      console.error("❌ Resend API Error:", error);
+      throw new Error(error.message);
+    }
 
-    const info = await transporter.sendMail(mailOptions);
+    console.log("✅ Email sent via Resend");
+    console.log("Message ID:", data.id);
 
-    console.log("✅ Email sent");
-    console.log("Message ID:", info.messageId);
-    console.log("Response:", info.response);
-
-    return info;
+    return data;
   } catch (err) {
-    console.error("❌ Mail Error");
+    console.error("❌ Mail Error Catch Block");
     console.error(err);
     throw err;
   }
 };
+
 export const createMSG = async (req, res) => {
   try {
     const { name, company, email, phone, message, location, date, time } =
@@ -235,7 +216,7 @@ export const createMSG = async (req, res) => {
       });
     }
 
-    const createMSG = await MSG.create({
+    const createdMSG = await MSG.create({
       name,
       company,
       email,
@@ -245,6 +226,7 @@ export const createMSG = async (req, res) => {
       date,
       time,
     });
+
     await sendMessage(
       name,
       company,
@@ -253,12 +235,12 @@ export const createMSG = async (req, res) => {
       message,
       location,
       date,
-      time,
+      time
     );
 
     return res.status(201).json({
       message: "Your request has been sent to Brandax.",
-      data: createMSG,
+      data: createdMSG,
     });
   } catch (error) {
     console.error(error);
