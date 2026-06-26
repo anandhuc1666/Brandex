@@ -106,7 +106,7 @@ function Booking() {
   }
   };
   return (
-    <div className="w-full h-auto bg-[#F0F0F3] text-black font-Arimo sm:pt-30 pt-10 flex flex-col justify-center gap-5 ">
+    <div className="w-full h-auto bg-[#F0F0F3] text-black font-Arimo sm:pt-30 pt-10 flex flex-col justify-center gap-5 p-5">
       <div className="w-full h-auto flex sm:flex-row flex-col items-center justify-evenly sm:gap-0 gap-5 p-6">
         <ul className="flex flex-col gap-3">
           <li className="sm:text-5xl text-3xl  sm:leading-15 font-medium">
