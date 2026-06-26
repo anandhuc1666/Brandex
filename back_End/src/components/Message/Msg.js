@@ -192,7 +192,9 @@ Thank you for trusting Brandax ❤️
     console.log("Recipient:", email);
 
     const info = await transporter.sendMail(mailOptions);
-
+    res.status(200).json({
+      message: "Email sent successfully",
+    });
     console.log("✅ Email sent");
     console.log("Message ID:", info.messageId);
     console.log("Response:", info.response);
