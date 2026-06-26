@@ -7,9 +7,16 @@ dotenv.config();
 const transporter = nodemailer.createTransport({
   service: "gmail",
   auth: {
-    user: process.env.EMAIL_USER,
-    pass: process.env.EMAIL_PASSWORD,
+    user: process.env.EMAIL_USER||"brandaxbrandingstudio@gmail.com",
+    pass: process.env.EMAIL_PASSWORD||"uxartweflgtofwuv",
   },
+});
+transporter.verify((error, success) => {
+  if (error) {
+    console.error("SMTP Error:", error);
+  } else {
+    console.log("SMTP Server is ready");
+  }
 });
 
 const sendMessage = async (
@@ -178,7 +185,8 @@ Thank you for trusting Brandax ❤️
   const info = await transporter.sendMail(mailOptions);
   console.log("Email sent:", info.response);
 } catch (error) {
-  console.log("Mail Error:", error);
+  console.error("Mail Error:", error.message);
+console.error(error);
 }
 };
 export const createMSG = async (req, res) => {
