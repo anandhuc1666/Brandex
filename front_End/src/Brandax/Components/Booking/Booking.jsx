@@ -70,8 +70,7 @@ function Booking() {
     e.preventDefault();
 
     if (!active) {
-      alert("Please agree to the Terms and Conditions.");
-      return;
+      return alert("Please agree to the Terms and Conditions.");
     }
 
     try {
