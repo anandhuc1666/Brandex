@@ -6,9 +6,10 @@ import { RiSecurePaymentLine } from "react-icons/ri";
 import { AiOutlineTeam } from "react-icons/ai";
 import { RiCustomerService2Line } from "react-icons/ri";
 import FAQ from "../FAQ/FAQ";
+import axios from "axios";
 
 function Booking() {
-    const formRef = useRef(null);
+  const formRef = useRef(null);
   const [Time, setTime] = useState("");
   const [active, setActive] = useState(null);
   const dataShare = {
@@ -25,35 +26,35 @@ function Booking() {
   const dates = [
     {
       id: 1,
-      time: "9:00",
+      time: "9:00am",
     },
     {
       id: 2,
-      time: "10:00",
+      time: "10:00am",
     },
     {
       id: 3,
-      time: "11:00",
+      time: "11:00am",
     },
     {
       id: 4,
-      time: "12:00",
+      time: "12:00pm",
     },
     {
       id: 5,
-      time: "2:00",
+      time: "2:00pm",
     },
     {
       id: 6,
-      time: "3:00",
+      time: "3:00pm",
     },
     {
       id: 7,
-      time: "4:00",
+      time: "4:00pm",
     },
     {
       id: 8,
-      time: "5:00",
+      time: "5:00pm",
     },
   ];
   const TimePass = (data) => {
@@ -65,27 +66,15 @@ function Booking() {
   const handleSchedule = (e) => {
     e.preventDefault();
     if (active === true) {
-      const presentData = [
-        {
-          name: data.name,
-          company: data.company,
-          email: data.email,
-          phone: data.phone,
-          message: data.message,
-          location: data.location,
-          date: data.date,
-          time: Time,
-        },
-      ];
+      axios.post(`${import.meta.env.VITE_API_URL}/api/v1/user/email`, data);
       setdata(dataShare);
       setTime("");
-      console.log(presentData);
-      alert("appointment fixed");
     } else {
       alert("please accept the team & condition");
     }
   };
   console.log(active);
+
   return (
     <div className="w-full h-auto bg-[#F0F0F3] text-black font-Nunito sm:pt-30 pt-10 flex flex-col justify-center gap-5 font-Arimo">
       <div className="w-full h-auto flex sm:flex-row flex-col items-center justify-evenly sm:gap-0 gap-5 p-6">
@@ -113,24 +102,24 @@ function Booking() {
           Schedule your appointment with us in just a few clicks. Fill in your
           details, select your preferred time, and let us take care of the rest.
         </li>
-   <button
-  onClick={() =>
-    formRef.current?.scrollIntoView({
-      behavior: "smooth",
-      block: "start",
-    })
-  }
-  className="px-6 py-3 bg-[#397ABF] text-white rounded-full text-[15px] hover:bg-[#2a5a8c] shadow-lg cursor-pointer border"
->
-  Schedule Appointment Today
-</button>
+        <button
+          onClick={() =>
+            formRef.current?.scrollIntoView({
+              behavior: "smooth",
+              block: "start",
+            })
+          }
+          className="px-6 py-3 bg-[#397ABF] text-white rounded-full text-[15px] hover:bg-[#2a5a8c] shadow-lg cursor-pointer border"
+        >
+          Schedule Appointment Today
+        </button>
       </div>
       {/* ................................................................next section page............................................... */}
 
       <div className="w-full h-auto py-10 px-3 flex sm:flex-row flex-col items-center justify-center gap-10">
         <div
           id="formdata"
-           ref={formRef}
+          ref={formRef}
           className="sm:w-110 w-90 sm:h-170 h-auto bg-white shadow-lg rounded-[10px] p-3 sm:gap-0 gap-5 overflow-hidden box-border flex flex-col justify-between"
         >
           <p className="sm:text-[20px] text-[18px] font-extrabold">
