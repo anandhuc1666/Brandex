@@ -150,12 +150,12 @@ function Booking() {
         <div
           id="formdata"
           ref={formRef}
-          className="sm:w-110 w-90 sm:h-170 h-auto bg-white shadow-lg rounded-[10px] p-3 sm:gap-0 gap-5 overflow-hidden box-border flex flex-col justify-between"
+          className="sm:w-115 w-90 sm:h-170 h-auto bg-white shadow-lg rounded-[10px] p-3 sm:gap-0 gap-5 overflow-hidden box-border flex flex-col justify-between"
         >
           <p className="sm:text-[20px] text-[18px] font-extrabold">
             Client Appointment <span className="text-[#397ABF]">Form</span>
           </p>
-          <div className="flex sm:flex-row flex-col gap-3">
+          <div className="flex sm:flex-row flex-col gap-2">
             <div className="flex flex-col gap-5">
               <input
                 type="text"
@@ -211,7 +211,8 @@ function Booking() {
           </div>
           <p className="text-[15px] font-light">Select Your Appointment Time</p>
 
-          <div className="grid sm:grid-cols-4 grid-cols-4 gap-2 gap-y-6">
+         <div className="flex items-center justify-center">
+           <div className="grid sm:grid-cols-4 grid-cols-4 gap-6 gap-y-6">
             {dates.map((data, k) => (
               <div
                 key={k.id}
@@ -228,6 +229,7 @@ function Booking() {
               </div>
             ))}
           </div>
+         </div>
           <textarea
             name="Message"
             rows={5}
