@@ -105,8 +105,6 @@ function Booking() {
     setLoading(false);
   }
   };
-  console.log(data);
-
   return (
     <div className="w-full h-auto bg-[#F0F0F3] text-black font-Nunito sm:pt-30 pt-10 flex flex-col justify-center gap-5 font-Arimo">
       <div className="w-full h-auto flex sm:flex-row flex-col items-center justify-evenly sm:gap-0 gap-5 p-6">
