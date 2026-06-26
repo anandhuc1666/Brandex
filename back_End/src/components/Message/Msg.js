@@ -219,8 +219,6 @@ const createMSG = await MSG.create({
   date,
   time,
 });
-
-// Send email
 await sendMessage(
   name,
   company,
