@@ -6,12 +6,14 @@ dotenv.config();
 
 const transporter = nodemailer.createTransport({
   service: "gmail",
+  host: "smtp.gmail.com",
+  port: 465,
+  secure: true, // Use true for port 465
   auth: {
     user: process.env.EMAIL_USER,
-    pass: process.env.EMAIL_PASSWORD,
+    pass: process.env.EMAIL_PASSWORD, // Must be the 16-character App Password
   },
-});
-transporter.verify((error, success) => {
+});orter.verify((error, success) => {
   if (error) {
     console.error("SMTP Error:", error);
   } else {
