@@ -8,12 +8,14 @@ const transporter = nodemailer.createTransport({
   service: "gmail",
   host: "smtp.gmail.com",
   port: 465,
-  secure: true, // Use true for port 465
+  secure: true,
   auth: {
     user: process.env.EMAIL_USER,
-    pass: process.env.EMAIL_PASSWORD, // Must be the 16-character App Password
+    pass: process.env.EMAIL_PASSWORD,
   },
-});orter.verify((error, success) => {
+});
+
+transporter.verify((error, success) => {
   if (error) {
     console.error("SMTP Error:", error);
   } else {
@@ -29,17 +31,17 @@ const sendMessage = async (
   message,
   location,
   date,
-  time
+  time,
 ) => {
   console.log("📨 sendMessage() called");
   console.log("Recipient:", email);
 
-const mailOptions = {
-  from: `"Brandax" <${process.env.EMAIL_USER}>`,
-  to: email,
-  subject: "Appointment Request Received - Brandax",
+  const mailOptions = {
+    from: `"Brandax" <${process.env.EMAIL_USER}>`,
+    to: email,
+    subject: "Appointment Request Received - Brandax",
 
-  html: `
+    html: `
 <!DOCTYPE html>
 <html>
 <head>
@@ -184,24 +186,24 @@ Thank you for trusting Brandax ❤️
 </body>
 </html>
 `,
-};
+  };
 
-try {
-  console.log("📨 sendMessage() called");
-  console.log("Recipient:", email);
+  try {
+    console.log("📨 sendMessage() called");
+    console.log("Recipient:", email);
 
-  const info = await transporter.sendMail(mailOptions);
+    const info = await transporter.sendMail(mailOptions);
 
-  console.log("✅ Email sent");
-  console.log("Message ID:", info.messageId);
-  console.log("Response:", info.response);
+    console.log("✅ Email sent");
+    console.log("Message ID:", info.messageId);
+    console.log("Response:", info.response);
 
-  return info;
-} catch (err) {
-  console.error("❌ Mail Error");
-  console.error(err);
-  throw err;
-}
+    return info;
+  } catch (err) {
+    console.error("❌ Mail Error");
+    console.error(err);
+    throw err;
+  }
 };
 export const createMSG = async (req, res) => {
   try {
@@ -231,31 +233,31 @@ export const createMSG = async (req, res) => {
       });
     }
 
-const createMSG = await MSG.create({
-  name,
-  company,
-  email,
-  phone,
-  message,
-  location,
-  date,
-  time,
-});
-await sendMessage(
-  name,
-  company,
-  email,
-  phone,
-  message,
-  location,
-  date,
-  time
-);
+    const createMSG = await MSG.create({
+      name,
+      company,
+      email,
+      phone,
+      message,
+      location,
+      date,
+      time,
+    });
+    await sendMessage(
+      name,
+      company,
+      email,
+      phone,
+      message,
+      location,
+      date,
+      time,
+    );
 
-return res.status(201).json({
-  message: "Your request has been sent to Brandax.",
-  data: createMSG,
-});
+    return res.status(201).json({
+      message: "Your request has been sent to Brandax.",
+      data: createMSG,
+    });
   } catch (error) {
     console.error(error);
 
