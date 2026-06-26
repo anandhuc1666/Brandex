@@ -7,11 +7,14 @@ import { AiOutlineTeam } from "react-icons/ai";
 import { RiCustomerService2Line } from "react-icons/ri";
 import FAQ from "../FAQ/FAQ";
 import axios from "axios";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 function Booking() {
   const formRef = useRef(null);
   const [Time, setTime] = useState("");
   const [active, setActive] = useState(null);
+  const [loading, setLoading] = useState(false);
   const dataShare = {
     name: "",
     company: "",
@@ -63,17 +66,46 @@ function Booking() {
   const Handlepassdata = (e) => {
     setdata({ ...data, [e.target.name]: e.target.value });
   };
-  const handleSchedule = (e) => {
+  const handleSchedule = async (e) => {
     e.preventDefault();
-    if (active === true) {
-      axios.post(`${import.meta.env.VITE_API_URL}/api/v1/user/email`, data);
+
+    if (!active) {
+      alert("Please agree to the Terms and Conditions.");
+      return;
+    }
+
+    try {
+       setLoading(true);
+      const response = await axios.post(
+        `${import.meta.env.VITE_API_URL}/api/v1/user/email`,
+        {
+          name: data.name,
+          email: data.email,
+          company: data.company,
+          phone: data.phone,
+          message: data.message,
+          location: data.location,
+          date: data.date,
+          time: Time,
+        },
+      );
+
+        toast.success(
+      response.data?.message || "Your request has been sent to Brandax."
+    );
       setdata(dataShare);
       setTime("");
-    } else {
-      alert("please accept the team & condition");
-    }
+    } catch (error) {
+      console.error(error);
+
+    toast.error(
+           error.response?.data?.message || "Something went wrong. Please try again."
+         );
+    }finally{
+    setLoading(false);
+  }
   };
-  console.log(active);
+  console.log(data);
 
   return (
     <div className="w-full h-auto bg-[#F0F0F3] text-black font-Nunito sm:pt-30 pt-10 flex flex-col justify-center gap-5 font-Arimo">
@@ -181,11 +213,11 @@ function Booking() {
           </div>
           <p className="text-[15px] font-light">Select Your Appointment Time</p>
 
-          <div className="grid sm:grid-cols-4 grid-cols-6 gap-y-6">
+          <div className="grid sm:grid-cols-4 grid-cols-4 gap-2 gap-y-6">
             {dates.map((data, k) => (
               <div
                 key={k.id}
-                className={`sm:w-20 sm:h-20 w-10 h-10 rounded-[5px] shadow-sm flex items-center justify-center
+                className={`sm:w-20 sm:h-20  h-15 rounded-[5px] shadow-sm flex items-center justify-center
                 transition-all duration-200 cursor-pointer
            ${
              Time === data.time
@@ -202,25 +234,26 @@ function Booking() {
             name="Message"
             rows={5}
             cols={43}
+            placeholder="message"
             id=""
             onChange={Handlepassdata}
             name="message"
             value={data.message}
-            className="bg-[#F0F0F3] shadow-sm border-none outline-none rounded-[5px] pl-2"
+            className="bg-[#F0F0F3] shadow-sm border-none outline-none rounded-[5px] pl-2 pt-1"
           ></textarea>
           <div className="flex items-center justify-between">
             <span className="flex gap-2">
               <input type="checkbox" onClick={() => setActive(!active)} />
               <label htmlFor="" className="text-[10px]">
-                Accept All Team & Service
+                Agree to Terms and Conditions
               </label>
             </span>
             <button
               type="submit"
               onClick={handleSchedule}
-              className="bg-[#43C552] py-2 px-10 rounded-full text-white hover:bg-[#43C552]/80 active:bg-[#43C552]"
+              className={`${loading===false?"bg-[#43C552]":"bg-[#a0c543]"} py-2 px-10 rounded-full text-white hover:bg-[#43C552]/80 ${loading===false?"active:bg-[#47af53]":"bg-[#c5a243]"}`}
             >
-              Schedule
+              {`${loading===false?"Schedule":"Sending..."}`}
             </button>
           </div>
         </div>
@@ -302,6 +335,10 @@ function Booking() {
         </div>
       </div>
       <FAQ />
+        <ToastContainer
+        position="top-right"
+        autoClose={2000}
+      />
     </div>
   );
 }
