@@ -12,10 +12,8 @@ import "react-toastify/dist/ReactToastify.css";
 
 function Booking() {
   const formRef = useRef(null);
-  const [Time, setTime] = useState("");
-  const [active, setActive] = useState(null);
-  const [loading, setLoading] = useState(false);
-  const dataShare = {
+
+  const initialData = {
     name: "",
     company: "",
     email: "",
@@ -23,86 +21,85 @@ function Booking() {
     message: "",
     location: "",
     date: "",
-    time: Time,
   };
-  const [data, setdata] = useState(dataShare);
+
+  const [data, setData] = useState(initialData);
+  const [time, setTime] = useState("");
+  const [active, setActive] = useState(false);
+  const [loading, setLoading] = useState(false);
+
   const dates = [
-    {
-      id: 1,
-      time: "9:00am",
-    },
-    {
-      id: 2,
-      time: "10:00am",
-    },
-    {
-      id: 3,
-      time: "11:00am",
-    },
-    {
-      id: 4,
-      time: "12:00pm",
-    },
-    {
-      id: 5,
-      time: "2:00pm",
-    },
-    {
-      id: 6,
-      time: "3:00pm",
-    },
-    {
-      id: 7,
-      time: "4:00pm",
-    },
-    {
-      id: 8,
-      time: "5:00pm",
-    },
+    { id: 1, time: "9:00am" },
+    { id: 2, time: "10:00am" },
+    { id: 3, time: "11:00am" },
+    { id: 4, time: "12:00pm" },
+    { id: 5, time: "2:00pm" },
+    { id: 6, time: "3:00pm" },
+    { id: 7, time: "4:00pm" },
+    { id: 8, time: "5:00pm" },
   ];
-  const TimePass = (data) => {
-    setTime(data);
+
+  const TimePass = (selectedTime) => {
+    setTime(selectedTime);
   };
+
   const Handlepassdata = (e) => {
-    setdata({ ...data, [e.target.name]: e.target.value });
+    const { name, value } = e.target;
+
+    setData((prev) => ({
+      ...prev,
+      [name]: value,
+    }));
   };
+
   const handleSchedule = async (e) => {
     e.preventDefault();
 
     if (!active) {
-      return alert("Please agree to the Terms and Conditions.");
+      toast.error("Please agree to the Terms and Conditions.");
+      return;
+    }
+
+    if (!time) {
+      toast.error("Please select a time.");
+      return;
     }
 
     try {
-       setLoading(true);
+      setLoading(true);
+
+      const payload = {
+        ...data,
+        time,
+      };
+
+      console.log("Sending:", payload);
+
       const response = await axios.post(
         `${import.meta.env.VITE_API_URL}/api/v1/user/email`,
-        {
-          name: data.name,
-          email: data.email,
-          company: data.company,
-          phone: data.phone,
-          message: data.message,
-          location: data.location,
-          date: data.date,
-          time: Time,
-        },
+        payload,
       );
 
-        toast.success(
-      response.data?.message || "Your request has been sent to Brandax."
-    );
-      setdata(dataShare);
+      toast.success(
+        response.data?.message || "Your request has been sent to Brandax.",
+      );
+
+      setData(initialData);
       setTime("");
+      setActive(false);
+
+      formRef.current?.reset();
     } catch (error) {
       console.error(error);
 
-    toast.error(
-           error.response?.data?.message || "Something went wrong. Please try again."
-         );
-    }finally{
-    setLoading(false);
-  }
+      toast.error(
+        error.response?.data?.message ||
+          error.message ||
+          "Something went wrong. Please try again.",
+      );
+    } finally {
+      setLoading(false);
+    }
   };
   return (
     <div className="w-full h-auto bg-[#F0F0F3] text-black font-Arimo sm:pt-30 pt-10 flex flex-col justify-center gap-5 p-5">
@@ -210,25 +207,25 @@ function Booking() {
           </div>
           <p className="text-[15px] font-light">Select Your Appointment Time</p>
 
-         <div className="flex items-center justify-center">
-           <div className="grid sm:grid-cols-4 grid-cols-4 gap-6 gap-y-6">
-            {dates.map((data, k) => (
-              <div
-                key={k.id}
-                className={`sm:w-20 sm:h-20  h-15 rounded-[5px] shadow-sm flex items-center justify-center
+          <div className="flex items-center justify-center">
+            <div className="grid sm:grid-cols-4 grid-cols-4 gap-6 gap-y-6">
+              {dates.map((data, k) => (
+                <div
+                  key={k.id}
+                  className={`sm:w-20 sm:h-20  h-15 rounded-[5px] shadow-sm flex items-center justify-center
                 transition-all duration-200 cursor-pointer
            ${
-             Time === data.time
+             time === data.time
                ? "bg-[#397ABF] text-white"
                : "bg-[#F0F0F3] text-[#397ABF] hover:bg-[#397ABF]/60 hover:text-white"
            }`}
-                onClick={() => TimePass(data.time)}
-              >
-                <p>{data.time}</p>
-              </div>
-            ))}
+                  onClick={() => TimePass(data.time)}
+                >
+                  <p>{data.time}</p>
+                </div>
+              ))}
+            </div>
           </div>
-         </div>
           <textarea
             name="Message"
             rows={5}
@@ -250,9 +247,9 @@ function Booking() {
             <button
               type="submit"
               onClick={handleSchedule}
-              className={`${loading===false?"bg-[#43C552]":"bg-[#a0c543]"} py-2 px-10 rounded-full text-white hover:bg-[#43C552]/80 ${loading===false?"active:bg-[#47af53]":"bg-[#c5a243]"}`}
+              className={`${loading === false ? "bg-[#43C552]" : "bg-[#a0c543]"} py-2 px-10 rounded-full text-white hover:bg-[#43C552]/80 ${loading === false ? "active:bg-[#47af53]" : "bg-[#c5a243]"}`}
             >
-              {`${loading===false?"Schedule":"Sending..."}`}
+              {`${loading === false ? "Schedule" : "Sending..."}`}
             </button>
           </div>
         </div>
@@ -334,10 +331,7 @@ function Booking() {
         </div>
       </div>
       <FAQ />
-        <ToastContainer
-        position="top-right"
-        autoClose={2000}
-      />
+      <ToastContainer position="top-right" autoClose={2000} />
     </div>
   );
 }
