@@ -190,12 +190,11 @@ Thank you for trusting Brandax ❤️
     console.log("📨 sendMessage() called");
     console.log("Recipient:", email);
 
-    const info = await transporter.sendMail(mailOptions);
+  const info = await transporter.sendMail(mailOptions);
 
-    console.log("✅ Email sent");
-    console.log(info.messageId);
+console.log("Email sent:", info.messageId);
 
-    return info;
+return info;
   } catch (err) {
     console.error("❌ Mail Error");
     console.error(err);
@@ -259,7 +258,7 @@ export const createMSG = async (req, res) => {
     console.error(error);
 
     return res.status(500).json({
-      message: "Internal Server Error!",
+      message: "Internal Server Error!!",
     });
   }
 };
