@@ -4,7 +4,6 @@ import { FaInstagram } from "react-icons/fa6";
 import { RiWhatsappLine } from "react-icons/ri";
 import { TbBrandLinkedin } from "react-icons/tb";
 import boy_sitting_laptop from "../../Photo/men_sitting_with_laptop.png";
-import arrow_mark from "../../Photo/arrow_mark.png";
 import blue_cercle from "../../Photo/blue_cercle.png";
 import phone_web_page from "../../Photo/Phone_web_page.png";
 import pic1 from "../../clients/Png (2).png";
@@ -18,333 +17,219 @@ import Footer from "../../Footers/Footer";
 function Home() {
   const teamMembers = [
     {
-      image:
-        "https://i.pinimg.com/1200x/0e/db/f3/0edbf38c0d27da9b9dd4cf8a95c850b7.jpg",
+      image: "https://i.pinimg.com/1200x/0e/db/f3/0edbf38c0d27da9b9dd4cf8a95c850b7.jpg",
       role: "Software Developer",
-      description:
-        "Building modern, scalable and user-friendly software solutions with custom development.",
+      description: "Building modern, scalable and user-friendly software solutions with custom development.",
       instagram: "https://www.instagram.com/a_nandhu_c/",
       linkedin: "https://www.linkedin.com/in/anandhu-chulliveetill/",
     },
     {
-      image:
-        "https://i.pinimg.com/736x/8c/5e/9d/8c5e9dd58ecd175df019b09f6bac72b6.jpg",
+      image: "https://i.pinimg.com/736x/8c/5e/9d/8c5e9dd58ecd175df019b09f6bac72b6.jpg",
       role: "Digital Marketing Specialist",
-      description:
-        "Managing SEO, social media marketing, and advertising campaigns.",
+      description: "Managing SEO, social media marketing, and advertising campaigns.",
       instagram: "#",
       linkedin: "#",
     },
     {
-      image:
-        "https://i.pinimg.com/736x/0d/a5/e7/0da5e7b3a24ea9ef05db4eaa253e9cf3.jpg",
+      image: "https://i.pinimg.com/736x/0d/a5/e7/0da5e7b3a24ea9ef05db4eaa253e9cf3.jpg",
       role: "UI/UX Designer",
-      description:
-        "Creating beautiful and user-friendly interfaces for digital products.",
+      description: "Creating beautiful and user-friendly interfaces for digital products.",
       instagram: "#",
       linkedin: "#",
     },
-
     {
-      image:
-        "https://i.pinimg.com/1200x/2c/e3/98/2ce398b6e5a2999258f2327bbbb72a73.jpg",
+      image: "https://i.pinimg.com/1200x/2c/e3/98/2ce398b6e5a2999258f2327bbbb72a73.jpg",
       role: "Video Editor",
       description: "Producing engaging videos and motion graphics for brands.",
       instagram: "#",
       linkedin: "#",
     },
   ];
+
   const phone = "917034492490";
   const message = encodeURIComponent(
-    "Hi Brandax Studio, I'm interested in your services. Could you please provide more information?",
+    "Hi Brandax Studio, I'm interested in your services. Could you please provide more information?"
   );
+
   return (
-    <div className="w-auto sm:mt-0 mt-15 bg-[#EFEFF1] text-black flex flex-col">
-      <div className="flex sm:flex-row sm:gap-0 flex-col gap-10">
-        <div className="sm:w-200 w-full sm:h-screen h-auto flex flex-col items-start justify-end sm:pl-25 sm:py-10 p-6 gap-10">
-          <h1 className="sm:text-6xl text-4xl sm:leading-20 font-normal">
+    <div className="w-full mt-16 sm:mt-0 bg-[#EFEFF1] text-black flex flex-col overflow-x-hidden">
+      
+      {/* --- HERO SECTION --- */}
+      <div className="flex flex-col lg:flex-row items-center justify-between w-full min-h-screen px-6 py-12 lg:px-24 gap-12 lg:gap-0">
+        
+        {/* Left Content */}
+        <div className="w-full lg:w-1/2 flex flex-col items-start justify-center gap-8 z-10">
+          <h1 className="text-4xl lg:text-6xl lg:leading-[70px] font-normal">
             Your Brand Deserves Better{" "}
             <span className="font-bold text-[#397ABF]">Marketing</span>
           </h1>
-          <h6 className="sm:max-w-170 sm:text-[15px] text-[13px] text-justify">
+          <h6 className="max-w-xl text-sm lg:text-base text-justify text-gray-700">
             Your brand deserves better marketing, and Brandax delivers creative
             digital solutions that help businesses grow faster and stand
             stronger online. From branding and web development to digital
-            marketing strategies, we create impact full experiences that connect
+            marketing strategies, we create impactful experiences that connect
             your business with the right audience and drive real results.
           </h6>
-          <div className="flex sm:gap-10 gap-5 sm:text-4xl text-2xl">
-            <a href="https://www.instagram.com/brandax_studio/">
-              <FaInstagram />
-            </a>
-            <a
-              href={`https://wa.me/${phone}?text=${message}`}
-              target="_blank"
-              rel="noopener noreferrer"
-               aria-label="Chat on WhatsApp"
-            >
-              <RiWhatsappLine />
-            </a>
-            <a href="https://www.linkedin.com/company/brandax-branding-studio/">
-              <TbBrandLinkedin />
-            </a>
+          
+          <div className="flex gap-6 text-3xl lg:text-4xl">
+            <a href="https://www.instagram.com/brandax_studio/" className="hover:text-[#397ABF] transition-colors"><FaInstagram /></a>
+            <a href={`https://wa.me/${phone}?text=${message}`} target="_blank" rel="noopener noreferrer" aria-label="Chat on WhatsApp" className="hover:text-[#397ABF] transition-colors"><RiWhatsappLine /></a>
+            <a href="https://www.linkedin.com/company/brandax-branding-studio/" className="hover:text-[#397ABF] transition-colors"><TbBrandLinkedin /></a>
           </div>
-          <div className="flex sm:gap-10 gap-5 items-center">
-            <div className="sm:w-30 w-20 sm:h-10 h-6  border rounded-full flex justify-between items-center p-1">
-              <p className="sm:text-[15px] text-[10px]">Google</p>
-              <img
-                src="https://img.icons8.com/fluency/240/google-logo.png"
-                alt=""
-                className="sm:w-8 w-5"
-              />
+
+          <div className="flex flex-wrap gap-4 items-center">
+            <div className="w-24 lg:w-32 h-8 lg:h-10 bg-white border rounded-full flex justify-between items-center px-2 shadow-sm">
+              <p className="text-[10px] lg:text-sm font-medium">Google</p>
+              <img src="https://img.icons8.com/fluency/240/google-logo.png" alt="Google" className="w-5 lg:w-6" />
             </div>
-            <div className="sm:w-30 w-20 sm:h-10 h-6  border rounded-full flex justify-between items-center p-1">
-              <p className="sm:text-[15px] text-[10px]">Meta AI</p>
-              <img
-                src="https://img.icons8.com/ultraviolet/480/approval.png"
-                alt=""
-                className="sm:w-8 w-5"
-              />
+            <div className="w-24 lg:w-32 h-8 lg:h-10 bg-white border rounded-full flex justify-between items-center px-2 shadow-sm">
+              <p className="text-[10px] lg:text-sm font-medium">Meta AI</p>
+              <img src="https://img.icons8.com/ultraviolet/480/approval.png" alt="Meta" className="w-5 lg:w-6" />
             </div>
-            <div className="sm:w-30 w-20 sm:h-10 h-6 border rounded-full flex justify-between items-center p-1">
-              <p className="sm:text-[15px] text-[10px]">Premium</p>
-              <img
-                src="https://img.icons8.com/emoji/480/gem-stone.png"
-                alt=""
-                className="sm:w-8 w-5"
-              />
+            <div className="w-24 lg:w-32 h-8 lg:h-10 bg-white border rounded-full flex justify-between items-center px-2 shadow-sm">
+              <p className="text-[10px] lg:text-sm font-medium">Premium</p>
+              <img src="https://img.icons8.com/emoji/480/gem-stone.png" alt="Premium" className="w-5 lg:w-6" />
             </div>
           </div>
-          <p className="sm:text-[15px] text-[13px]">
+          <p className="text-sm lg:text-base font-medium text-gray-600">
             Next-level digital innovation from the origin
           </p>
         </div>
-        <div className="sm:w-200 w-full p-6 sm:p-0 sm:h-screen h-auto relative sm:flex  flex-col items-center justify-end gap-10 ">
-          <p className="absolute right-30 text-[15px] font-light sm:flex hidden">
-            Your Success Is Our Priority{" "}
+
+        {/* Right Content - Hero Image & Animation */}
+        <div className="w-full lg:w-1/2 flex items-center justify-center relative mt-10 lg:mt-0">
+          <p className="absolute top-0 right-10 text-sm font-light hidden lg:block text-gray-500">
+            Your Success Is Our Priority
           </p>
-          <div className="relative sm:w-[700px] sm:h-[700px] flex items-start flex-col justify-center">
+          
+          <div className="relative w-[300px] h-[300px] lg:w-[550px] lg:h-[550px] flex items-center justify-center">
             {/* OUTER CIRCLE */}
-            <div className="absolute sm:w-[550px] sm:h-[550px] w-[250px] h-[250px] sm:border border-black rounded-full animate-spinSlow">
-              {/* animate-spinSlow */}
-              {/* META */}
-              <div className="absolute top-[-35px] sm:left-1/2 left-2/3 -translate-x-1/2 animate-iconPulse sm:flex">
-                <img
-                  src="https://img.icons8.com/3d-fluency/1500/meta.png"
-                  alt=""
-                  className="sm:w-20 w-10 rotate-45 "
-                />
+            <div className="absolute w-full h-full border border-gray-300 rounded-full animate-spinSlow">
+              <div className="absolute top-[-20px] left-1/2 -translate-x-1/2 animate-iconPulse">
+                <img src="https://img.icons8.com/3d-fluency/1500/meta.png" alt="" className="w-10 lg:w-16 rotate-45" />
               </div>
-
-              {/* INSTAGRAM */}
-              <div className="absolute top-[120px] right-[-20px] animate-iconPulse sm:flex ">
-                <img
-                  src="https://img.icons8.com/3d-fluency/1500/instagram-logo.png"
-                  alt=""
-                  className="sm:w-15 w-10 "
-                />
+              <div className="absolute top-[20%] right-[-15px] animate-iconPulse">
+                <img src="https://img.icons8.com/3d-fluency/1500/instagram-logo.png" alt="" className="w-10 lg:w-16" />
               </div>
-              <div className="absolute top-13 left-10 z-20 animate-iconPulse sm:flex">
-                <img
-                  src="https://img.icons8.com/fluency/240/youtube-play.png"
-                  alt=""
-                  className="sm:w-15 w-5 rotate-10"
-                />
-              </div>
-
-              {/* FACEBOOK */}
-              <div className="absolute bottom-[10px] right-[100px] animate-iconPulse z-20 sm:flex">
-                <img
-                  src="https://img.icons8.com/3d-fluency/1500/facebook-logo.png"
-                  alt=""
-                  className="sm:w-16 w-6"
-                />
+              <div className="absolute bottom-[5%] right-[10%] animate-iconPulse z-20">
+                <img src="https://img.icons8.com/3d-fluency/1500/facebook-logo.png" alt="" className="w-8 lg:w-14" />
               </div>
             </div>
 
             {/* INNER CIRCLE */}
-            <div className="absolute sm:w-[480px] sm:h-[480px] w-[300px] h-[300px] sm:border border-black rounded-full animate-spinReverse">
-              {/* animate-spinReverse */}
-              <div className="absolute top-[180px] sm:-left-6 animate-iconPulse sm:flex">
-                <img
-                  src="https://img.icons8.com/3d-fluency/1500/whatsapp-logo.png"
-                  alt=""
-                  className="sm:w-16 w-12"
-                />
+            <div className="absolute w-[220px] h-[220px] lg:w-[400px] lg:h-[400px] border border-gray-300 rounded-full animate-spinReverse">
+              <div className="absolute top-[30%] -left-5 animate-iconPulse">
+                <img src="https://img.icons8.com/3d-fluency/1500/whatsapp-logo.png" alt="" className="w-10 lg:w-14" />
               </div>
-              <div className="absolute -bottom-6 right-50 animate-iconPulse sm:flex hidden">
-                <img
-                  src="https://img.icons8.com/fluency/240/linkedin.png"
-                  alt=""
-                  className="sm:w-12 w-8"
-                />
+              <div className="absolute -bottom-4 right-1/4 animate-iconPulse hidden lg:block">
+                <img src="https://img.icons8.com/fluency/240/linkedin.png" alt="" className="w-10" />
               </div>
             </div>
 
             {/* CENTER IMAGE */}
-            <img
-              src={boy_sitting_laptop}
-              alt=""
-              className="sm:w-[500px] sm:h-[420px] h-[250px] object-contain relative z-10"
-            />
+            <img src={boy_sitting_laptop} alt="Boy with laptop" className="w-[200px] lg:w-[380px] object-contain relative z-10" />
           </div>
         </div>
       </div>
-      <br />
-      {/* ........................................................next list..........................................*/}
 
-      <div className="w-full h-auto bg-gradient-to-b from-[#397ABF]/60 via-[#A6A6A6]/40 to-[#F0F0F3] relative z-10">
-        <div className="w-full h-auto flex sm:flex-row flex-col justify-evenly items-center sm:items-start">
-          {/* ......................................................first image set.................................................. */}
-          <div className="sm:w-130 sm:h-120 flex justify-end sm:flex-col flex-col-reverse items-center gap-5 relative py-3">
-            <p className="bg-white px-5 py-2 rounded-full shadow">Planning</p>
-            <div
-              className="bg-white rounded-2xl sm:w-70 w-70 sm:h-80 h-67 shadow z-10 p-1 overflow-hidden transition-all
-             duration-500 hover:scale-105 hover:shadow-2xl cursor-pointer"
-            >
-              <img
-                src="https://media.istockphoto.com/id/694600920/video/caucasian-woman-discussing-a-financial-graph-on-the-screen-in-meeting-room-with-her-african.jpg?s=640x640&k=20&c=mnphfALaNjEfgAxeNHAfKhJhDnklheRSrcfUkinxy6k="
-                alt=""
-                className="sm:w-70 w-70 rounded-2xl"
-              />
-              <div className="p-2 text-justify sm:text-[15px] text-[12px] font-bold">
-                <p>
-                  A businesswoman is presenting data on a large digital screen,
-                  pointing at a rising graph during a meeting. Another colleague
-                  stands behind her, observing the chart in a modern office
-                  environment.
-                </p>
-              </div>
-            </div>
-            <img
-              src={arrow_mark}
-              alt=""
-              className="absolute sm:h-45 -right-40 bottom-15 opacity-60 sm:flex hidden"
-            />
-          </div>
-          <div className="sm:w-70 h-90 w-70 flex items-center justify-center flex-col gap-5 relative">
-            <div
-              className="bg-white sm:h-60 h-65 rounded-[10px] p-1 z-10 shadow overflow-hidden transition-all
-             duration-500 hover:scale-105 hover:shadow-2xl cursor-pointer"
-            >
-              <img
-                src="https://media.istockphoto.com/id/1200289077/video/confident-indian-businesswoman-coach-speaking-during-corporate-team-meeting.jpg?s=640x640&k=20&c=cJ-QlicyMw4IoXkYFjOaRw8QHw9OsfR0LR8_2rVRl_g="
-                alt=""
-                className="w-70 rounded-[10px]"
-              />
-              <div className="p-2  text-justify sm:text-[12px] text-[12px]  font-bold">
-                A confident team member from our side is presenting ideas during
-                a professional meeting discussion. The team is actively
-                listening and collaborating in a modern office environment.
-              </div>
-            </div>
-            <p className="bg-white px-5 py-2 rounded-full shadow">Grouping</p>
-            <img
-              src={arrow_mark}
-              alt=""
-              className="absolute h-30 -right-38 bottom-0 rotate-70 opacity-60 sm:flex hidden"
-            />
-          </div>
-          <div className="sm:w-130 sm:h-150 w-70 h-90 flex sm:flex-col flex-col-reverse items-center sm:justify-end justify-center gap-5">
-            <p className="bg-white px-5 py-2 rounded-full shadow">Creating</p>
-            <div className="bg-white sm:w-100 w-70 p-1 box-border h-auto rounded-2xl shadow overflow-hidden transition-all duration-500 hover:scale-105 hover:shadow-2xl cursor-pointer">
-              <img
-                src="https://media.istockphoto.com/id/1210948126/photo/woman-working-as-business-development-showing-talking-about-information-graphs-in-computer.jpg?s=612x612&w=0&k=20&c=XZeZzlqNHoom90AhOzutvcc3IjPwqA5rmu5Ro_yl-lY="
-                alt=""
-                className="sm:w-100 w-70 rounded-2xl"
-              />
-              <div className="sm:p-4 p-2 sm:text-[18px] text-[12px]  font-bold text-justify">
-                Create and design innovative business strategies with smart
-                digital solutions and data-driven insights.Our team focuses on
-                creativity, planning, and modern technology to deliver
-                professional results.
+      {/* --- PROCESS SECTION --- */}
+      <div className="w-full bg-gradient-to-b from-[#397ABF]/60 via-[#A6A6A6]/40 to-[#F0F0F3] py-16">
+        <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-12 lg:gap-8 items-center justify-items-center">
+          
+          {/* Card 1: Planning */}
+          <div className="flex flex-col items-center gap-4 relative">
+            <p className="bg-white px-6 py-2 rounded-full shadow text-sm font-semibold">Planning</p>
+            <div className="bg-white rounded-2xl w-full max-w-[280px] shadow-lg p-2 overflow-hidden transition-all duration-500 hover:scale-105 hover:shadow-2xl cursor-pointer">
+              <img src="https://media.istockphoto.com/id/694600920/video/caucasian-woman-discussing-a-financial-graph-on-the-screen-in-meeting-room-with-her-african.jpg?s=640x640&k=20&c=mnphfALaNjEfgAxeNHAfKhJhDnklheRSrcfUkinxy6k=" alt="" className="w-full rounded-xl object-cover h-40" />
+              <div className="p-3 text-justify text-xs lg:text-sm text-gray-700">
+                <p>A businesswoman is presenting data on a large digital screen, pointing at a rising graph during a meeting.</p>
               </div>
             </div>
           </div>
+
+          {/* Card 2: Grouping */}
+          <div className="flex flex-col-reverse md:flex-col items-center gap-4 relative md:mt-16">
+            <div className="bg-white rounded-2xl w-full max-w-[280px] shadow-lg p-2 overflow-hidden transition-all duration-500 hover:scale-105 hover:shadow-2xl cursor-pointer">
+              <img src="https://media.istockphoto.com/id/1200289077/video/confident-indian-businesswoman-coach-speaking-during-corporate-team-meeting.jpg?s=640x640&k=20&c=cJ-QlicyMw4IoXkYFjOaRw8QHw9OsfR0LR8_2rVRl_g=" alt="" className="w-full rounded-xl object-cover h-40" />
+              <div className="p-3 text-justify text-xs lg:text-sm text-gray-700">
+                A confident team member from our side is presenting ideas during a professional meeting discussion.
+              </div>
+            </div>
+            <p className="bg-white px-6 py-2 rounded-full shadow text-sm font-semibold md:order-last">Grouping</p>
+          </div>
+
+          {/* Card 3: Creating */}
+          <div className="flex flex-col items-center gap-4 relative">
+            <p className="bg-white px-6 py-2 rounded-full shadow text-sm font-semibold">Creating</p>
+            <div className="bg-white rounded-2xl w-full max-w-[280px] shadow-lg p-2 overflow-hidden transition-all duration-500 hover:scale-105 hover:shadow-2xl cursor-pointer">
+              <img src="https://media.istockphoto.com/id/1210948126/photo/woman-working-as-business-development-showing-talking-about-information-graphs-in-computer.jpg?s=612x612&w=0&k=20&c=XZeZzlqNHoom90AhOzutvcc3IjPwqA5rmu5Ro_yl-lY=" alt="" className="w-full rounded-xl object-cover h-40" />
+              <div className="p-3 text-justify text-xs lg:text-sm text-gray-700">
+                Create and design innovative business strategies with smart digital solutions and data-driven insights.
+              </div>
+            </div>
+          </div>
+
         </div>
       </div>
-      <div className="w-full h-100 relative flex items-center justify-center flex-col gap-10">
-        <h1 className="font-bold sm:text-4xl text-3xl">Choose with us</h1>
-        <h6 className="sm:text-[15px] text-[11px] sm:max-w-150 text-center max-w-70">
+
+      {/* --- CHOOSE WITH US --- */}
+      <div className="w-full py-20 px-6 relative flex items-center justify-center flex-col gap-8 overflow-hidden">
+        <h1 className="font-bold text-3xl lg:text-4xl text-center">Choose with us</h1>
+        <h6 className="text-sm lg:text-base max-w-2xl text-center text-gray-700">
           Innovative solutions, creative designs, and professional service you
           can trust. We are committed to delivering quality, reliability, and
           success for every project.
         </h6>
-        <ul className="flex sm:gap-10 gap-5">
-          <li className="bg-white sm:px-10 px-3 flex items-center justify-center sm:py-3 py-2 text-2xl text-[13px] rounded-full border font-bold shadow-[#397ABF]  shadow-sm">
-            Contact
-          </li>
-          <li className="bg-white sm:px-10 px-3 flex items-center justify-center sm:py-3 py-2 text-2xl text-[13px] rounded-full border font-bold shadow-[#397ABF] shadow-sm">
-            Email
-          </li>
-          <li className="bg-white sm:px-10 px-3 flex items-center justify-center sm:py-3 py-2 text-2xl text-[13px] rounded-full border font-bold shadow-[#397ABF] shadow-sm">
-            Explore
-          </li>
+        <ul className="flex flex-wrap justify-center gap-4 lg:gap-10 z-10">
+          <li className="bg-white px-8 py-3 text-sm lg:text-lg rounded-full border font-bold shadow-sm cursor-pointer hover:bg-gray-50 transition">Contact</li>
+          <li className="bg-white px-8 py-3 text-sm lg:text-lg rounded-full border font-bold shadow-sm cursor-pointer hover:bg-gray-50 transition">Email</li>
+          <li className="bg-white px-8 py-3 text-sm lg:text-lg rounded-full border font-bold shadow-sm cursor-pointer hover:bg-gray-50 transition">Explore</li>
         </ul>
-        <img
-          src={blue_cercle}
-          alt=""
-          className="absolute rotate-110 animate-spinSlow w-200 sm:flex hidden"
-        />
+        <img src={blue_cercle} alt="" className="absolute -right-20 opacity-20 rotate-110 animate-spinSlow w-[400px] hidden lg:block z-0" />
       </div>
-      {/* ............................................................next phone template............................ */}
 
-      <div className="w-full h-auto p-5 sm:flex items-center justify-evenly">
-        <div className="sm:w-150 flex flex-col gap-10 text-center sm:text-left">
-          <li className="list-none font-bold sm:text-4xl text-2xl">
-            Our Value Proposition
-          </li>
-          <li className="list-none text-[15px] text-justify">
+      {/* --- VALUE PROPOSITION --- */}
+      <div className="w-full max-w-6xl mx-auto py-16 px-6 flex flex-col md:flex-row items-center justify-between gap-12">
+        <div className="flex flex-col gap-6 text-center md:text-left md:w-1/2">
+          <h2 className="font-bold text-3xl lg:text-4xl">Our Value Proposition</h2>
+          <p className="text-sm lg:text-base text-gray-700 text-justify">
             We are committed to delivering the highest quality service, built on
             trust, dedication, and results. When you choose to work with us, you
             gain a team that stands by your business every day focused on
             helping you grow, succeed, and lead in your industry.
-          </li>
-          <li className="list-none text-[12px] font-bold">
-            “A truly valuable experience working with the team their <br />
+          </p>
+          <p className="text-sm lg:text-base font-bold italic text-gray-800 border-l-4 border-[#397ABF] pl-4">
+            “A truly valuable experience working with the team their <br className="hidden lg:block"/>
             professionalism and quality delivery exceeded our expectations”
-          </li>
+          </p>
         </div>
-        <img
-          src={phone_web_page}
-          alt=""
-          className="w-80 sm:flex hidden h-150"
-        />
+        <div className="md:w-1/2 flex justify-center">
+          <img src={phone_web_page} alt="Mobile layout" className="w-64 lg:w-80 object-contain" />
+        </div>
       </div>
-      {/* ...............................................................final client section........................ */}
 
-      <div className="w-full min-h-auto flex  flex-col items-center justify-center gap-12 px-5 py-20">
-        {/* Heading */}
-        <div className="text-center">
-          <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold leading-tight">
-            Discover the perfect solution tailored
-            <br className="hidden sm:block" />
-            to your business needs.
+      {/* --- CLIENTS & TEAM TEXT --- */}
+      <div className="w-full flex flex-col items-center gap-16 px-6 py-20 bg-white">
+        <div className="text-center max-w-3xl">
+          <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold leading-tight">
+            Discover the perfect solution tailored to your business needs.
           </h1>
         </div>
 
-        {/* Logo Slider */}
-        <div className="w-full max-w-6xl bg-white shadow-lg rounded-full overflow-hidden py-4 sm:py-6">
-          <div className="flex items-center gap-8 sm:gap-12 md:gap-20 animate-scroll whitespace-nowrap">
-            {/* First Set */}
-            <img src={pic1} alt="" className="h-13 sm:h-14 md:h-18" />
-            <img src={pic2} alt="" className="h-13 sm:h-14 md:h-18" />
-            <img src={pic3} alt="" className="h-13 sm:h-14 md:h-18 bg-black" />
-            <img src={pic4} alt="" className="h-13 sm:h-14 md:h-18" />
-
-            {/* Duplicate Set */}
-            <img src={pic1} alt="" className="h-13 sm:h-14 md:h-18" />
-            <img src={pic2} alt="" className="h-13 sm:h-14 md:h-18" />
-            <img src={pic3} alt="" className="h-13 sm:h-14 md:h-18 bg-black" />
-            <img src={pic4} alt="" className="h-13 sm:h-14 md:h-18" />
+        <div className="w-full max-w-6xl bg-gray-50 shadow-inner rounded-full overflow-hidden py-6">
+          <div className="flex items-center gap-12 md:gap-20 animate-scroll whitespace-nowrap px-10">
+            <img src={pic1} alt="Client 1" className="h-10 md:h-14 object-contain" />
+            <img src={pic2} alt="Client 2" className="h-10 md:h-14 object-contain" />
+            <img src={pic3} alt="Client 3" className="h-10 md:h-14 object-contain bg-black rounded p-1" />
+            <img src={pic4} alt="Client 4" className="h-10 md:h-14 object-contain" />
+            <img src={pic1} alt="Client 1" className="h-10 md:h-14 object-contain" />
+            <img src={pic2} alt="Client 2" className="h-10 md:h-14 object-contain" />
           </div>
         </div>
 
-        {/* Team Section */}
-        <div className="w-full max-w-5xl text-center sm:text-left">
-          <h5 className="text-2xl sm:text-3xl font-bold mb-6">Our Team</h5>
-
-          <div className="space-y-5 text-gray-700 leading-8 text-base text-justify sm:text-lg">
+        <div className="w-full max-w-5xl text-center md:text-left mt-8">
+          <h5 className="text-2xl md:text-3xl font-bold mb-6">Our Team</h5>
+          <div className="space-y-6 text-gray-700 leading-relaxed text-sm md:text-base text-justify">
             <p>
               Teamwork and hard work are the foundation of success in digital
               marketing. In a fast-changing digital world, no single person can
@@ -354,7 +239,6 @@ function Home() {
               specialists, designers, developers, and analysts working together
               toward a common goal.
             </p>
-
             <p>
               Hard work is equally important in digital marketing. Success does
               not come overnight. It takes continuous effort, testing, and
@@ -367,38 +251,30 @@ function Home() {
           </div>
         </div>
       </div>
-      {/* ...............................................................final team section.......................... */}
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 h-auto py-20 px-5">
+      {/* --- TEAM GRID --- */}
+      <div className="max-w-7xl mx-auto w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 py-20 px-6">
         {teamMembers.map((member, index) => (
-          <div
-            key={index}
-            className="relative rounded-2xl overflow-hidden shadow-lg"
-          >
-            <img
-              src={member.image}
-              alt={member.role}
-              className="w-full h-[600px] object-cover"
+          <div key={index} className="relative rounded-2xl overflow-hidden shadow-lg group">
+            <img 
+              src={member.image} 
+              alt={member.role} 
+              className="w-full h-[400px] lg:h-[450px] object-cover group-hover:scale-105 transition-transform duration-500" 
             />
-
-            <div className="absolute bottom-0 left-0 w-full bg-white/60 backdrop-blur-sm p-4">
-              <p className="font-semibold">{member.role}</p>
-
-              <p className="text-xs mt-2 text-justify">{member.description}</p>
-
-              <div className="flex justify-between items-center mt-4">
+            <div className="absolute bottom-0 left-0 w-full bg-white/80 backdrop-blur-md p-5 border-t border-white/40">
+              <p className="font-bold text-lg text-gray-900">{member.role}</p>
+              <p className="text-xs mt-2 text-gray-700 leading-relaxed">{member.description}</p>
+              <div className="flex justify-between items-center mt-4 border-t pt-3 border-gray-300">
                 <div className="flex gap-1">
                   {[...Array(5)].map((_, i) => (
-                    <TiStarFullOutline key={i} className="text-[#FDD835]" />
+                    <TiStarFullOutline key={i} className="text-[#FDD835] text-sm" />
                   ))}
                 </div>
-
-                <div className="flex gap-3 text-xl">
-                  <a href={member.instagram} target="_blank" rel="noreferrer">
+                <div className="flex gap-4 text-lg text-[#397ABF]">
+                  <a href={member.instagram} target="_blank" rel="noreferrer" className="hover:text-black transition-colors">
                     <FaInstagram />
                   </a>
-
-                  <a href={member.linkedin} target="_blank" rel="noreferrer">
+                  <a href={member.linkedin} target="_blank" rel="noreferrer" className="hover:text-black transition-colors">
                     <TbBrandLinkedin />
                   </a>
                 </div>
@@ -407,6 +283,7 @@ function Home() {
           </div>
         ))}
       </div>
+
       <Schedule />
       <Footer />
     </div>
