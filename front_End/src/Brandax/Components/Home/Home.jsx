@@ -4,7 +4,6 @@ import { FaInstagram } from "react-icons/fa6";
 import { RiWhatsappLine } from "react-icons/ri";
 import { TbBrandLinkedin } from "react-icons/tb";
 import boy_sitting_laptop from "../../Photo/men_sitting_with_laptop.png";
-import arrow_mark from "../../Photo/arrow_mark.png";
 import blue_cercle from "../../Photo/blue_cercle.png";
 import phone_web_page from "../../Photo/Phone_web_page.png";
 import pic1 from "../../clients/Png (2).png";
@@ -60,9 +59,9 @@ function Home() {
         
         {/* Left Content */}
         <div className="w-full lg:w-1/2 flex flex-col items-center lg:items-start justify-center gap-6 md:gap-8 z-10">
-          <h1 className="text-4xl md:text-5xl lg:text-6xl lg:leading-[70px] font-normal">
+          <h1 className="text-3xl text-left md:text-5xl lg:text-5xl lg:leading-[70px] font-normal">
             Your Brand Deserves Better{" "}
-            <span className="font-bold text-[#397ABF] block sm:inline">Marketing</span>
+            <span className="font-bold text-[#397ABF] sm:inline">Marketing</span>
           </h1>
           <h6 className="max-w-xl text-sm md:text-base text-gray-700 leading-relaxed text-justify md:text-center lg:text-justify">
             Your brand deserves better marketing, and Brandax delivers creative
