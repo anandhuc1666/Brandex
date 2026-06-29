@@ -176,7 +176,7 @@ function Home() {
       </div>
 
       {/* --- CHOOSE WITH US --- */}
-      <div className="w-full sm:h-200  py-16 md:py-24 px-6 relative flex items-center justify-center flex-col gap-8 overflow-hidden">
+      <div className="w-full py-16 md:py-24 px-6 relative flex items-center justify-center flex-col gap-8 overflow-hidden">
         
         {/* Background Image - Centered absolutely */}
         <img 
