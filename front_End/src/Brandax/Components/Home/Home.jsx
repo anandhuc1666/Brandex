@@ -273,7 +273,7 @@ function Home() {
               alt={member.role} 
               className="w-full h-[450px] md:h-[400px] lg:h-[450px] object-cover group-hover:scale-105 transition-transform duration-500" 
             />
-            <div className="absolute bottom-0 left-0 w-full bg-white/70 backdrop-blur-md p-1 border-t border-white/40">
+            <div className="absolute bottom-0 left-0 w-full bg-white/70 backdrop-blur-md p-2 border-t border-white/40">
               <p className="font-bold text-lg text-gray-900">{member.role}</p>
               <p className="text-xs md:text-sm mt-2 text-gray-700 leading-relaxed">{member.description}</p>
               <div className="flex justify-between items-center mt-4 border-t pt-3 border-gray-300">
