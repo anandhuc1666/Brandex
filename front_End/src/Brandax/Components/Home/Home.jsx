@@ -17,7 +17,7 @@ import Footer from "../../Footers/Footer";
 function Home() {
   const teamMembers = [
     {
-      image: "https://i.pinimg.com/1200x/0e/db/f3/0edbf38c0d27da9b9dd4cf8a95c850b7.jpg",
+      image: "https://res.cloudinary.com/dkxluyjyz/image/upload/v1783524006/1000272400_rdcvhk.png",
       role: "Software Developer",
       description: "Building modern, scalable and user-friendly software solutions with custom development.",
       instagram: "https://www.instagram.com/a_nandhu_c/",
@@ -38,10 +38,10 @@ function Home() {
       linkedin: "#",
     },
     {
-      image: "https://i.pinimg.com/1200x/2c/e3/98/2ce398b6e5a2999258f2327bbbb72a73.jpg",
+      image: "https://res.cloudinary.com/dkxluyjyz/image/upload/v1783524711/file_00000000a4c472089ffd33816c43f383_a5gpnq.png",
       role: "Video Editor",
       description: "Producing engaging videos and motion graphics for brands.",
-      instagram: "#",
+      instagram: "",
       linkedin: "#",
     },
   ];
@@ -271,9 +271,9 @@ function Home() {
             <img 
               src={member.image} 
               alt={member.role} 
-              className="w-full h-[350px] md:h-[400px] lg:h-[450px] object-cover group-hover:scale-105 transition-transform duration-500" 
+              className="w-full h-[450px] md:h-[400px] lg:h-[450px] object-cover group-hover:scale-105 transition-transform duration-500" 
             />
-            <div className="absolute bottom-0 left-0 w-full bg-white/80 backdrop-blur-md p-5 border-t border-white/40">
+            <div className="absolute bottom-0 left-0 w-full bg-white/70 backdrop-blur-md p-1 border-t border-white/40">
               <p className="font-bold text-lg text-gray-900">{member.role}</p>
               <p className="text-xs md:text-sm mt-2 text-gray-700 leading-relaxed">{member.description}</p>
               <div className="flex justify-between items-center mt-4 border-t pt-3 border-gray-300">
