@@ -31,10 +31,10 @@ function Home() {
       linkedin: "https://www.linkedin.com/in/dhilubal-p-b072b9303/",
     },
     {
-      image: "https://i.pinimg.com/736x/0d/a5/e7/0da5e7b3a24ea9ef05db4eaa253e9cf3.jpg",
+      image: "https://res.cloudinary.com/dkxluyjyz/image/upload/v1784117337/WhatsApp_Image_2026-07-15_at_17.33.16_grkfpt.jpg",
       role: "UI/UX Designer",
       description: "Creating beautiful and user-friendly interfaces for digital products.",
-      instagram: "#",
+      instagram: "https://www.instagram.com/ijlan.swalih/",
       linkedin: "#",
     },
     {
@@ -42,7 +42,7 @@ function Home() {
       role: "Video Editor",
       description: "Producing engaging videos and motion graphics for brands.",
       instagram: "https://www.instagram.com/_alan__k____/",
-      linkedin: "#",
+      linkedin: "http://linkedin.com/in/alan-k-17a3442b2/",
     },
   ];
 
