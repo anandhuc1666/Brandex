@@ -17,18 +17,18 @@ import Footer from "../../Footers/Footer";
 function Home() {
   const teamMembers = [
     {
-      image: "https://res.cloudinary.com/dkxluyjyz/image/upload/v1783524006/1000272400_rdcvhk.png",
+      image: "https://res.cloudinary.com/dkxluyjyz/image/upload/v1784084528/WhatsApp_Image_2026-07-15_at_08.29.19_vykaaq.jpg ",
       role: "Software Developer",
       description: "Building modern, scalable and user-friendly software solutions with custom development.",
       instagram: "https://www.instagram.com/a_nandhu_c/",
       linkedin: "https://www.linkedin.com/in/anandhu-chulliveetill/",
     },
     {
-      image: "https://i.pinimg.com/736x/8c/5e/9d/8c5e9dd58ecd175df019b09f6bac72b6.jpg",
+      image: "https://res.cloudinary.com/dkxluyjyz/image/upload/v1784084508/WhatsApp_Image_2025-06-24_at_3.27.58_PM_j3iwd3.jpg",
       role: "Digital Marketing Specialist",
       description: "Managing SEO, social media marketing, and advertising campaigns.",
-      instagram: "#",
-      linkedin: "#",
+      instagram: "https://www.instagram.com/dhilubal/",
+      linkedin: "https://www.linkedin.com/in/dhilubal-p-b072b9303/",
     },
     {
       image: "https://i.pinimg.com/736x/0d/a5/e7/0da5e7b3a24ea9ef05db4eaa253e9cf3.jpg",
@@ -38,10 +38,10 @@ function Home() {
       linkedin: "#",
     },
     {
-      image: "https://res.cloudinary.com/dkxluyjyz/image/upload/v1783524711/file_00000000a4c472089ffd33816c43f383_a5gpnq.png",
+      image: "https://res.cloudinary.com/dkxluyjyz/image/upload/v1784084539/WhatsApp_Image_2026-07-15_at_08.25.08_oasb8u.jpg",
       role: "Video Editor",
       description: "Producing engaging videos and motion graphics for brands.",
-      instagram: "",
+      instagram: "https://www.instagram.com/_alan__k____/",
       linkedin: "#",
     },
   ];
